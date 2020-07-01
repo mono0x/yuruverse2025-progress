@@ -1,203 +1,5 @@
 [
   {
-    "id": "00003782",
-    "kind": "LOCAL",
-    "entry_number": 245,
-    "name": "底地くん",
-    "country": "東京都",
-    "biko": "株式会社サンセイランディック",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003782.jpg",
-    "rank": 33,
-    "point": 27
-  },
-  {
-    "id": "00004037",
-    "kind": "LOCAL",
-    "entry_number": 18,
-    "name": "うけどん",
-    "country": "福島県",
-    "biko": "浪江町",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004037.jpg",
-    "rank": 28,
-    "point": 19
-  },
-  {
-    "id": "00004236",
-    "kind": "LOCAL",
-    "entry_number": 558,
-    "name": "べるーにゃ",
-    "country": "埼玉県",
-    "biko": "株式会社ベルーナ",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004236.jpg",
-    "rank": 37,
-    "point": 24
-  },
-  {
-    "id": "00004162",
-    "kind": "LOCAL",
-    "entry_number": 57,
-    "name": "けやっきー",
-    "country": "茨城県",
-    "biko": "守谷市立けやき台中学校",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004162.jpg",
-    "rank": 138,
-    "point": 2
-  },
-  {
-    "id": "00004192",
-    "kind": "LOCAL",
-    "entry_number": 379,
-    "name": "メグたん",
-    "country": "東京都",
-    "biko": "ＮＴＴレゾナント株式会社",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004192.jpg",
-    "rank": 65,
-    "point": 11
-  },
-  {
-    "id": "00000197",
-    "kind": "LOCAL",
-    "entry_number": 130,
-    "name": "伊奈ローズちゃん・伊奈ローズくん",
-    "country": "埼玉県",
-    "biko": "（一社）伊奈町観光協会",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00000197.jpg",
-    "rank": 138,
-    "point": 2
-  },
-  {
-    "id": "00001073",
-    "kind": "LOCAL",
-    "entry_number": 4,
-    "name": "はむりん",
-    "country": "東京都",
-    "biko": "東京都羽村市",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00001073.jpg",
-    "rank": 21,
-    "point": 36
-  },
-  {
-    "id": "00004160",
-    "kind": "LOCAL",
-    "entry_number": 50,
-    "name": "バディ",
-    "country": "海外",
-    "biko": "iCan Entertainment TW ltd.",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004160.jpg",
-    "rank": 194,
-    "point": 0
-  },
-  {
-    "id": "00003727",
-    "kind": "LOCAL",
-    "entry_number": 444,
-    "name": "てるまる",
-    "country": "東京都",
-    "biko": "東急パワーサプライ（東急でんき＆ガス）",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003727.jpg",
-    "rank": 134,
-    "point": 2
-  },
-  {
-    "id": "00004229",
-    "kind": "LOCAL",
-    "entry_number": 540,
-    "name": "オランダちゃん",
-    "country": "山形県",
-    "biko": "酒田米菓㈱",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004229.jpg",
-    "rank": 134,
-    "point": 2
-  },
-  {
-    "id": "00004164",
-    "kind": "LOCAL",
-    "entry_number": 66,
-    "name": "パコちゃん",
-    "country": "愛知県",
-    "biko": "株式会社テニスラウンジ",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004164.jpg",
-    "rank": 68,
-    "point": 10
-  },
-  {
-    "id": "00004194",
-    "kind": "LOCAL",
-    "entry_number": 386,
-    "name": "ゆるナキン",
-    "country": "大阪府",
-    "biko": "泉佐野市",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004194.jpg",
-    "rank": 1,
-    "point": 412
-  },
-  {
-    "id": "00003841",
-    "kind": "LOCAL",
-    "entry_number": 286,
-    "name": "エルちゃん",
-    "country": "京都府",
-    "biko": "株式会社　エルハウジング",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003841.jpg",
-    "rank": 42,
-    "point": 20
-  },
-  {
-    "id": "00000292",
-    "kind": "LOCAL",
-    "entry_number": 153,
-    "name": "こめつぐ君",
-    "country": "新潟県",
-    "biko": "南魚沼市",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00000292.jpg",
-    "rank": 229,
-    "point": 0
-  },
-  {
-    "id": "00003770",
-    "kind": "LOCAL",
-    "entry_number": 96,
-    "name": "くらわんこ　ひらにゃんこ",
-    "country": "大阪府",
-    "biko": "特定非営利活動法人　枚方文化観光協会",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003770.jpg",
-    "rank": 67,
-    "point": 7
-  },
-  {
-    "id": "00004191",
-    "kind": "LOCAL",
-    "entry_number": 371,
-    "name": "ノブルン",
-    "country": "茨城県",
-    "biko": "株式会社ノーブルホーム",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004191.jpg",
-    "rank": 120,
-    "point": 3
-  },
-  {
-    "id": "00004073",
-    "kind": "LOCAL",
-    "entry_number": 82,
-    "name": "キャベッツさん",
-    "country": "東京都",
-    "biko": "西東京商工会青年部",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004073.jpg",
-    "rank": 20,
-    "point": 37
-  },
-  {
-    "id": "00001274",
-    "kind": "LOCAL",
-    "entry_number": 419,
-    "name": "おがじろう",
-    "country": "東京都",
-    "biko": "小笠原村観光局",
-    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00001274.jpg",
-    "rank": 67,
-    "point": 7
-  },
-  {
     "id": "00000491",
     "kind": "LOCAL",
     "entry_number": 1,
@@ -229,6 +31,17 @@
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003622.jpg",
     "rank": 81,
     "point": 8
+  },
+  {
+    "id": "00001073",
+    "kind": "LOCAL",
+    "entry_number": 4,
+    "name": "はむりん",
+    "country": "東京都",
+    "biko": "東京都羽村市",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00001073.jpg",
+    "rank": 21,
+    "point": 36
   },
   {
     "id": "00003716",
@@ -372,6 +185,17 @@
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003670.jpg",
     "rank": 33,
     "point": 14
+  },
+  {
+    "id": "00004037",
+    "kind": "LOCAL",
+    "entry_number": 18,
+    "name": "うけどん",
+    "country": "福島県",
+    "biko": "浪江町",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004037.jpg",
+    "rank": 28,
+    "point": 19
   },
   {
     "id": "00003887",
@@ -715,6 +539,17 @@
     "point": 11
   },
   {
+    "id": "00004160",
+    "kind": "LOCAL",
+    "entry_number": 50,
+    "name": "バディ",
+    "country": "海外",
+    "biko": "iCan Entertainment TW ltd.",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004160.jpg",
+    "rank": 194,
+    "point": 0
+  },
+  {
     "id": "00002128",
     "kind": "LOCAL",
     "entry_number": 51,
@@ -768,6 +603,17 @@
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003662.jpg",
     "rank": 156,
     "point": 1
+  },
+  {
+    "id": "00004162",
+    "kind": "LOCAL",
+    "entry_number": 57,
+    "name": "けやっきー",
+    "country": "茨城県",
+    "biko": "守谷市立けやき台中学校",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004162.jpg",
+    "rank": 138,
+    "point": 2
   },
   {
     "id": "00001892",
@@ -856,6 +702,17 @@
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004163.jpg",
     "rank": 106,
     "point": 4
+  },
+  {
+    "id": "00004164",
+    "kind": "LOCAL",
+    "entry_number": 66,
+    "name": "パコちゃん",
+    "country": "愛知県",
+    "biko": "株式会社テニスラウンジ",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004164.jpg",
+    "rank": 68,
+    "point": 10
   },
   {
     "id": "00004033",
@@ -1023,6 +880,17 @@
     "point": 2
   },
   {
+    "id": "00004073",
+    "kind": "LOCAL",
+    "entry_number": 82,
+    "name": "キャベッツさん",
+    "country": "東京都",
+    "biko": "西東京商工会青年部",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004073.jpg",
+    "rank": 20,
+    "point": 37
+  },
+  {
     "id": "00000470",
     "kind": "LOCAL",
     "entry_number": 83,
@@ -1164,6 +1032,17 @@
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00001953.jpg",
     "rank": 64,
     "point": 8
+  },
+  {
+    "id": "00003770",
+    "kind": "LOCAL",
+    "entry_number": 96,
+    "name": "くらわんこ　ひらにゃんこ",
+    "country": "大阪府",
+    "biko": "特定非営利活動法人　枚方文化観光協会",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003770.jpg",
+    "rank": 67,
+    "point": 7
   },
   {
     "id": "00001222",
@@ -1529,6 +1408,17 @@
     "point": 0
   },
   {
+    "id": "00000197",
+    "kind": "LOCAL",
+    "entry_number": 130,
+    "name": "伊奈ローズちゃん・伊奈ローズくん",
+    "country": "埼玉県",
+    "biko": "（一社）伊奈町観光協会",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00000197.jpg",
+    "rank": 138,
+    "point": 2
+  },
+  {
     "id": "00003087",
     "kind": "LOCAL",
     "entry_number": 131,
@@ -1768,6 +1658,17 @@
     "biko": "Music\u0026Fashion",
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003759.jpg",
     "rank": 194,
+    "point": 0
+  },
+  {
+    "id": "00000292",
+    "kind": "LOCAL",
+    "entry_number": 153,
+    "name": "こめつぐ君",
+    "country": "新潟県",
+    "biko": "南魚沼市",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00000292.jpg",
+    "rank": 229,
     "point": 0
   },
   {
@@ -2772,6 +2673,17 @@
     "point": 2
   },
   {
+    "id": "00003782",
+    "kind": "LOCAL",
+    "entry_number": 245,
+    "name": "底地くん",
+    "country": "東京都",
+    "biko": "株式会社サンセイランディック",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003782.jpg",
+    "rank": 33,
+    "point": 27
+  },
+  {
     "id": "00000795",
     "kind": "LOCAL",
     "entry_number": 246,
@@ -3188,6 +3100,17 @@
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00002509.jpg",
     "rank": 115,
     "point": 3
+  },
+  {
+    "id": "00003841",
+    "kind": "LOCAL",
+    "entry_number": 286,
+    "name": "エルちゃん",
+    "country": "京都府",
+    "biko": "株式会社　エルハウジング",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003841.jpg",
+    "rank": 42,
+    "point": 20
   },
   {
     "id": "00002073",
@@ -4081,6 +4004,17 @@
     "point": 5
   },
   {
+    "id": "00004191",
+    "kind": "LOCAL",
+    "entry_number": 371,
+    "name": "ノブルン",
+    "country": "茨城県",
+    "biko": "株式会社ノーブルホーム",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004191.jpg",
+    "rank": 120,
+    "point": 3
+  },
+  {
     "id": "00003101",
     "kind": "LOCAL",
     "entry_number": 372,
@@ -4158,6 +4092,17 @@
     "point": 0
   },
   {
+    "id": "00004192",
+    "kind": "LOCAL",
+    "entry_number": 379,
+    "name": "メグたん",
+    "country": "東京都",
+    "biko": "ＮＴＴレゾナント株式会社",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004192.jpg",
+    "rank": 65,
+    "point": 11
+  },
+  {
     "id": "00002728",
     "kind": "LOCAL",
     "entry_number": 380,
@@ -4222,6 +4167,17 @@
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004193.jpg",
     "rank": 52,
     "point": 15
+  },
+  {
+    "id": "00004194",
+    "kind": "LOCAL",
+    "entry_number": 386,
+    "name": "ゆるナキン",
+    "country": "大阪府",
+    "biko": "泉佐野市",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004194.jpg",
+    "rank": 1,
+    "point": 412
   },
   {
     "id": "00000060",
@@ -4576,6 +4532,17 @@
     "point": 5
   },
   {
+    "id": "00001274",
+    "kind": "LOCAL",
+    "entry_number": 419,
+    "name": "おがじろう",
+    "country": "東京都",
+    "biko": "小笠原村観光局",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00001274.jpg",
+    "rank": 67,
+    "point": 7
+  },
+  {
     "id": "00001985",
     "kind": "LOCAL",
     "entry_number": 420,
@@ -4838,6 +4805,17 @@
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00000327.jpg",
     "rank": 115,
     "point": 3
+  },
+  {
+    "id": "00003727",
+    "kind": "LOCAL",
+    "entry_number": 444,
+    "name": "てるまる",
+    "country": "東京都",
+    "biko": "東急パワーサプライ（東急でんき＆ガス）",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003727.jpg",
+    "rank": 134,
+    "point": 2
   },
   {
     "id": "00003695",
@@ -5874,6 +5852,17 @@
     "point": 1
   },
   {
+    "id": "00004229",
+    "kind": "LOCAL",
+    "entry_number": 540,
+    "name": "オランダちゃん",
+    "country": "山形県",
+    "biko": "酒田米菓㈱",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004229.jpg",
+    "rank": 134,
+    "point": 2
+  },
+  {
     "id": "00004230",
     "kind": "LOCAL",
     "entry_number": 541,
@@ -6059,6 +6048,17 @@
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00001078.jpg",
     "rank": 173,
     "point": 1
+  },
+  {
+    "id": "00004236",
+    "kind": "LOCAL",
+    "entry_number": 558,
+    "name": "べるーにゃ",
+    "country": "埼玉県",
+    "biko": "株式会社ベルーナ",
+    "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004236.jpg",
+    "rank": 37,
+    "point": 24
   },
   {
     "id": "00004119",

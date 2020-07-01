@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"regexp"
+	"sort"
 	"strconv"
 	"time"
 
@@ -163,6 +164,10 @@ func run() error {
 
 		time.Sleep(500 * time.Millisecond)
 	}
+
+	sort.Slice(items, func(i, j int) bool {
+		return items[i].EntryNumber < items[j].EntryNumber
+	})
 
 	result, err := json.MarshalIndent(&items, "", "  ")
 	if err != nil {
