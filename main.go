@@ -75,7 +75,7 @@ func run() error {
 			id := url.Query().Get("id")
 
 			var kind CharacterKind
-			if s.Find(".charakind .kind").HasClass("company") {
+			if s.Find(".charakind .kind").HasClass("campany") { // campany is NOT a typo
 				kind = Company
 			} else {
 				kind = Local
