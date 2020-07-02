@@ -23,7 +23,7 @@
   },
   {
     "id": "00003622",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 3,
     "name": "ニイツン",
     "country": "東京都",
@@ -45,7 +45,7 @@
   },
   {
     "id": "00003716",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 5,
     "name": "ぎんがくん・きらりちゃん",
     "country": "岩手県",
@@ -67,7 +67,7 @@
   },
   {
     "id": "00004010",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 7,
     "name": "三太",
     "country": "富山県",
@@ -78,7 +78,7 @@
   },
   {
     "id": "00003217",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 8,
     "name": "シープリン",
     "country": "東京都",
@@ -133,7 +133,7 @@
   },
   {
     "id": "00003744",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 13,
     "name": "ＶＭＡＴ　ふじゅクン",
     "country": "大阪府",
@@ -144,7 +144,7 @@
   },
   {
     "id": "00003945",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 14,
     "name": "いっぷく先生",
     "country": "北海道",
@@ -155,7 +155,7 @@
   },
   {
     "id": "00004045",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 15,
     "name": "ミリーヌ",
     "country": "熊本県",
@@ -210,7 +210,7 @@
   },
   {
     "id": "00004116",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 20,
     "name": "ぎゅーとらココロっけ",
     "country": "三重県",
@@ -232,7 +232,7 @@
   },
   {
     "id": "00003188",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 22,
     "name": "たっぴくん・たっぴちゃん",
     "country": "東京都",
@@ -254,7 +254,7 @@
   },
   {
     "id": "00004079",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 24,
     "name": "モッくんファミリー",
     "country": "東京都",
@@ -265,7 +265,7 @@
   },
   {
     "id": "00003860",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 25,
     "name": "うな次郎くん",
     "country": "新潟県",
@@ -276,7 +276,7 @@
   },
   {
     "id": "00002370",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 26,
     "name": "すぱっくん",
     "country": "広島県",
@@ -298,7 +298,7 @@
   },
   {
     "id": "00003849",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 28,
     "name": "ドカユキン",
     "country": "富山県",
@@ -320,7 +320,7 @@
   },
   {
     "id": "00001887",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 30,
     "name": "こみょたん",
     "country": "岡山県",
@@ -331,7 +331,7 @@
   },
   {
     "id": "00003375",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 31,
     "name": "くろこ",
     "country": "埼玉県",
@@ -353,7 +353,7 @@
   },
   {
     "id": "00004036",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 33,
     "name": "うさっぴぃ",
     "country": "愛知県",
@@ -375,7 +375,7 @@
   },
   {
     "id": "00003296",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 35,
     "name": "ターニー",
     "country": "東京都",
@@ -386,7 +386,7 @@
   },
   {
     "id": "00002066",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 36,
     "name": "Q太くん",
     "country": "愛知県",
@@ -419,7 +419,7 @@
   },
   {
     "id": "00001429",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 39,
     "name": "もりねずみの『しげるくん』",
     "country": "東京都",
@@ -452,9 +452,9 @@
   },
   {
     "id": "00004001",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 42,
-    "name": "カロニャーゴ\u0026ワルニャーゴ",
+    "name": "カロニャーゴ&ワルニャーゴ",
     "country": "愛知県",
     "biko": "トヨタカローラ名古屋株式会社",
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004001.jpg",
@@ -474,7 +474,7 @@
   },
   {
     "id": "00003223",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 44,
     "name": "キャピクル",
     "country": "東京都",
@@ -485,7 +485,7 @@
   },
   {
     "id": "00004121",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 45,
     "name": "AGCちゃん",
     "country": "東京都",
@@ -496,7 +496,7 @@
   },
   {
     "id": "00003998",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 46,
     "name": "グラ",
     "country": "海外",
@@ -518,7 +518,7 @@
   },
   {
     "id": "00003530",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 48,
     "name": "ゴリすけ",
     "country": "三重県",
@@ -540,7 +540,7 @@
   },
   {
     "id": "00004160",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 50,
     "name": "バディ",
     "country": "海外",
@@ -562,7 +562,7 @@
   },
   {
     "id": "00003937",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 53,
     "name": "ラビット・ユキネ",
     "country": "北海道",
@@ -584,7 +584,7 @@
   },
   {
     "id": "00004161",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 55,
     "name": "すこぶる動くウサギ",
     "country": "熊本県",
@@ -595,7 +595,7 @@
   },
   {
     "id": "00003662",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 56,
     "name": "のらねこくん",
     "country": "埼玉県",
@@ -628,7 +628,7 @@
   },
   {
     "id": "00003239",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 59,
     "name": "ゆたま王子",
     "country": "愛媛県",
@@ -639,7 +639,7 @@
   },
   {
     "id": "00004085",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 60,
     "name": "みちもり君",
     "country": "大阪府",
@@ -661,7 +661,7 @@
   },
   {
     "id": "00004020",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 62,
     "name": "らっくー",
     "country": "福島県",
@@ -694,7 +694,7 @@
   },
   {
     "id": "00004163",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 65,
     "name": "はんくろう",
     "country": "静岡県",
@@ -705,7 +705,7 @@
   },
   {
     "id": "00004164",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 66,
     "name": "パコちゃん",
     "country": "愛知県",
@@ -716,7 +716,7 @@
   },
   {
     "id": "00004033",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 67,
     "name": "よりぞう",
     "country": "東京都",
@@ -738,7 +738,7 @@
   },
   {
     "id": "00003824",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 69,
     "name": "しほたん",
     "country": "東京都",
@@ -771,7 +771,7 @@
   },
   {
     "id": "00004111",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 72,
     "name": "クンくん",
     "country": "神奈川県",
@@ -804,7 +804,7 @@
   },
   {
     "id": "00003594",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 75,
     "name": "ソワレちゃん",
     "country": "東京都",
@@ -815,11 +815,11 @@
   },
   {
     "id": "00004165",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 76,
     "name": "はらちゃん",
     "country": "兵庫県",
-    "biko": "nail\u0026eyelash salon HaRaDa",
+    "biko": "nail&eyelash salon HaRaDa",
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00004165.jpg",
     "rank": 85,
     "point": 7
@@ -837,7 +837,7 @@
   },
   {
     "id": "00004166",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 78,
     "name": "ブルブルくん",
     "country": "京都府",
@@ -848,7 +848,7 @@
   },
   {
     "id": "00003129",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 79,
     "name": "わ～ふちゃん",
     "country": "兵庫県",
@@ -859,7 +859,7 @@
   },
   {
     "id": "00004151",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 80,
     "name": "くまっきー ",
     "country": "長野県",
@@ -870,7 +870,7 @@
   },
   {
     "id": "00003986",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 81,
     "name": "びんちゃん",
     "country": "千葉県",
@@ -914,7 +914,7 @@
   },
   {
     "id": "00004006",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 85,
     "name": "とらポン",
     "country": "静岡県",
@@ -925,7 +925,7 @@
   },
   {
     "id": "00003503",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 86,
     "name": "駅長がちゃこん",
     "country": "滋賀県",
@@ -936,7 +936,7 @@
   },
   {
     "id": "00003431",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 87,
     "name": "イデっくん",
     "country": "福岡県",
@@ -958,7 +958,7 @@
   },
   {
     "id": "00003933",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 89,
     "name": "お風呂シカ フロロ",
     "country": "奈良県",
@@ -969,7 +969,7 @@
   },
   {
     "id": "00004024",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 90,
     "name": "Eちゃん",
     "country": "埼玉県",
@@ -1002,7 +1002,7 @@
   },
   {
     "id": "00000909",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 93,
     "name": "いっちー",
     "country": "岡山県",
@@ -1013,7 +1013,7 @@
   },
   {
     "id": "00002395",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 94,
     "name": "せりちゃん",
     "country": "大阪府",
@@ -1057,7 +1057,7 @@
   },
   {
     "id": "00002573",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 98,
     "name": "コクオー＆ジョーオーシルク",
     "country": "大阪府",
@@ -1068,7 +1068,7 @@
   },
   {
     "id": "00000188",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 99,
     "name": "うめサブロー",
     "country": "埼玉県",
@@ -1079,7 +1079,7 @@
   },
   {
     "id": "00003911",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 100,
     "name": "みなみーな",
     "country": "京都府",
@@ -1101,7 +1101,7 @@
   },
   {
     "id": "00003788",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 102,
     "name": "キューちゃん",
     "country": "北海道",
@@ -1123,7 +1123,7 @@
   },
   {
     "id": "00003185",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 104,
     "name": "つらいにゃん",
     "country": "愛媛県",
@@ -1134,7 +1134,7 @@
   },
   {
     "id": "00004120",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 105,
     "name": "わっしーくん",
     "country": "北海道",
@@ -1145,7 +1145,7 @@
   },
   {
     "id": "00003834",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 106,
     "name": "やまやん",
     "country": "熊本県",
@@ -1178,7 +1178,7 @@
   },
   {
     "id": "00002143",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 109,
     "name": "あおいろソーラ",
     "country": "岡山県",
@@ -1189,7 +1189,7 @@
   },
   {
     "id": "00001179",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 110,
     "name": "しょもたん",
     "country": "神奈川県",
@@ -1200,7 +1200,7 @@
   },
   {
     "id": "00002968",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 111,
     "name": "カマトリちゃん",
     "country": "千葉県",
@@ -1211,7 +1211,7 @@
   },
   {
     "id": "00002669",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 112,
     "name": "ひのきちゃん",
     "country": "千葉県",
@@ -1255,7 +1255,7 @@
   },
   {
     "id": "00000773",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 116,
     "name": "さんきゅうさん",
     "country": "神奈川県",
@@ -1288,7 +1288,7 @@
   },
   {
     "id": "00003783",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 119,
     "name": "きたしんくん",
     "country": "大阪府",
@@ -1365,7 +1365,7 @@
   },
   {
     "id": "00001013",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 126,
     "name": "かにぼん",
     "country": "大阪府",
@@ -1387,7 +1387,7 @@
   },
   {
     "id": "00003145",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 128,
     "name": "幸水ナシコ",
     "country": "福島県",
@@ -1442,7 +1442,7 @@
   },
   {
     "id": "00002455",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 133,
     "name": "がんばリュー",
     "country": "福井県",
@@ -1530,7 +1530,7 @@
   },
   {
     "id": "00003878",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 141,
     "name": "シュガラブちゃん",
     "country": "大阪府",
@@ -1543,7 +1543,7 @@
     "id": "00001166",
     "kind": "LOCAL",
     "entry_number": 142,
-    "name": "みさっきー\u0026みさきーちょ",
+    "name": "みさっきー&みさきーちょ",
     "country": "大阪府",
     "biko": "大阪府岬町",
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00001166.jpg",
@@ -1574,7 +1574,7 @@
   },
   {
     "id": "00002845",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 145,
     "name": "ナースのじぎくちゃん",
     "country": "兵庫県",
@@ -1585,7 +1585,7 @@
   },
   {
     "id": "00002753",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 146,
     "name": "もつぞう",
     "country": "神奈川県",
@@ -1651,11 +1651,11 @@
   },
   {
     "id": "00003759",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 152,
     "name": "森のおんぷ楽団",
     "country": "岡山県",
-    "biko": "Music\u0026Fashion",
+    "biko": "Music&Fashion",
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00003759.jpg",
     "rank": 194,
     "point": 0
@@ -1673,7 +1673,7 @@
   },
   {
     "id": "00003469",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 154,
     "name": "ならまちこ",
     "country": "奈良県",
@@ -1684,7 +1684,7 @@
   },
   {
     "id": "00003435",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 155,
     "name": "ほーほーくん",
     "country": "北海道",
@@ -1706,7 +1706,7 @@
   },
   {
     "id": "00002880",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 157,
     "name": "ぜっとくん",
     "country": "岡山県",
@@ -1717,9 +1717,9 @@
   },
   {
     "id": "00000659",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 158,
-    "name": "うかるくん\u0026もうかるくん",
+    "name": "うかるくん&もうかるくん",
     "country": "茨城県",
     "biko": "うかる文化振興委員会",
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00000659.jpg",
@@ -1761,7 +1761,7 @@
   },
   {
     "id": "00002681",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 162,
     "name": "とうおうくん",
     "country": "高知県",
@@ -1783,7 +1783,7 @@
   },
   {
     "id": "00004167",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 164,
     "name": "にゃーちゃ、",
     "country": "埼玉県",
@@ -1860,7 +1860,7 @@
   },
   {
     "id": "00002632",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 171,
     "name": "あわブタ",
     "country": "埼玉県",
@@ -1871,7 +1871,7 @@
   },
   {
     "id": "00001434",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 172,
     "name": "がっぴー",
     "country": "岡山県",
@@ -1926,7 +1926,7 @@
   },
   {
     "id": "00001086",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 177,
     "name": "カツオにゃんこ（鰹猫）",
     "country": "高知県",
@@ -1959,7 +1959,7 @@
   },
   {
     "id": "00004168",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 180,
     "name": "ネコ影",
     "country": "北海道",
@@ -1992,7 +1992,7 @@
   },
   {
     "id": "00002594",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 183,
     "name": "がブ吉",
     "country": "愛知県",
@@ -2014,7 +2014,7 @@
   },
   {
     "id": "00003654",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 185,
     "name": "田辺三菱製薬株式会社　キャラクター　たなみん",
     "country": "大阪府",
@@ -2025,7 +2025,7 @@
   },
   {
     "id": "00003307",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 186,
     "name": "ラサッコちゃん",
     "country": "広島県",
@@ -2036,7 +2036,7 @@
   },
   {
     "id": "00003273",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 187,
     "name": "yamatoくん",
     "country": "愛知県",
@@ -2047,7 +2047,7 @@
   },
   {
     "id": "00003708",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 188,
     "name": "みののん",
     "country": "東京都",
@@ -2058,7 +2058,7 @@
   },
   {
     "id": "00001805",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 189,
     "name": "オリにゃん（オリ男、オリ子）",
     "country": "大阪府",
@@ -2069,7 +2069,7 @@
   },
   {
     "id": "00002528",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 190,
     "name": "セーフティー君",
     "country": "長崎県",
@@ -2102,7 +2102,7 @@
   },
   {
     "id": "00001984",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 193,
     "name": "くるまくん",
     "country": "愛知県",
@@ -2190,7 +2190,7 @@
   },
   {
     "id": "00003014",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 201,
     "name": "エネさん",
     "country": "東京都",
@@ -2223,7 +2223,7 @@
   },
   {
     "id": "00004169",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 204,
     "name": "きれーたん",
     "country": "大阪府",
@@ -2234,7 +2234,7 @@
   },
   {
     "id": "00002274",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 205,
     "name": "しっくいくん",
     "country": "大阪府",
@@ -2289,7 +2289,7 @@
   },
   {
     "id": "00004074",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 210,
     "name": "手すり侍",
     "country": "埼玉県",
@@ -2300,7 +2300,7 @@
   },
   {
     "id": "00003393",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 211,
     "name": "みえ太",
     "country": "徳島県",
@@ -2344,7 +2344,7 @@
   },
   {
     "id": "00004170",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 215,
     "name": "エネルン＆あた丸",
     "country": "東京都",
@@ -2377,7 +2377,7 @@
   },
   {
     "id": "00003580",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 218,
     "name": "あゆたん",
     "country": "岡山県",
@@ -2410,7 +2410,7 @@
   },
   {
     "id": "00004172",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 221,
     "name": "いずきゅん",
     "country": "静岡県",
@@ -2421,7 +2421,7 @@
   },
   {
     "id": "00001897",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 222,
     "name": "イタメくん",
     "country": "東京都",
@@ -2432,7 +2432,7 @@
   },
   {
     "id": "00003357",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 223,
     "name": "太田胃にゃん",
     "country": "東京都",
@@ -2465,7 +2465,7 @@
   },
   {
     "id": "00004173",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 226,
     "name": "産太くん",
     "country": "熊本県",
@@ -2476,7 +2476,7 @@
   },
   {
     "id": "00003778",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 227,
     "name": "おちゅん",
     "country": "群馬県",
@@ -2531,7 +2531,7 @@
   },
   {
     "id": "00002661",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 232,
     "name": "ネッツおかパンダ＆メカニカルDOG",
     "country": "岡山県",
@@ -2586,7 +2586,7 @@
   },
   {
     "id": "00001574",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 237,
     "name": "たたミンくん",
     "country": "京都府",
@@ -2597,7 +2597,7 @@
   },
   {
     "id": "00002024",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 238,
     "name": "かばきち",
     "country": "京都府",
@@ -2608,7 +2608,7 @@
   },
   {
     "id": "00003499",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 239,
     "name": "トンボ学君",
     "country": "岡山県",
@@ -2619,7 +2619,7 @@
   },
   {
     "id": "00003502",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 240,
     "name": "トンボ衣乃ちゃん",
     "country": "岡山県",
@@ -2630,7 +2630,7 @@
   },
   {
     "id": "00002547",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 241,
     "name": "しずぽん",
     "country": "静岡県",
@@ -2674,7 +2674,7 @@
   },
   {
     "id": "00003782",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 245,
     "name": "底地くん",
     "country": "東京都",
@@ -2685,7 +2685,7 @@
   },
   {
     "id": "00000795",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 246,
     "name": "もくじぃ",
     "country": "埼玉県",
@@ -2729,7 +2729,7 @@
   },
   {
     "id": "00002804",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 250,
     "name": "コジ坊",
     "country": "栃木県",
@@ -2751,7 +2751,7 @@
   },
   {
     "id": "00003563",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 252,
     "name": "ミラクル＆キューキュー",
     "country": "海外",
@@ -2817,7 +2817,7 @@
   },
   {
     "id": "00004177",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 258,
     "name": "トウチ ＆ さくら",
     "country": "東京都",
@@ -2861,7 +2861,7 @@
   },
   {
     "id": "00003804",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 263,
     "name": "さっちゃん",
     "country": "長崎県",
@@ -2872,7 +2872,7 @@
   },
   {
     "id": "00002643",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 264,
     "name": "やるぞう君",
     "country": "神奈川県",
@@ -2883,7 +2883,7 @@
   },
   {
     "id": "00002676",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 265,
     "name": "九ちゃん ",
     "country": "神奈川県",
@@ -2938,7 +2938,7 @@
   },
   {
     "id": "00000836",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 270,
     "name": "テクノくん",
     "country": "大阪府",
@@ -2960,7 +2960,7 @@
   },
   {
     "id": "00004178",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 272,
     "name": "ひょうたん",
     "country": "東京都",
@@ -2971,7 +2971,7 @@
   },
   {
     "id": "00001247",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 273,
     "name": "ハピちゃん",
     "country": "富山県",
@@ -2993,7 +2993,7 @@
   },
   {
     "id": "00004103",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 275,
     "name": "スキップくん",
     "country": "岩手県",
@@ -3015,7 +3015,7 @@
   },
   {
     "id": "00003756",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 277,
     "name": "アモンちゃん",
     "country": "福岡県",
@@ -3026,7 +3026,7 @@
   },
   {
     "id": "00004004",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 279,
     "name": "土山たぬき",
     "country": "滋賀県",
@@ -3103,7 +3103,7 @@
   },
   {
     "id": "00003841",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 286,
     "name": "エルちゃん",
     "country": "京都府",
@@ -3169,7 +3169,7 @@
   },
   {
     "id": "00001505",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 292,
     "name": "なやまっち",
     "country": "京都府",
@@ -3180,7 +3180,7 @@
   },
   {
     "id": "00004179",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 293,
     "name": "にゃんこバレリーナ",
     "country": "神奈川県",
@@ -3224,7 +3224,7 @@
   },
   {
     "id": "00003747",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 297,
     "name": "せんぼくん",
     "country": "大阪府",
@@ -3235,7 +3235,7 @@
   },
   {
     "id": "00004107",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 298,
     "name": "はとっぴぃ",
     "country": "神奈川県",
@@ -3279,7 +3279,7 @@
   },
   {
     "id": "00004181",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 302,
     "name": "あなとくちゃん",
     "country": "福岡県",
@@ -3312,7 +3312,7 @@
   },
   {
     "id": "00002748",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 305,
     "name": "MiSOメン",
     "country": "愛知県",
@@ -3367,7 +3367,7 @@
   },
   {
     "id": "00003462",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 310,
     "name": "オメガオーファミリー",
     "country": "京都府",
@@ -3389,7 +3389,7 @@
   },
   {
     "id": "00003146",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 312,
     "name": "バッカちゃん",
     "country": "新潟県",
@@ -3400,7 +3400,7 @@
   },
   {
     "id": "00003362",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 313,
     "name": "いえらぶ君",
     "country": "東京都",
@@ -3411,9 +3411,9 @@
   },
   {
     "id": "00002783",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 314,
-    "name": "にゆ\u0026とんくん",
+    "name": "にゆ&とんくん",
     "country": "東京都",
     "biko": "太平商事株式会社　ニュー太平",
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00002783.jpg",
@@ -3444,7 +3444,7 @@
   },
   {
     "id": "00004008",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 317,
     "name": "ホービス",
     "country": "山口県",
@@ -3455,7 +3455,7 @@
   },
   {
     "id": "00003994",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 318,
     "name": "ウルフェン",
     "country": "大阪府",
@@ -3466,7 +3466,7 @@
   },
   {
     "id": "00003700",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 319,
     "name": "イシノマキマン",
     "country": "宮城県",
@@ -3499,7 +3499,7 @@
   },
   {
     "id": "00001963",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 322,
     "name": "やがぴぃ",
     "country": "栃木県",
@@ -3510,7 +3510,7 @@
   },
   {
     "id": "00004100",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 323,
     "name": "トラッ君",
     "country": "兵庫県",
@@ -3521,7 +3521,7 @@
   },
   {
     "id": "00004183",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 324,
     "name": "サンタスさん",
     "country": "滋賀県",
@@ -3554,7 +3554,7 @@
   },
   {
     "id": "00002171",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 327,
     "name": "みらっこ",
     "country": "大分県",
@@ -3565,7 +3565,7 @@
   },
   {
     "id": "00003922",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 328,
     "name": "自動車リサイクル博士",
     "country": "東京都",
@@ -3576,7 +3576,7 @@
   },
   {
     "id": "00004185",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 329,
     "name": "ひがポン・しのぴょん",
     "country": "岩手県",
@@ -3587,7 +3587,7 @@
   },
   {
     "id": "00002541",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 331,
     "name": "巻き巻き忍者　巻之助くん",
     "country": "広島県",
@@ -3631,7 +3631,7 @@
   },
   {
     "id": "00003096",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 335,
     "name": "でかさんくん",
     "country": "奈良県",
@@ -3642,7 +3642,7 @@
   },
   {
     "id": "00002674",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 336,
     "name": "ミツバチみっちゃん",
     "country": "京都府",
@@ -3653,7 +3653,7 @@
   },
   {
     "id": "00001379",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 337,
     "name": "地球犬",
     "country": "京都府",
@@ -3697,7 +3697,7 @@
   },
   {
     "id": "00004186",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 341,
     "name": "ボル姉さん",
     "country": "東京都",
@@ -3730,7 +3730,7 @@
   },
   {
     "id": "00004187",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 344,
     "name": "もってきー",
     "country": "静岡県",
@@ -3741,7 +3741,7 @@
   },
   {
     "id": "00003867",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 345,
     "name": "ほめと＆みかうぇる",
     "country": "神奈川県",
@@ -3774,7 +3774,7 @@
   },
   {
     "id": "00000739",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 348,
     "name": "ザビエコくん",
     "country": "大阪府",
@@ -3796,7 +3796,7 @@
   },
   {
     "id": "00001704",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 350,
     "name": "SUN☆チャゴ",
     "country": "大阪府",
@@ -3807,7 +3807,7 @@
   },
   {
     "id": "00003568",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 351,
     "name": "アドカッパ",
     "country": "大阪府",
@@ -3829,7 +3829,7 @@
   },
   {
     "id": "00003888",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 353,
     "name": "あらびき星人ソップリン",
     "country": "東京都",
@@ -3873,7 +3873,7 @@
   },
   {
     "id": "00003826",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 357,
     "name": "東亜坊や",
     "country": "東京都",
@@ -3895,7 +3895,7 @@
   },
   {
     "id": "00003199",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 359,
     "name": "しきっしー",
     "country": "福岡県",
@@ -3906,7 +3906,7 @@
   },
   {
     "id": "00004188",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 360,
     "name": "シックー",
     "country": "東京都",
@@ -3917,7 +3917,7 @@
   },
   {
     "id": "00003753",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 361,
     "name": "アンスイムク太郎",
     "country": "愛知県",
@@ -3939,7 +3939,7 @@
   },
   {
     "id": "00003879",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 364,
     "name": "まもるくん",
     "country": "大阪府",
@@ -3950,7 +3950,7 @@
   },
   {
     "id": "00000308",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 365,
     "name": "メガ佐藤",
     "country": "大阪府",
@@ -3972,7 +3972,7 @@
   },
   {
     "id": "00002604",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 367,
     "name": "ビバ助",
     "country": "神奈川県",
@@ -3983,7 +3983,7 @@
   },
   {
     "id": "00004189",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 368,
     "name": "オイッスさん",
     "country": "岩手県",
@@ -3994,7 +3994,7 @@
   },
   {
     "id": "00004068",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 369,
     "name": "プイモ　ライオンプイモ",
     "country": "東京都",
@@ -4005,7 +4005,7 @@
   },
   {
     "id": "00004191",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 371,
     "name": "ノブルン",
     "country": "茨城県",
@@ -4016,7 +4016,7 @@
   },
   {
     "id": "00003101",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 372,
     "name": "うちっちー",
     "country": "静岡県",
@@ -4071,7 +4071,7 @@
   },
   {
     "id": "00004127",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 377,
     "name": "カロラッキー",
     "country": "茨城県",
@@ -4093,7 +4093,7 @@
   },
   {
     "id": "00004192",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 379,
     "name": "メグたん",
     "country": "東京都",
@@ -4115,7 +4115,7 @@
   },
   {
     "id": "00003890",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 381,
     "name": "ハッピーちゃん",
     "country": "京都府",
@@ -4126,7 +4126,7 @@
   },
   {
     "id": "00004129",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 382,
     "name": "サクちゃん",
     "country": "長野県",
@@ -4159,7 +4159,7 @@
   },
   {
     "id": "00004193",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 385,
     "name": "マナやん",
     "country": "香川県",
@@ -4203,7 +4203,7 @@
   },
   {
     "id": "00002178",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 389,
     "name": "AHA子",
     "country": "東京都",
@@ -4225,7 +4225,7 @@
   },
   {
     "id": "00002036",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 391,
     "name": "ぐんケンくん",
     "country": "群馬県",
@@ -4236,7 +4236,7 @@
   },
   {
     "id": "00003516",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 392,
     "name": "そろろ",
     "country": "東京都",
@@ -4258,7 +4258,7 @@
   },
   {
     "id": "00003461",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 394,
     "name": "バイオますおくん",
     "country": "大阪府",
@@ -4280,7 +4280,7 @@
   },
   {
     "id": "00004195",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 396,
     "name": "ひんじゃ～",
     "country": "鹿児島県",
@@ -4291,7 +4291,7 @@
   },
   {
     "id": "00004196",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 397,
     "name": "さんてつくん",
     "country": "岩手県",
@@ -4302,7 +4302,7 @@
   },
   {
     "id": "00004197",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 398,
     "name": "ケロン",
     "country": "群馬県",
@@ -4368,7 +4368,7 @@
   },
   {
     "id": "00004067",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 404,
     "name": "くるめラちゃん",
     "country": "東京都",
@@ -4390,7 +4390,7 @@
   },
   {
     "id": "00003191",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 406,
     "name": "ガラスマン",
     "country": "神奈川県",
@@ -4401,7 +4401,7 @@
   },
   {
     "id": "00002297",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 407,
     "name": "あいむ",
     "country": "福岡県",
@@ -4445,7 +4445,7 @@
   },
   {
     "id": "00003928",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 411,
     "name": "チッキー・クラちゃん",
     "country": "東京都",
@@ -4456,7 +4456,7 @@
   },
   {
     "id": "00004198",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 412,
     "name": "みるぽん",
     "country": "愛媛県",
@@ -4467,7 +4467,7 @@
   },
   {
     "id": "00004061",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 413,
     "name": "りゅうくん",
     "country": "愛知県",
@@ -4511,7 +4511,7 @@
   },
   {
     "id": "00004201",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 417,
     "name": "サマーくん・サマーちゃん",
     "country": "東京都",
@@ -4544,7 +4544,7 @@
   },
   {
     "id": "00001985",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 420,
     "name": "蒼竜神マヴェル",
     "country": "徳島県",
@@ -4577,7 +4577,7 @@
   },
   {
     "id": "00004202",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 423,
     "name": "ジェフリー",
     "country": "神奈川県",
@@ -4599,7 +4599,7 @@
   },
   {
     "id": "00004203",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 425,
     "name": "安全まもるくん",
     "country": "福岡県",
@@ -4610,7 +4610,7 @@
   },
   {
     "id": "00004204",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 426,
     "name": "かっぱえび君（かっぱえび家の長男）",
     "country": "東京都",
@@ -4621,7 +4621,7 @@
   },
   {
     "id": "00004205",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 427,
     "name": "ブーギー",
     "country": "宮崎県",
@@ -4731,7 +4731,7 @@
   },
   {
     "id": "00004150",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 437,
     "name": "バージンじゃー",
     "country": "岡山県",
@@ -4753,7 +4753,7 @@
   },
   {
     "id": "00004207",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 439,
     "name": "こしまつくん",
     "country": "埼玉県",
@@ -4764,7 +4764,7 @@
   },
   {
     "id": "00003653",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 440,
     "name": "しかたん",
     "country": "岡山県",
@@ -4808,7 +4808,7 @@
   },
   {
     "id": "00003727",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 444,
     "name": "てるまる",
     "country": "東京都",
@@ -4819,7 +4819,7 @@
   },
   {
     "id": "00003695",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 445,
     "name": "もぐらのコージくん",
     "country": "大阪府",
@@ -4852,7 +4852,7 @@
   },
   {
     "id": "00004152",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 448,
     "name": "パブりん",
     "country": "東京都",
@@ -4863,7 +4863,7 @@
   },
   {
     "id": "00004208",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 449,
     "name": "中年警備員！クマガイくん",
     "country": "東京都",
@@ -4874,7 +4874,7 @@
   },
   {
     "id": "00004105",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 450,
     "name": "イオンのほけん相談　コンサル見習い　こんさるん",
     "country": "千葉県",
@@ -4907,7 +4907,7 @@
   },
   {
     "id": "00001857",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 453,
     "name": "はなっぴー",
     "country": "岩手県",
@@ -4929,7 +4929,7 @@
   },
   {
     "id": "00002961",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 455,
     "name": "らびっこ",
     "country": "東京都",
@@ -4940,7 +4940,7 @@
   },
   {
     "id": "00004209",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 456,
     "name": "みんハピ君",
     "country": "東京都",
@@ -4962,7 +4962,7 @@
   },
   {
     "id": "00002557",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 458,
     "name": "プリタマくん",
     "country": "埼玉県",
@@ -4973,7 +4973,7 @@
   },
   {
     "id": "00004210",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 459,
     "name": "ラン鳥くん",
     "country": "愛知県",
@@ -5006,7 +5006,7 @@
   },
   {
     "id": "00004069",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 462,
     "name": "ネコかっぱアイちゃん",
     "country": "茨城県",
@@ -5028,7 +5028,7 @@
   },
   {
     "id": "00002900",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 464,
     "name": "さんまるちゃん",
     "country": "山口県",
@@ -5039,7 +5039,7 @@
   },
   {
     "id": "00002631",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 465,
     "name": "ダッパくん",
     "country": "大阪府",
@@ -5072,7 +5072,7 @@
   },
   {
     "id": "00004211",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 468,
     "name": "チェリーナ",
     "country": "山形県",
@@ -5116,7 +5116,7 @@
   },
   {
     "id": "00004212",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 472,
     "name": "えむえむさん",
     "country": "神奈川県",
@@ -5149,7 +5149,7 @@
   },
   {
     "id": "00004213",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 476,
     "name": "くまプー",
     "country": "大阪府",
@@ -5226,7 +5226,7 @@
   },
   {
     "id": "00003840",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 483,
     "name": "ジェネちゃん",
     "country": "大阪府",
@@ -5237,7 +5237,7 @@
   },
   {
     "id": "00003792",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 484,
     "name": "ふねこ",
     "country": "福岡県",
@@ -5270,7 +5270,7 @@
   },
   {
     "id": "00004215",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 487,
     "name": "モリーさん",
     "country": "栃木県",
@@ -5292,7 +5292,7 @@
   },
   {
     "id": "00004216",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 489,
     "name": "もみりん",
     "country": "岩手県",
@@ -5314,7 +5314,7 @@
   },
   {
     "id": "00003612",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 491,
     "name": "コムゾー",
     "country": "東京都",
@@ -5380,7 +5380,7 @@
   },
   {
     "id": "00002001",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 497,
     "name": "だるまん",
     "country": "群馬県",
@@ -5402,7 +5402,7 @@
   },
   {
     "id": "00004218",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 499,
     "name": "レンタン",
     "country": "東京都",
@@ -5512,7 +5512,7 @@
   },
   {
     "id": "00004222",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 509,
     "name": "さなえ",
     "country": "愛媛県",
@@ -5523,7 +5523,7 @@
   },
   {
     "id": "00004223",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 510,
     "name": "ラプくん",
     "country": "東京都",
@@ -5556,7 +5556,7 @@
   },
   {
     "id": "00003688",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 513,
     "name": "シバワン",
     "country": "東京都",
@@ -5589,7 +5589,7 @@
   },
   {
     "id": "00002170",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 516,
     "name": "みちまるくん",
     "country": "愛知県",
@@ -5600,7 +5600,7 @@
   },
   {
     "id": "00002672",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 517,
     "name": "ニッカネ　マヨちゃん",
     "country": "栃木県",
@@ -5611,7 +5611,7 @@
   },
   {
     "id": "00004083",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 518,
     "name": "コシノツヨシ",
     "country": "東京都",
@@ -5633,7 +5633,7 @@
   },
   {
     "id": "00004225",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 520,
     "name": "いちごにんげん",
     "country": "神奈川県",
@@ -5666,7 +5666,7 @@
   },
   {
     "id": "00003730",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 523,
     "name": "びわ湖くん",
     "country": "滋賀県",
@@ -5688,7 +5688,7 @@
   },
   {
     "id": "00002102",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 525,
     "name": "はまにゃん",
     "country": "神奈川県",
@@ -5710,7 +5710,7 @@
   },
   {
     "id": "00004153",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 527,
     "name": "とくしまれっちゃくんすまいるえきちゃん",
     "country": "徳島県",
@@ -5721,7 +5721,7 @@
   },
   {
     "id": "00004155",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 528,
     "name": "かがわれっちゃくんすまいるえきちゃん",
     "country": "香川県",
@@ -5732,7 +5732,7 @@
   },
   {
     "id": "00004154",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 529,
     "name": "えひめれっちゃくんすまいるえきちゃん",
     "country": "愛媛県",
@@ -5743,7 +5743,7 @@
   },
   {
     "id": "00004156",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 530,
     "name": "こうちれっちゃくんすまいるえきちゃん",
     "country": "高知県",
@@ -5754,7 +5754,7 @@
   },
   {
     "id": "00003786",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 531,
     "name": "”どりーむくん”　”ほーぷちゃん”",
     "country": "香川県",
@@ -5787,7 +5787,7 @@
   },
   {
     "id": "00004142",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 534,
     "name": "カスタム君",
     "country": "東京都",
@@ -5853,7 +5853,7 @@
   },
   {
     "id": "00004229",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 540,
     "name": "オランダちゃん",
     "country": "山形県",
@@ -5875,7 +5875,7 @@
   },
   {
     "id": "00004231",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 542,
     "name": "フクスケ",
     "country": "神奈川県",
@@ -5897,7 +5897,7 @@
   },
   {
     "id": "00003821",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 544,
     "name": "てんじゅさん",
     "country": "東京都",
@@ -5908,7 +5908,7 @@
   },
   {
     "id": "00003337",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 545,
     "name": "アーディ君",
     "country": "東京都",
@@ -5919,7 +5919,7 @@
   },
   {
     "id": "00004232",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 546,
     "name": "トッコちゃん",
     "country": "東京都",
@@ -5941,7 +5941,7 @@
   },
   {
     "id": "00003853",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 548,
     "name": "ばいにゃこさん",
     "country": "富山県",
@@ -5952,7 +5952,7 @@
   },
   {
     "id": "00003538",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 549,
     "name": "ふじぽん",
     "country": "東京都",
@@ -6018,7 +6018,7 @@
   },
   {
     "id": "00004075",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 555,
     "name": "けすにゃん",
     "country": "香川県",
@@ -6051,7 +6051,7 @@
   },
   {
     "id": "00004236",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 558,
     "name": "べるーにゃ",
     "country": "埼玉県",
@@ -6073,7 +6073,7 @@
   },
   {
     "id": "00004026",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 560,
     "name": "コーベイ",
     "country": "兵庫県",
@@ -6095,7 +6095,7 @@
   },
   {
     "id": "00004089",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 562,
     "name": "びっぷる",
     "country": "東京都",
@@ -6106,7 +6106,7 @@
   },
   {
     "id": "00004237",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 563,
     "name": "ストローくん",
     "country": "兵庫県",
@@ -6139,7 +6139,7 @@
   },
   {
     "id": "00004239",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 566,
     "name": "やまのっち",
     "country": "兵庫県",
@@ -6150,7 +6150,7 @@
   },
   {
     "id": "00003957",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 567,
     "name": "くまっキー",
     "country": "東京都",
@@ -6172,7 +6172,7 @@
   },
   {
     "id": "00004091",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 569,
     "name": "まるる",
     "country": "石川県",
@@ -6227,7 +6227,7 @@
   },
   {
     "id": "00004115",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 575,
     "name": "熱川ばにお",
     "country": "静岡県",
@@ -6249,7 +6249,7 @@
   },
   {
     "id": "00004029",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 577,
     "name": "せん太くん",
     "country": "東京都",
@@ -6260,7 +6260,7 @@
   },
   {
     "id": "00003993",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 578,
     "name": "クバロー",
     "country": "山梨県",
@@ -6271,7 +6271,7 @@
   },
   {
     "id": "00003506",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 579,
     "name": "ジョイフルくん",
     "country": "北海道",
@@ -6282,7 +6282,7 @@
   },
   {
     "id": "00001537",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 580,
     "name": "たっぷぅ",
     "country": "大阪府",
@@ -6348,7 +6348,7 @@
   },
   {
     "id": "00003241",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 586,
     "name": "けむっし～",
     "country": "大阪府",
@@ -6359,7 +6359,7 @@
   },
   {
     "id": "00004242",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 587,
     "name": "いっくん",
     "country": "大阪府",
@@ -6381,7 +6381,7 @@
   },
   {
     "id": "00004244",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 589,
     "name": "秀吉公　と　ねね様",
     "country": "京都府",
@@ -6392,7 +6392,7 @@
   },
   {
     "id": "00002141",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 590,
     "name": "Bankenトミー",
     "country": "富山県",
@@ -6447,7 +6447,7 @@
   },
   {
     "id": "00002647",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 595,
     "name": "祈り犬　かなえちゃん",
     "country": "東京都",
@@ -6458,7 +6458,7 @@
   },
   {
     "id": "00003614",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 596,
     "name": "シナガワン",
     "country": "東京都",
@@ -6469,7 +6469,7 @@
   },
   {
     "id": "00000724",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 597,
     "name": "みのりちゃん",
     "country": "大阪府",
@@ -6491,7 +6491,7 @@
   },
   {
     "id": "00004245",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 599,
     "name": "レオ君",
     "country": "福岡県",
@@ -6502,7 +6502,7 @@
   },
   {
     "id": "00003882",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 600,
     "name": "軍艦島のガンショーくん",
     "country": "長崎県",
@@ -6513,7 +6513,7 @@
   },
   {
     "id": "00003924",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 601,
     "name": "キリンのハガネくん",
     "country": "宮城県",
@@ -6524,7 +6524,7 @@
   },
   {
     "id": "00003270",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 602,
     "name": "みやびん",
     "country": "埼玉県",
@@ -6557,7 +6557,7 @@
   },
   {
     "id": "00004247",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 605,
     "name": "活力小涌",
     "country": "海外",
@@ -6601,9 +6601,9 @@
   },
   {
     "id": "00002703",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 609,
-    "name": "ぴあの森のぴっけろ\u0026くまっぴー",
+    "name": "ぴあの森のぴっけろ&くまっぴー",
     "country": "東京都",
     "biko": "ぴあ株式会社",
     "image_url": "https://www.yurugp.jp/img/uploads/character/200/00002703.jpg",
@@ -6645,7 +6645,7 @@
   },
   {
     "id": "00004013",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 613,
     "name": "アイちゃん",
     "country": "東京都",
@@ -6678,7 +6678,7 @@
   },
   {
     "id": "00003750",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 616,
     "name": "はーてぃ",
     "country": "富山県",
@@ -6722,7 +6722,7 @@
   },
   {
     "id": "00004273",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 620,
     "name": "健康博士",
     "country": "海外",
@@ -6744,7 +6744,7 @@
   },
   {
     "id": "00003641",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 622,
     "name": "フキャット",
     "country": "東京都",
@@ -6755,7 +6755,7 @@
   },
   {
     "id": "00003988",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 623,
     "name": "ならっきー",
     "country": "奈良県",
@@ -6766,7 +6766,7 @@
   },
   {
     "id": "00004249",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 624,
     "name": "はんな",
     "country": "東京都",
@@ -6777,7 +6777,7 @@
   },
   {
     "id": "00004250",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 625,
     "name": "デンまる",
     "country": "愛知県",
@@ -6788,7 +6788,7 @@
   },
   {
     "id": "00004076",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 626,
     "name": "ふじきち",
     "country": "東京都",
@@ -6821,7 +6821,7 @@
   },
   {
     "id": "00004253",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 629,
     "name": "クマ",
     "country": "東京都",
@@ -6832,7 +6832,7 @@
   },
   {
     "id": "00004254",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 630,
     "name": "リックン",
     "country": "鹿児島県",
@@ -6865,7 +6865,7 @@
   },
   {
     "id": "00002559",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 633,
     "name": "こぶしまる",
     "country": "東京都",
@@ -6876,7 +6876,7 @@
   },
   {
     "id": "00004140",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 634,
     "name": "ヨムビー",
     "country": "大阪府",
@@ -6887,7 +6887,7 @@
   },
   {
     "id": "00003709",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 635,
     "name": "またたびくん",
     "country": "東京都",
@@ -6942,7 +6942,7 @@
   },
   {
     "id": "00004255",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 640,
     "name": "甲賀流忍者ぽんぽこ",
     "country": "滋賀県",
@@ -6953,7 +6953,7 @@
   },
   {
     "id": "00004256",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 641,
     "name": "みちびきじょーじ",
     "country": "東京都",
@@ -7008,7 +7008,7 @@
   },
   {
     "id": "00004257",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 646,
     "name": "キノまる",
     "country": "和歌山県",
@@ -7030,7 +7030,7 @@
   },
   {
     "id": "00004128",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 648,
     "name": "ペイレンジャー",
     "country": "東京都",
@@ -7041,7 +7041,7 @@
   },
   {
     "id": "00003625",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 649,
     "name": "ムツミン",
     "country": "愛知県",
@@ -7063,7 +7063,7 @@
   },
   {
     "id": "00004106",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 651,
     "name": "ふじもっち",
     "country": "兵庫県",
@@ -7129,7 +7129,7 @@
   },
   {
     "id": "00004065",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 657,
     "name": "シュガ～",
     "country": "東京都",
@@ -7140,7 +7140,7 @@
   },
   {
     "id": "00001955",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 658,
     "name": "タラコン博士",
     "country": "愛知県",
@@ -7151,7 +7151,7 @@
   },
   {
     "id": "00004032",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 659,
     "name": "こにたろう　ぴあにしき　はなちゃん",
     "country": "埼玉県",
@@ -7195,7 +7195,7 @@
   },
   {
     "id": "00004260",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 663,
     "name": "ハトソンくん",
     "country": "東京都",
@@ -7228,7 +7228,7 @@
   },
   {
     "id": "00004262",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 666,
     "name": "ラビイとビット",
     "country": "神奈川県",
@@ -7272,7 +7272,7 @@
   },
   {
     "id": "00004263",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 670,
     "name": "ズボきんぐ",
     "country": "東京都",
@@ -7283,7 +7283,7 @@
   },
   {
     "id": "00003076",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 671,
     "name": "箱猫マックス",
     "country": "千葉県",
@@ -7294,7 +7294,7 @@
   },
   {
     "id": "00003553",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 672,
     "name": "まほろばトヨ太子",
     "country": "奈良県",
@@ -7349,7 +7349,7 @@
   },
   {
     "id": "00004266",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 677,
     "name": "かもしー",
     "country": "群馬県",
@@ -7393,7 +7393,7 @@
   },
   {
     "id": "00004270",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 681,
     "name": "モノちゃん",
     "country": "千葉県",
@@ -7415,7 +7415,7 @@
   },
   {
     "id": "00004271",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 683,
     "name": "いかなキャット",
     "country": "東京都",
@@ -7426,7 +7426,7 @@
   },
   {
     "id": "00004112",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 685,
     "name": "アスレくん",
     "country": "東京都",
@@ -7481,7 +7481,7 @@
   },
   {
     "id": "00004274",
-    "kind": "LOCAL",
+    "kind": "COMPANY",
     "entry_number": 690,
     "name": "ポカピョン",
     "country": "岩手県",
