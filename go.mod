@@ -1,4 +1,4 @@
-module github.com/mono0x/yurugp2020-data
+module github.com/mono0x/yurugp2020-progress
 
 go 1.14
 
