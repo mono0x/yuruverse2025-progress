@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -12,6 +11,7 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/jszwec/csvutil"
 	"github.com/pkg/errors"
 )
 
@@ -22,16 +22,19 @@ const (
 	Local   = CharacterKind("LOCAL")
 )
 
-type CharacterItem struct {
-	ID          string        `json:"id"`
-	Kind        CharacterKind `json:"kind"`
-	EntryNumber int           `json:"entry_number"`
-	Name        string        `json:"name"`
-	Country     string        `json:"country"`
-	Biko        string        `json:"biko"`
-	ImageURL    string        `json:"image_url"`
-	Rank        int           `json:"rank"`
-	Point       int           `json:"point"`
+const DateFormat = "2006-01-02"
+
+type Item struct {
+	Date        string        `csv:"date"`
+	ID          string        `csv:"id"`
+	Kind        CharacterKind `csv:"kind"`
+	EntryNumber int           `csv:"entry_number"`
+	Name        string        `csv:"name"`
+	Country     string        `csv:"country"`
+	Biko        string        `csv:"biko"`
+	ImageURL    string        `csv:"image_url"`
+	Rank        int           `csv:"rank"`
+	Point       int           `csv:"point"`
 }
 
 var (
@@ -46,8 +49,11 @@ func run() error {
 		return errors.WithStack(err)
 	}
 
+	date := time.Now().Add(-12 * time.Hour)
+	dateString := date.Format(DateFormat)
+
 	currentURL := baseURL
-	var items []*CharacterItem
+	var items []*Item
 	for {
 		resp, err := http.Get(currentURL.String())
 		if err != nil {
@@ -134,7 +140,8 @@ func run() error {
 				return false
 			}
 
-			items = append(items, &CharacterItem{
+			items = append(items, &Item{
+				Date:        dateString,
 				ID:          id,
 				Kind:        kind,
 				EntryNumber: entryNumber,
@@ -169,12 +176,12 @@ func run() error {
 		return items[i].EntryNumber < items[j].EntryNumber
 	})
 
-	result, err := json.MarshalIndent(&items, "", "  ")
+	result, err := csvutil.Marshal(&items)
 	if err != nil {
 		return errors.WithStack(err)
 	}
 
-	fileName := "result/" + time.Now().Format("20060102") + ".json"
+	fileName := "result/" + date.Format("20060102") + ".csv"
 	if err := ioutil.WriteFile(fileName, result, 0644); err != nil {
 		return err
 	}
