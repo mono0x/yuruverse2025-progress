@@ -1,10 +1,12 @@
 package main
 
 import (
+	"encoding/json"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
+	"path/filepath"
 	"regexp"
 	"sort"
 	"strconv"
@@ -12,30 +14,9 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/jszwec/csvutil"
+	"github.com/mono0x/yurugp2020-progress/yurugp"
 	"github.com/pkg/errors"
 )
-
-type CharacterKind string
-
-const (
-	Company = CharacterKind("COMPANY")
-	Local   = CharacterKind("LOCAL")
-)
-
-const DateFormat = "2006-01-02"
-
-type Item struct {
-	Date        string        `csv:"date"`
-	ID          string        `csv:"id"`
-	Kind        CharacterKind `csv:"kind"`
-	EntryNumber int           `csv:"entry_number"`
-	Name        string        `csv:"name"`
-	Country     string        `csv:"country"`
-	Biko        string        `csv:"biko"`
-	ImageURL    string        `csv:"image_url"`
-	Rank        int           `csv:"rank"`
-	Point       int           `csv:"point"`
-}
 
 var (
 	entryNumberRe = regexp.MustCompile(`エントリーNo.(\d+)`)
@@ -43,17 +24,17 @@ var (
 	pointRe       = regexp.MustCompile(`(\d+)PT`)
 )
 
-func run() error {
+func fetch() error {
 	baseURL, err := url.Parse("https://www.yurugp.jp/jp/vote/")
 	if err != nil {
 		return errors.WithStack(err)
 	}
 
 	date := time.Now().Add(-12 * time.Hour)
-	dateString := date.Format(DateFormat)
+	dateString := date.Format(yurugp.DateFormat)
 
 	currentURL := baseURL
-	var items []*Item
+	var items []*yurugp.RawItem
 	for {
 		resp, err := http.Get(currentURL.String())
 		if err != nil {
@@ -80,11 +61,11 @@ func run() error {
 			}
 			id := url.Query().Get("id")
 
-			var kind CharacterKind
+			var kind yurugp.CharacterKind
 			if s.Find(".charakind .kind").HasClass("campany") { // campany is NOT a typo
-				kind = Company
+				kind = yurugp.Company
 			} else {
-				kind = Local
+				kind = yurugp.Local
 			}
 
 			entryNumberText := s.Find(".charakind .entryno").Text()
@@ -140,7 +121,7 @@ func run() error {
 				return false
 			}
 
-			items = append(items, &Item{
+			items = append(items, &yurugp.RawItem{
 				Date:        dateString,
 				ID:          id,
 				Kind:        kind,
@@ -186,6 +167,111 @@ func run() error {
 		return err
 	}
 
+	return nil
+}
+
+func merge() error {
+	paths, err := filepath.Glob("result/*.csv")
+	if err != nil {
+		return errors.WithStack(err)
+	}
+
+	var items []*yurugp.RawItem
+	for _, path := range paths {
+		bytes, err := ioutil.ReadFile(path)
+		if err != nil {
+			return errors.WithStack(err)
+		}
+
+		var tmp []*yurugp.RawItem
+		if err := csvutil.Unmarshal(bytes, &tmp); err != nil {
+			return errors.WithStack(err)
+		}
+
+		items = append(items, tmp...)
+	}
+
+	sort.Slice(items, func(i, j int) bool {
+		if items[i].Date != items[j].Date {
+			return items[i].Date < items[j].Date
+		}
+		return items[i].EntryNumber < items[j].EntryNumber
+	})
+
+	{
+		data, err := csvutil.Marshal(&items)
+		if err != nil {
+			return errors.WithStack(err)
+		}
+
+		if err := ioutil.WriteFile("data/all.csv", data, 0644); err != nil {
+			return errors.WithStack(err)
+		}
+	}
+
+	{
+		entryNumberToCharacter := make(map[int]*yurugp.Character)
+		for i := range items {
+			item := items[len(items)-1-i]
+			if _, ok := entryNumberToCharacter[item.EntryNumber]; ok {
+				continue
+			}
+			entryNumberToCharacter[item.EntryNumber] = &yurugp.Character{
+				ID:          item.ID,
+				Kind:        item.Kind,
+				EntryNumber: item.EntryNumber,
+				Name:        item.Name,
+				Country:     item.Country,
+				Biko:        item.Biko,
+				ImageURL:    item.ImageURL,
+			}
+		}
+		entryNumberToRecords := make(map[int][]*yurugp.Record)
+		for _, item := range items {
+			entryNumberToRecords[item.EntryNumber] = append(
+				entryNumberToRecords[item.EntryNumber],
+				&yurugp.Record{
+					Date:  item.Date,
+					Rank:  item.Rank,
+					Point: item.Point,
+				},
+			)
+		}
+
+		var entryNumbers []int
+		for entryNumber := range entryNumberToCharacter {
+			entryNumbers = append(entryNumbers, entryNumber)
+		}
+		sort.Ints(entryNumbers)
+
+		var structuredItems []*yurugp.StructuredItem
+		for _, entryNumber := range entryNumbers {
+			structuredItems = append(structuredItems, &yurugp.StructuredItem{
+				Character: entryNumberToCharacter[entryNumber],
+				Records:   entryNumberToRecords[entryNumber],
+			})
+		}
+
+		data, err := json.MarshalIndent(&structuredItems, "", "  ")
+		if err != nil {
+			return errors.WithStack(err)
+		}
+
+		if err := ioutil.WriteFile("data/all.json", data, 0644); err != nil {
+			return errors.WithStack(err)
+		}
+	}
+
+	return nil
+}
+
+func run() error {
+	if err := fetch(); err != nil {
+		return err
+	}
+	if err := merge(); err != nil {
+		return err
+	}
 	return nil
 }
 
