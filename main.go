@@ -204,7 +204,7 @@ func merge() error {
 			return errors.WithStack(err)
 		}
 
-		if err := ioutil.WriteFile("data/all.csv", data, 0644); err != nil {
+		if err := ioutil.WriteFile("public/all.csv", data, 0644); err != nil {
 			return errors.WithStack(err)
 		}
 	}
@@ -257,7 +257,7 @@ func merge() error {
 			return errors.WithStack(err)
 		}
 
-		if err := ioutil.WriteFile("data/all.json", data, 0644); err != nil {
+		if err := ioutil.WriteFile("public/all.json", data, 0644); err != nil {
 			return errors.WithStack(err)
 		}
 	}
