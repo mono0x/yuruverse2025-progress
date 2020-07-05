@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react"
+import { MenuItem, Select } from "@material-ui/core"
 import fs from "fs"
-import path from "path"
-import { Select, MenuItem } from "@material-ui/core"
-import { Line } from "react-chartjs-2"
 import palette from "google-palette"
+import path from "path"
+import { useMemo, useState } from "react"
+import { Line } from "react-chartjs-2"
 
 export default function IndexPage(props) {
   const { items } = props

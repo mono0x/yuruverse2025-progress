@@ -13,6 +13,7 @@ module.exports = {
   "plugins": [
     "react",
     "react-hooks",
+    "simple-import-sort",
   ],
   "globals": {
     "__PATH_PREFIX__": true,
@@ -31,6 +32,8 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     'react/react-in-jsx-scope': "off",
     "react/prop-types": 0,
+    "sort-imports": "off",
+    "simple-import-sort/sort": "error",
   },
   "settings": {
     "react": {
