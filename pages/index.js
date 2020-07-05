@@ -1,7 +1,9 @@
 import {
   AppBar,
+  Box,
   Container,
-  FormHelperText,
+  FormControl,
+  InputLabel,
   MenuItem,
   Select,
   Table,
@@ -66,8 +68,11 @@ export default function IndexPage(props) {
     return Array.from(dates)
   }, [paginated])
 
+  const colors = useMemo(() => {
+    return palette("mpn65", rowsPerPage).map(hex => `#${hex}`)
+  }, [rowsPerPage])
+
   const data = useMemo(() => {
-    const colors = palette("mpn65", paginated.length).map(hex => `#${hex}`)
     return {
       labels: dates,
       datasets: paginated.map((item, i) => ({
@@ -80,97 +85,119 @@ export default function IndexPage(props) {
           y: record.point,
         })),
       })),
-      options: {
-        scales: {
-          xAxes: [
-            {
-              type: "time",
-              time: {
-                unit: "day",
-              },
-            },
-          ],
-          yAxes: [
-            {
-              beginAtZero: true,
-            },
-          ],
-        },
-      },
     }
-  }, [paginated, dates])
+  }, [paginated, dates, colors])
 
   return (
     <Container disableGutters={true} maxWidth={false}>
       <AppBar position="static">
         <Typography variant="h6">YuruGP 2020 Progress</Typography>
       </AppBar>
-      <Select
-        value={kind}
-        onChange={e => {
-          setKind(e.target.value)
-          setPage(0)
-        }}
-      >
-        <MenuItem value="LOCAL">ご当地</MenuItem>
-        <MenuItem value="COMPANY">企業・その他</MenuItem>
-      </Select>
-      <FormHelperText>Filter</FormHelperText>
-      <Line data={data} />
-      <TableContainer>
-        <Table size="small">
-          <TableHead>
-            <TableRow>
-              <TableCell align="right">Rank</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell align="right">Total Points</TableCell>
-              <TableCell align="right">+ Points</TableCell>
-              <TableCell align="right">Behind</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {paginated.map((item, i) => (
-              <TableRow key={item.character.id}>
-                <TableCell align="right">
-                  {item.records[item.records.length - 1].rank}
-                </TableCell>
-                <TableCell>{item.character.name}</TableCell>
-                <TableCell align="right">
-                  {item.records[item.records.length - 1].point}
-                </TableCell>
-                <TableCell align="right">
-                  {item.records.length >= 2
-                    ? item.records[item.records.length - 1].point -
-                      item.records[item.records.length - 2].point
-                    : "-"}
-                </TableCell>
-                <TableCell align="right">
-                  {oneRankHigher[i] !== null
-                    ? oneRankHigher[i].records[
-                        oneRankHigher[i].records.length - 1
-                      ].point - item.records[item.records.length - 1].point
-                    : "-"}
-                </TableCell>
+      <Box m={1}>
+        <Box>
+          <FormControl>
+            <InputLabel id="kind-select-label">Kind</InputLabel>
+            <Select
+              labelId="kind-select-label"
+              id="kind-select"
+              value={kind}
+              onChange={e => {
+                setKind(e.target.value)
+                setPage(0)
+              }}
+            >
+              <MenuItem value="LOCAL">ご当地</MenuItem>
+              <MenuItem value="COMPANY">企業・その他</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+
+        <Box
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "50vh",
+          }}
+        >
+          <Line
+            data={data}
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                xAxes: [
+                  {
+                    type: "time",
+                    time: {
+                      unit: "day",
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    beginAtZero: true,
+                  },
+                ],
+              },
+            }}
+          />
+        </Box>
+
+        <TableContainer>
+          <Table size="small">
+            <TableHead>
+              <TableRow>
+                <TableCell align="right">Rank</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell align="right">Total Points</TableCell>
+                <TableCell align="right">+ Points</TableCell>
+                <TableCell align="right">Behind</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                count={filtered.length}
-                rowsPerPageOptions={[10, 25, 50]}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onChangeRowsPerPage={e => {
-                  setRowsPerPage(e.target.value)
-                  setPage(0)
-                }}
-                onChangePage={(_, newPage) => setPage(newPage)}
-              />
-            </TableRow>
-          </TableFooter>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {paginated.map((item, i) => (
+                <TableRow key={item.character.id}>
+                  <TableCell align="right">
+                    {item.records[item.records.length - 1].rank}
+                  </TableCell>
+                  <TableCell>{item.character.name}</TableCell>
+                  <TableCell align="right">
+                    {item.records[item.records.length - 1].point}
+                  </TableCell>
+                  <TableCell align="right">
+                    {item.records.length >= 2
+                      ? item.records[item.records.length - 1].point -
+                        item.records[item.records.length - 2].point
+                      : "-"}
+                  </TableCell>
+                  <TableCell align="right">
+                    {oneRankHigher[i] !== null
+                      ? oneRankHigher[i].records[
+                          oneRankHigher[i].records.length - 1
+                        ].point - item.records[item.records.length - 1].point
+                      : "-"}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  count={filtered.length}
+                  rowsPerPageOptions={[10, 25, 50]}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  onChangeRowsPerPage={e => {
+                    setRowsPerPage(e.target.value)
+                    setPage(0)
+                  }}
+                  onChangePage={(_, newPage) => setPage(newPage)}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </TableContainer>
+      </Box>
     </Container>
   )
 }
