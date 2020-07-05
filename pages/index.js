@@ -74,6 +74,7 @@ export default function IndexPage(props) {
         label: item.character.name,
         borderColor: colors[i],
         fill: false,
+        lineTension: 0,
         data: item.records.map(record => ({
           t: record.date,
           y: record.point,
@@ -87,6 +88,11 @@ export default function IndexPage(props) {
               time: {
                 unit: "day",
               },
+            },
+          ],
+          yAxes: [
+            {
+              beginAtZero: true,
             },
           ],
         },
