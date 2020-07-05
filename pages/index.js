@@ -147,6 +147,15 @@ export default function IndexPage(props) {
           <Table size="small">
             <TableHead>
               <TableRow>
+                {tablePagination({
+                  count: filtered.length,
+                  page: page,
+                  rowsPerPage: rowsPerPage,
+                  setPage: setPage,
+                  setRowsPerPage: setRowsPerPage,
+                })}
+              </TableRow>
+              <TableRow>
                 <TableCell align="right">Rank</TableCell>
                 <TableCell>Name</TableCell>
                 <TableCell align="right">Total Points</TableCell>
@@ -182,23 +191,41 @@ export default function IndexPage(props) {
             </TableBody>
             <TableFooter>
               <TableRow>
-                <TablePagination
-                  count={filtered.length}
-                  rowsPerPage={rowsPerPage}
-                  rowsPerPageOptions={[]}
-                  page={page}
-                  onChangeRowsPerPage={e => {
-                    setRowsPerPage(e.target.value)
-                    setPage(0)
-                  }}
-                  onChangePage={(_, newPage) => setPage(newPage)}
-                />
+                {tablePagination({
+                  count: filtered.length,
+                  page: page,
+                  rowsPerPage: rowsPerPage,
+                  setPage: setPage,
+                  setRowsPerPage: setRowsPerPage,
+                })}
               </TableRow>
             </TableFooter>
           </Table>
         </TableContainer>
       </Box>
     </Container>
+  )
+}
+
+function tablePagination({
+  count,
+  page,
+  rowsPerPage,
+  setPage,
+  setRowsPerPage,
+}) {
+  return (
+    <TablePagination
+      count={count}
+      rowsPerPage={rowsPerPage}
+      rowsPerPageOptions={[]}
+      page={page}
+      onChangeRowsPerPage={e => {
+        setRowsPerPage(e.target.value)
+        setPage(0)
+      }}
+      onChangePage={(_, newPage) => setPage(newPage)}
+    />
   )
 }
 
