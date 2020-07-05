@@ -151,7 +151,7 @@ export default function IndexPage(props) {
           <TableFooter>
             <TableRow>
               <TablePagination
-                count={items.length}
+                count={filtered.length}
                 rowsPerPageOptions={[10, 25, 50]}
                 rowsPerPage={rowsPerPage}
                 page={page}
