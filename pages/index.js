@@ -184,8 +184,8 @@ export default function IndexPage(props) {
               <TableRow>
                 <TablePagination
                   count={filtered.length}
-                  rowsPerPageOptions={[10, 25, 50]}
                   rowsPerPage={rowsPerPage}
+                  rowsPerPageOptions={[]}
                   page={page}
                   onChangeRowsPerPage={e => {
                     setRowsPerPage(e.target.value)
