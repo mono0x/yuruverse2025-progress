@@ -27,10 +27,9 @@ module.exports = {
     },
   },
   "rules": {
-    "prettier/prettier": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
-    'react/react-in-jsx-scope': "off",
+    "react/react-in-jsx-scope": "off",
     "react/prop-types": 0,
     "sort-imports": "off",
     "simple-import-sort/sort": "error",
@@ -39,8 +38,5 @@ module.exports = {
     "react": {
       "version": "detect",
     },
-    "linkComponents": [
-      { "name": "Link", "linkAttribute": "to" },
-    ],
   },
 }
