@@ -1,9 +1,9 @@
 import {
-  AppBar,
   Box,
   Container,
   FormControl,
   InputLabel,
+  Link,
   MenuItem,
   Select,
   Table,
@@ -14,13 +14,14 @@ import {
   TableHead,
   TablePagination,
   TableRow,
-  Typography,
 } from "@material-ui/core"
-import fs from "fs"
 import palette from "google-palette"
-import path from "path"
+import NextLink from "next/link"
 import { useMemo, useState } from "react"
 import { Line } from "react-chartjs-2"
+
+import Header from "../components/Header"
+import getAll from "../src/getAll"
 
 export default function IndexPage(props) {
   const { items } = props
@@ -60,21 +61,12 @@ export default function IndexPage(props) {
     )
   }, [filtered, page, rowsPerPage])
 
-  const dates = useMemo(() => {
-    const dates = new Set()
-    paginated
-      .flatMap(item => item.records.map(record => record.date))
-      .forEach(date => dates.add(date))
-    return Array.from(dates)
-  }, [paginated])
-
   const colors = useMemo(() => {
     return palette("mpn65", rowsPerPage).map(hex => `#${hex}`)
   }, [rowsPerPage])
 
   const data = useMemo(() => {
     return {
-      labels: dates,
       datasets: paginated.map((item, i) => ({
         label: item.character.name,
         borderColor: colors[i],
@@ -86,14 +78,13 @@ export default function IndexPage(props) {
         })),
       })),
     }
-  }, [paginated, dates, colors])
+  }, [paginated, colors])
 
   return (
-    <Container disableGutters={true} maxWidth={false}>
-      <AppBar position="static">
-        <Typography variant="h6">YuruGP 2020 Progress</Typography>
-      </AppBar>
-      <Box m={1}>
+    <div>
+      <Header />
+
+      <Container>
         <Box>
           <FormControl>
             <InputLabel id="kind-select-label">Kind</InputLabel>
@@ -169,7 +160,15 @@ export default function IndexPage(props) {
                   <TableCell align="right">
                     {item.records[item.records.length - 1].rank}
                   </TableCell>
-                  <TableCell>{item.character.name}</TableCell>
+                  <TableCell>
+                    <Link
+                      component={NextLink}
+                      href="/characters/[id]"
+                      as={`/characters/${item.character.id}`}
+                    >
+                      {item.character.name}
+                    </Link>
+                  </TableCell>
                   <TableCell align="right">
                     {item.records[item.records.length - 1].point}
                   </TableCell>
@@ -177,7 +176,7 @@ export default function IndexPage(props) {
                     {item.records.length >= 2
                       ? item.records[item.records.length - 1].point -
                         item.records[item.records.length - 2].point
-                      : "-"}
+                      : item.records[0].point}
                   </TableCell>
                   <TableCell align="right">
                     {oneRankHigher[i] !== null
@@ -202,8 +201,8 @@ export default function IndexPage(props) {
             </TableFooter>
           </Table>
         </TableContainer>
-      </Box>
-    </Container>
+      </Container>
+    </div>
   )
 }
 
@@ -229,12 +228,8 @@ function tablePagination({
   )
 }
 
-export function getStaticProps() {
-  const data = fs.readFileSync(
-    path.join(process.cwd(), "public", "all.json"),
-    "utf8"
-  )
-  const items = JSON.parse(data)
+export async function getStaticProps() {
+  const items = await getAll()
   return {
     props: {
       items,

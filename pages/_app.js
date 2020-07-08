@@ -4,20 +4,19 @@ import Head from "next/head"
 import Router from "next/router"
 import React from "react"
 
-import theme from "../src/theme"
-
 import * as gtag from "../src/gtag"
+import theme from "../src/theme"
 
 export default function MyApp(props) {
   const { Component, pageProps } = props
 
   React.useEffect(() => {
-    const handleRouteChange = (url) => {
+    const handleRouteChange = url => {
       gtag.pageview(url)
     }
-    Router.events.on('routeChangeComplete', handleRouteChange)
+    Router.events.on("routeChangeComplete", handleRouteChange)
     return () => {
-      Router.events.off('routeChangeComplete', handleRouteChange)
+      Router.events.off("routeChangeComplete", handleRouteChange)
     }
   }, [])
 
@@ -32,7 +31,6 @@ export default function MyApp(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>YuruGP 2020 Progress</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"

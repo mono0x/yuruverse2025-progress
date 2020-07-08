@@ -26,6 +26,11 @@ const theme = createMuiTheme({
         padding: "6px 6px 6px 4px",
       },
     },
+    MuiTypography: {
+      h1: {
+        fontSize: 36,
+      },
+    },
   },
 })
 
