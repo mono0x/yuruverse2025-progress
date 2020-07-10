@@ -30,8 +30,8 @@ func fetch() error {
 		return errors.WithStack(err)
 	}
 
-	date := time.Now().Add(-12 * time.Hour)
-	dateString := date.Format(yurugp.DateFormat)
+	date := time.Now().UTC().Add(-3 * time.Hour)
+	dateString := date.Format(yurugp.DateFormat) // Date changes every noon in UTC+9
 
 	currentURL := baseURL
 	var items []*yurugp.RawItem
