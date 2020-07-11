@@ -9,13 +9,19 @@ import {
   TableRow,
 } from "@material-ui/core"
 import palette from "google-palette"
+import { GetStaticPaths, GetStaticProps } from "next"
 import { useMemo } from "react"
 import { Bar } from "react-chartjs-2"
 
 import Header from "../../components/Header"
 import getAll from "../../src/getAll"
+import { Item } from "../../src/types"
 
-export default function CharacterPage(props) {
+type Props = {
+  item: Item
+}
+
+const CharacterPage: React.FC<Props> = props => {
   const { item } = props
 
   const colors = useMemo(() => {
@@ -33,8 +39,10 @@ export default function CharacterPage(props) {
         return [{ x: records[i].date, y: records[i].point }]
       }
       const days =
-        (new Date(records[i].date) - new Date(records[i - 1].date)) / 86400000
-      return [...Array(days).keys()].map(j => {
+        (new Date(records[i].date).getTime() -
+          new Date(records[i - 1].date).getTime()) /
+        86400000
+      return Array.from(Array(days).keys()).map(j => {
         const date = new Date(records[i - 1].date)
         date.setDate(date.getDate() + j + 1)
         return {
@@ -148,21 +156,21 @@ export default function CharacterPage(props) {
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const items = await getAll()
-  const paths = items.map(item => `/characters/${item.character.id}`)
+  const paths = items.map(item => ({ params: { id: item.character.id } }))
   return {
     paths,
     fallback: false,
   }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const items = await getAll()
   const item = items.find(item => item.character.id === params.id)
   return {
-    props: {
-      item,
-    },
+    props: { item: item },
   }
 }
+
+export default CharacterPage

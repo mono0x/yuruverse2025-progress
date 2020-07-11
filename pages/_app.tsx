@@ -1,5 +1,6 @@
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { ThemeProvider } from "@material-ui/core/styles"
+import { AppProps } from "next/app"
 import Head from "next/head"
 import Router from "next/router"
 import React from "react"
@@ -7,9 +8,7 @@ import React from "react"
 import * as gtag from "../src/gtag"
 import theme from "../src/theme"
 
-export default function MyApp(props) {
-  const { Component, pageProps } = props
-
+const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   React.useEffect(() => {
     const handleRouteChange = url => {
       gtag.pageview(url)
@@ -44,3 +43,5 @@ export default function MyApp(props) {
     </React.Fragment>
   )
 }
+
+export default MyApp

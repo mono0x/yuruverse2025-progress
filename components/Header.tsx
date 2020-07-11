@@ -11,7 +11,11 @@ import MoreIcon from "@material-ui/icons/MoreVert"
 import Head from "next/head"
 import { useState } from "react"
 
-export default function Header(props) {
+type Props = {
+  title?: string
+}
+
+const Header: React.FC<Props> = props => {
   const { title } = props
 
   const [moreAnchorEl, setMoreAnchorEl] = useState(null)
@@ -79,3 +83,5 @@ export default function Header(props) {
     </div>
   )
 }
+
+export default Header

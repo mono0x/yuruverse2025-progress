@@ -16,17 +16,23 @@ import {
   TableRow,
 } from "@material-ui/core"
 import palette from "google-palette"
+import { GetStaticProps } from "next"
 import NextLink from "next/link"
 import { useMemo, useState } from "react"
 import { Line } from "react-chartjs-2"
 
 import Header from "../components/Header"
 import getAll from "../src/getAll"
+import { Item, Kind } from "../src/types"
 
-export default function IndexPage(props) {
+type Props = {
+  items: Item[]
+}
+
+const IndexPage: React.FC<Props> = props => {
   const { items } = props
 
-  const [kind, setKind] = useState("LOCAL")
+  const [kind, setKind] = useState<Kind>(Kind.LOCAL)
 
   const [rowsPerPage, setRowsPerPage] = useState(10)
   const [page, setPage] = useState(0)
@@ -93,12 +99,12 @@ export default function IndexPage(props) {
               id="kind-select"
               value={kind}
               onChange={e => {
-                setKind(e.target.value)
+                setKind(e.target.value as Kind)
                 setPage(0)
               }}
             >
-              <MenuItem value="LOCAL">ご当地</MenuItem>
-              <MenuItem value="COMPANY">企業・その他</MenuItem>
+              <MenuItem value={Kind.LOCAL}>ご当地</MenuItem>
+              <MenuItem value={Kind.COMPANY}>企業・その他</MenuItem>
             </Select>
           </FormControl>
         </Box>
@@ -228,7 +234,7 @@ function tablePagination({
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const items = await getAll()
   return {
     props: {
@@ -236,3 +242,5 @@ export async function getStaticProps() {
     },
   }
 }
+
+export default IndexPage
