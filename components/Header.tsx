@@ -18,11 +18,7 @@ type Props = {
 const Header: React.FC<Props> = props => {
   const { title } = props
 
-  const [moreAnchorEl, setMoreAnchorEl] = useState(null)
-
-  const handleMoreMenuOpen = e => {
-    setMoreAnchorEl(e.currentTarget)
-  }
+  const [moreAnchorEl, setMoreAnchorEl] = useState<HTMLElement | null>(null)
 
   const handleMoreMenuClose = () => {
     setMoreAnchorEl(null)
@@ -34,8 +30,8 @@ const Header: React.FC<Props> = props => {
         {title ? (
           <title>{title} | YuruGP 2020 Progress</title>
         ) : (
-          <title>YuruGP 2020 Progress</title>
-        )}
+            <title>YuruGP 2020 Progress</title>
+          )}
       </Head>
 
       <AppBar position="static">
@@ -50,7 +46,7 @@ const Header: React.FC<Props> = props => {
               aria-label="Display more actions"
               aria-haspopup="true"
               color="inherit"
-              onClick={handleMoreMenuOpen}
+              onClick={e => setMoreAnchorEl(e.currentTarget)}
             >
               <MoreIcon />
             </IconButton>
