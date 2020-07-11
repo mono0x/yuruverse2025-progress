@@ -15,13 +15,12 @@ import {
   TablePagination,
   TableRow,
 } from "@material-ui/core"
-import palette from "google-palette"
 import { GetStaticProps } from "next"
 import NextLink from "next/link"
 import { useMemo, useState } from "react"
-import { Line } from "react-chartjs-2"
 
 import Header from "../components/Header"
+import TotalPointChart from "../components/TotalPointChart"
 import getAll from "../src/getAll"
 import { Item, Kind } from "../src/types"
 
@@ -67,25 +66,6 @@ const IndexPage: React.FC<Props> = props => {
     )
   }, [filtered, page, rowsPerPage])
 
-  const colors = useMemo(() => {
-    return palette("mpn65", rowsPerPage).map(hex => `#${hex}`)
-  }, [rowsPerPage])
-
-  const data = useMemo(() => {
-    return {
-      datasets: paginated.map((item, i) => ({
-        label: item.character.name,
-        borderColor: colors[i],
-        fill: false,
-        lineTension: 0,
-        data: item.records.map(record => ({
-          t: record.date,
-          y: record.point,
-        })),
-      })),
-    }
-  }, [paginated, colors])
-
   return (
     <div>
       <Header />
@@ -116,28 +96,7 @@ const IndexPage: React.FC<Props> = props => {
             height: "50vh",
           }}
         >
-          <Line
-            data={data}
-            options={{
-              responsive: true,
-              maintainAspectRatio: false,
-              scales: {
-                xAxes: [
-                  {
-                    type: "time",
-                    time: {
-                      unit: "day",
-                    },
-                  },
-                ],
-                yAxes: [
-                  {
-                    beginAtZero: true,
-                  },
-                ],
-              },
-            }}
-          />
+          <TotalPointChart items={paginated} />
         </Box>
 
         <TableContainer>

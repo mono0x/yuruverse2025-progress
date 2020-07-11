@@ -30,8 +30,8 @@ const Header: React.FC<Props> = props => {
         {title ? (
           <title>{title} | YuruGP 2020 Progress</title>
         ) : (
-            <title>YuruGP 2020 Progress</title>
-          )}
+          <title>YuruGP 2020 Progress</title>
+        )}
       </Head>
 
       <AppBar position="static">
