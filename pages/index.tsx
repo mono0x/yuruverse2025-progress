@@ -34,8 +34,8 @@ const IndexPage: React.FC<Props> = props => {
 
   const [kind, setKind] = useState<Kind>(Kind.LOCAL)
 
-  const [rowsPerPage, setRowsPerPage] = useState(10)
   const [page, setPage] = useState(0)
+  const rowsPerPage = 10
 
   const filtered = useMemo(() => {
     const filtered = items.filter(item => item.character.kind == kind)
@@ -52,7 +52,7 @@ const IndexPage: React.FC<Props> = props => {
   }, [filtered, page, rowsPerPage])
 
   const oneRankHigher = useMemo(() => {
-    if (page === 0) {
+    if (page == 0) {
       return [
         null,
         ...filtered.slice(
@@ -149,7 +149,6 @@ const IndexPage: React.FC<Props> = props => {
                   page: page,
                   rowsPerPage: rowsPerPage,
                   setPage: setPage,
-                  setRowsPerPage: setRowsPerPage,
                 })}
               </TableRow>
               <TableRow>
@@ -178,18 +177,9 @@ const IndexPage: React.FC<Props> = props => {
                   <TableCell align="right">
                     {item.records[item.records.length - 1].point}
                   </TableCell>
+                  <TableCell align="right">{plusPoint(item)}</TableCell>
                   <TableCell align="right">
-                    {item.records.length >= 2
-                      ? item.records[item.records.length - 1].point -
-                        item.records[item.records.length - 2].point
-                      : item.records[0].point}
-                  </TableCell>
-                  <TableCell align="right">
-                    {oneRankHigher[i] !== null
-                      ? oneRankHigher[i].records[
-                          oneRankHigher[i].records.length - 1
-                        ].point - item.records[item.records.length - 1].point
-                      : "-"}
+                    {behind(item, oneRankHigher[i]) || "-"}
                   </TableCell>
                 </TableRow>
               ))}
@@ -201,7 +191,6 @@ const IndexPage: React.FC<Props> = props => {
                   page: page,
                   rowsPerPage: rowsPerPage,
                   setPage: setPage,
-                  setRowsPerPage: setRowsPerPage,
                 })}
               </TableRow>
             </TableFooter>
@@ -217,20 +206,40 @@ function tablePagination({
   page,
   rowsPerPage,
   setPage,
-  setRowsPerPage,
-}) {
+}: {
+  count: number
+  page: number
+  rowsPerPage: number
+  setPage: (newPage: number) => void
+}): JSX.Element {
   return (
     <TablePagination
       count={count}
       rowsPerPage={rowsPerPage}
       rowsPerPageOptions={[]}
       page={page}
-      onChangeRowsPerPage={e => {
-        setRowsPerPage(e.target.value)
-        setPage(0)
-      }}
       onChangePage={(_, newPage) => setPage(newPage)}
     />
+  )
+}
+
+function plusPoint(item: Item): number {
+  if (item.records.length == 1) {
+    return item.records[0].point
+  }
+  return (
+    item.records[item.records.length - 1].point -
+    item.records[item.records.length - 2].point
+  )
+}
+
+function behind(item: Item, oneRankHigher: Item | null): number | null {
+  if (oneRankHigher == null) {
+    return null
+  }
+  return (
+    oneRankHigher.records[oneRankHigher.records.length - 1].point -
+    item.records[item.records.length - 1].point
   )
 }
 

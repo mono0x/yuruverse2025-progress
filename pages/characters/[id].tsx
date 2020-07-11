@@ -165,9 +165,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const items = await getAll()
-  const item = items.find(item => item.character.id === params.id)
+  const item = items.find(item => item.character.id == params.id)
   return {
     props: { item: item },
   }
