@@ -39,7 +39,7 @@ const TotalPointChart: React.FC<Props> = ({ items }) => {
             {
               type: "time",
               time: {
-                unit: "day",
+                minUnit: "day",
               },
             },
           ],
