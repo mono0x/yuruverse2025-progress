@@ -1,3 +1,4 @@
+import { ChartPoint } from "chart.js"
 import palette from "google-palette"
 import { useMemo } from "react"
 import { Line } from "react-chartjs-2"
@@ -47,9 +48,24 @@ const TotalPointChart: React.FC<Props> = ({ items }) => {
             {
               ticks: {
                 beginAtZero: true,
+                callback: value => {
+                  return value.toLocaleString()
+                },
               },
             },
           ],
+        },
+        tooltips: {
+          callbacks: {
+            label: (item, data) => {
+              /* eslint-disable @typescript-eslint/no-non-null-assertion */
+              const dataset = data!.datasets![item.datasetIndex!]!
+              const name = dataset.label
+              const value = (dataset.data![item.index!] as ChartPoint).y!
+              /* eslint-enable */
+              return `${name}: ${value.toLocaleString()}`
+            },
+          },
         },
       }}
     />

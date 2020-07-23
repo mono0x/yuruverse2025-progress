@@ -123,7 +123,9 @@ const IndexPage: React.FC<Props> = props => {
               {paginated.map((item, i) => (
                 <TableRow key={item.character.id}>
                   <TableCell align="right">
-                    {item.records[item.records.length - 1].rank}
+                    {item.records[
+                      item.records.length - 1
+                    ].rank.toLocaleString()}
                   </TableCell>
                   <TableCell>
                     <Link
@@ -135,11 +137,15 @@ const IndexPage: React.FC<Props> = props => {
                     </Link>
                   </TableCell>
                   <TableCell align="right">
-                    {item.records[item.records.length - 1].point}
+                    {item.records[
+                      item.records.length - 1
+                    ].point.toLocaleString()}
                   </TableCell>
-                  <TableCell align="right">{plusPoint(item)}</TableCell>
                   <TableCell align="right">
-                    {behind(item, oneRankHigher[i]) ?? "-"}
+                    {plusPoint(item).toLocaleString()}
+                  </TableCell>
+                  <TableCell align="right">
+                    {behind(item, oneRankHigher[i])?.toLocaleString() ?? "-"}
                   </TableCell>
                 </TableRow>
               ))}

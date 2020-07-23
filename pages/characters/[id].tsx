@@ -8,6 +8,7 @@ import {
   TableHead,
   TableRow,
 } from "@material-ui/core"
+import { ChartPoint } from "chart.js"
 import palette from "google-palette"
 import { GetStaticPaths, GetStaticProps } from "next"
 import { useMemo } from "react"
@@ -49,9 +50,9 @@ const CharacterPage: React.FC<Props> = props => {
           x: `${date.getFullYear()}-${(date.getMonth() + 1)
             .toString()
             .padStart(2, "0")}-${date
-              .getDate()
-              .toString()
-              .padStart(2, "0")}`,
+            .getDate()
+            .toString()
+            .padStart(2, "0")}`,
           y: (records[i].point - records[i - 1].point) / days,
         }
       })
@@ -113,6 +114,9 @@ const CharacterPage: React.FC<Props> = props => {
                     position: "left",
                     ticks: {
                       beginAtZero: true,
+                      callback: value => {
+                        return value.toLocaleString()
+                      },
                     },
                   },
                   {
@@ -121,9 +125,24 @@ const CharacterPage: React.FC<Props> = props => {
                     gridLines: { display: false },
                     ticks: {
                       beginAtZero: true,
+                      callback: value => {
+                        return value.toLocaleString()
+                      },
                     },
                   },
                 ],
+              },
+              tooltips: {
+                callbacks: {
+                  label: (item, data) => {
+                    /* eslint-disable @typescript-eslint/no-non-null-assertion */
+                    const dataset = data!.datasets![item.datasetIndex!]!
+                    const name = dataset.label
+                    const value = (dataset.data![item.index!] as ChartPoint).y!
+                    /* eslint-enable */
+                    return `${name}: ${value.toLocaleString()}`
+                  },
+                },
               },
             }}
           />
@@ -143,12 +162,17 @@ const CharacterPage: React.FC<Props> = props => {
               {item.records.map((record, i) => (
                 <TableRow key={record.date}>
                   <TableCell>{record.date}</TableCell>
-                  <TableCell align="right">{record.rank}</TableCell>
-                  <TableCell align="right">{record.point}</TableCell>
                   <TableCell align="right">
-                    {i > 0
+                    {record.rank.toLocaleString()}
+                  </TableCell>
+                  <TableCell align="right">
+                    {record.point.toLocaleString()}
+                  </TableCell>
+                  <TableCell align="right">
+                    {(i > 0
                       ? record.point - item.records[i - 1].point
-                      : record.point}
+                      : record.point
+                    ).toLocaleString()}
                   </TableCell>
                 </TableRow>
               ))}
