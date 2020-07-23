@@ -45,7 +45,9 @@ const TotalPointChart: React.FC<Props> = ({ items }) => {
           ],
           yAxes: [
             {
-              beginAtZero: true,
+              ticks: {
+                beginAtZero: true,
+              },
             },
           ],
         },

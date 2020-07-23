@@ -49,9 +49,9 @@ const CharacterPage: React.FC<Props> = props => {
           x: `${date.getFullYear()}-${(date.getMonth() + 1)
             .toString()
             .padStart(2, "0")}-${date
-            .getDate()
-            .toString()
-            .padStart(2, "0")}`,
+              .getDate()
+              .toString()
+              .padStart(2, "0")}`,
           y: (records[i].point - records[i - 1].point) / days,
         }
       })
@@ -110,14 +110,18 @@ const CharacterPage: React.FC<Props> = props => {
                 yAxes: [
                   {
                     id: "totalPoints",
-                    beginAtZero: true,
                     position: "left",
+                    ticks: {
+                      beginAtZero: true,
+                    },
                   },
                   {
                     id: "plusPoints",
-                    beginAtZero: true,
                     position: "right",
                     gridLines: { display: false },
+                    ticks: {
+                      beginAtZero: true,
+                    },
                   },
                 ],
               },
