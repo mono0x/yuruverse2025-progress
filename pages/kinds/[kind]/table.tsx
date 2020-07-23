@@ -48,7 +48,7 @@ const ChartApiPage: React.FC<Props> = props => {
               </TableCell>
               <TableCell align="right">{plusPoint(item)}</TableCell>
               <TableCell align="right">
-                {behind(item, oneRankHigher[i]) || "-"}
+                {behind(item, oneRankHigher[i]) ?? "-"}
               </TableCell>
             </TableRow>
           ))}
