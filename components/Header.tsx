@@ -18,10 +18,12 @@ type Props = {
 const Header: React.FC<Props> = props => {
   const { title } = props
 
-  const [moreAnchorEl, setMoreAnchorEl] = useState<HTMLElement | null>(null)
+  const [moreAnchorEl, setMoreAnchorEl] = useState<HTMLElement | undefined>(
+    undefined
+  )
 
   const handleMoreMenuClose = () => {
-    setMoreAnchorEl(null)
+    setMoreAnchorEl(undefined)
   }
 
   return (
@@ -53,7 +55,7 @@ const Header: React.FC<Props> = props => {
             <Menu
               anchorEl={moreAnchorEl}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-              open={moreAnchorEl !== null}
+              open={!!moreAnchorEl}
               onClose={handleMoreMenuClose}
             >
               <MenuItem

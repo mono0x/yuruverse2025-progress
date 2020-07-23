@@ -1,18 +1,12 @@
-import { GetStaticPaths, GetStaticProps } from "next"
 import {
-  Box,
-  Link,
-  MenuItem,
-  Select,
   Table,
   TableBody,
   TableCell,
   TableContainer,
-  TableFooter,
   TableHead,
-  TablePagination,
   TableRow,
 } from "@material-ui/core"
+import { GetStaticPaths, GetStaticProps } from "next"
 import { useMemo } from "react"
 
 import getAll from "../../src/getAll"
@@ -27,10 +21,7 @@ const ChartApiPage: React.FC<Props> = props => {
   const { items } = props
 
   const oneRankHigher = useMemo(() => {
-    return [
-      null,
-      ...items.slice(0, 9)
-    ]
+    return [undefined, ...items.slice(0, 9)]
   }, [items])
 
   return (
@@ -51,9 +42,7 @@ const ChartApiPage: React.FC<Props> = props => {
               <TableCell align="right">
                 {item.records[item.records.length - 1].rank}
               </TableCell>
-              <TableCell>
-                {item.character.name}
-              </TableCell>
+              <TableCell> {item.character.name} </TableCell>
               <TableCell align="right">
                 {item.records[item.records.length - 1].point}
               </TableCell>

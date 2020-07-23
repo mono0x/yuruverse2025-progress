@@ -1,8 +1,8 @@
 import { Item } from "./types"
 
-export function behind(item: Item, oneRankHigher: Item | null): number | null {
-  if (oneRankHigher == null) {
-    return null
+export function behind(item: Item, oneRankHigher?: Item): number | undefined {
+  if (!oneRankHigher) {
+    return
   }
   return (
     oneRankHigher.records[oneRankHigher.records.length - 1].point -

@@ -54,7 +54,7 @@ const IndexPage: React.FC<Props> = props => {
   const oneRankHigher = useMemo(() => {
     if (page == 0) {
       return [
-        null,
+        undefined,
         ...filtered.slice(
           page * rowsPerPage,
           page * rowsPerPage + rowsPerPage - 1
@@ -139,7 +139,7 @@ const IndexPage: React.FC<Props> = props => {
                   </TableCell>
                   <TableCell align="right">{plusPoint(item)}</TableCell>
                   <TableCell align="right">
-                    {behind(item, oneRankHigher[i]) || "-"}
+                    {behind(item, oneRankHigher[i]) ?? "-"}
                   </TableCell>
                 </TableRow>
               ))}
