@@ -47,12 +47,15 @@ const CharacterPage: React.FC<Props> = props => {
         const date = new Date(records[i - 1].date)
         date.setDate(date.getDate() + j + 1)
         return {
-          x: `${date.getFullYear()}-${(date.getMonth() + 1)
-            .toString()
-            .padStart(2, "0")}-${date
-            .getDate()
-            .toString()
-            .padStart(2, "0")}`,
+          x: (date => {
+            const year = date.getFullYear()
+            const month = (date.getMonth() + 1).toString().padStart(2, "0")
+            const day = date
+              .getDate()
+              .toString()
+              .padStart(2, "0")
+            return `${year}-${month}-${day}` // YYYY-MM-DD
+          })(date),
           y: (records[i].point - records[i - 1].point) / days,
         }
       })
