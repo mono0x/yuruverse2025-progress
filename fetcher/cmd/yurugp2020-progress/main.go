@@ -14,7 +14,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/jszwec/csvutil"
-	"github.com/mono0x/yurugp2020-progress/yurugp"
+	"github.com/mono0x/yurugp2020-progress/fetcher/yurugp"
 	"github.com/pkg/errors"
 )
 
