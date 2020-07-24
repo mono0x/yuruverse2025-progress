@@ -4,19 +4,25 @@ import {
   Link,
   Menu,
   MenuItem,
+  Tab,
+  Tabs,
   Toolbar,
   Typography,
 } from "@material-ui/core"
 import MoreIcon from "@material-ui/icons/MoreVert"
 import Head from "next/head"
+import Router from "next/router"
 import { useState } from "react"
+
+import { Kind } from "../types"
 
 type Props = {
   title?: string
+  kind: Kind
 }
 
 const Header: React.FC<Props> = props => {
-  const { title } = props
+  const { kind, title } = props
 
   const [moreAnchorEl, setMoreAnchorEl] = useState<HTMLElement | undefined>(
     undefined
@@ -25,6 +31,19 @@ const Header: React.FC<Props> = props => {
   const handleMoreMenuClose = () => {
     setMoreAnchorEl(undefined)
   }
+
+  const tabs = [
+    {
+      value: Kind.LOCAL,
+      label: "ご当地",
+      href: "/",
+    },
+    {
+      value: Kind.COMPANY,
+      label: "企業・その他",
+      href: "/company/",
+    },
+  ]
 
   return (
     <div>
@@ -77,6 +96,20 @@ const Header: React.FC<Props> = props => {
             </Menu>
           </div>
         </Toolbar>
+        <Tabs value={kind} variant="fullWidth">
+          {tabs.map(tab => (
+            <Tab
+              key={tab.value}
+              value={tab.value}
+              label={tab.label}
+              href={tab.href}
+              onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+                e.preventDefault()
+                Router.push(tab.href)
+              }}
+            />
+          ))}
+        </Tabs>
       </AppBar>
     </div>
   )

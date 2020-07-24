@@ -87,7 +87,7 @@ const CharacterPage: React.FC<Props> = props => {
 
   return (
     <div>
-      <Header title={item.character.name} />
+      <Header kind={item.character.kind} title={item.character.name} />
 
       <Container>
         <Box

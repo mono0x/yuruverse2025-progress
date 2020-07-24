@@ -7,22 +7,17 @@ import {
   TableRow,
 } from "@material-ui/core"
 import { GetStaticPaths, GetStaticProps } from "next"
-import { useMemo } from "react"
 
 import getAll from "../../../getAll"
-import { Item, Kind } from "../../../types"
-import { behind, plusPoint } from "../../../utils"
+import { Kind, RankItem } from "../../../types"
+import { toRankItems } from "../../../utils"
 
 type Props = {
-  items: Item[]
+  rankItems: RankItem[]
 }
 
 const ChartApiPage: React.FC<Props> = props => {
-  const { items } = props
-
-  const oneRankHigher = useMemo(() => {
-    return [undefined, ...items.slice(0, 9)]
-  }, [items])
+  const { rankItems } = props
 
   return (
     <TableContainer>
@@ -37,20 +32,20 @@ const ChartApiPage: React.FC<Props> = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {items.map((item, i) => (
+          {rankItems.map(item => (
             <TableRow key={item.character.id}>
               <TableCell align="right">
-                {item.records[item.records.length - 1].rank.toLocaleString()}
+                {item.record.rank.toLocaleString()}
               </TableCell>
               <TableCell> {item.character.name} </TableCell>
               <TableCell align="right">
-                {item.records[item.records.length - 1].point.toLocaleString()}
+                {item.record.point.toLocaleString()}
               </TableCell>
               <TableCell align="right">
-                {plusPoint(item).toLocaleString()}
+                {item.plusPoint.toLocaleString()}
               </TableCell>
               <TableCell align="right">
-                {behind(item, oneRankHigher[i])?.toLocaleString() ?? "-"}
+                {item.behindPoint?.toLocaleString() ?? "-"}
               </TableCell>
             </TableRow>
           ))}
@@ -71,15 +66,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
-  const items = await getAll()
-  const filtered = items.filter(item => item.character.kind == params.kind)
+  const rankItems = await getAll()
+  const filtered = rankItems.filter(item => item.character.kind == params.kind)
   filtered.sort(
     (a, b) =>
       a.records[a.records.length - 1].rank -
       b.records[b.records.length - 1].rank
   )
   return {
-    props: { items: filtered.slice(0, 10) },
+    props: { rankItems: toRankItems(filtered.slice(0, 10)) },
   }
 }
 

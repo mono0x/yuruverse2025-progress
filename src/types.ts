@@ -25,3 +25,10 @@ export type Item = {
   character: Character
   records: Record[]
 }
+
+export type RankItem = {
+  character: Character
+  record: Record
+  plusPoint: number
+  behindPoint: number | null
+}

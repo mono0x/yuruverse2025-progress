@@ -1,12 +1,12 @@
 import { GetStaticProps } from "next"
 
-import RankingView from "../components/RankingView"
-import getAll from "../getAll"
-import { Kind } from "../types"
-import { getRankingViewProps } from "../utils"
+import RankingView from "../../components/RankingView"
+import getAll from "../../getAll"
+import { Kind } from "../../types"
+import { getRankingViewProps } from "../../utils"
 
-const kind = Kind.LOCAL
-const prefix = "/"
+const kind = Kind.COMPANY
+const prefix = "/company/"
 
 export const getStaticProps: GetStaticProps = async () => {
   const pageNumber = 1
