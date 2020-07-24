@@ -31,8 +31,6 @@ const Pager: React.FC<Props> = props => {
       <Pagination
         page={page}
         count={pages}
-        showFirstButton
-        showLastButton
         renderItem={item => {
           const l = link(item.page)
           return (
