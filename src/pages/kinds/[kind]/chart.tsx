@@ -2,8 +2,8 @@ import { Box } from "@material-ui/core"
 import { GetStaticPaths, GetStaticProps } from "next"
 
 import TotalPointChart from "../../../components/TotalPointChart"
-import getAll from "../../../src/getAll"
-import { Item, Kind } from "../../../src/types"
+import getAll from "../../../getAll"
+import { Item, Kind } from "../../../types"
 
 type Props = {
   items: Item[]

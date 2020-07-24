@@ -2,8 +2,8 @@ import { ServerStyleSheets } from "@material-ui/core/styles"
 import Document, { Head, Html, Main, NextScript } from "next/document"
 import React from "react"
 
-import { GA_TRACKING_ID } from "../src/gtag"
-import theme from "../src/theme"
+import { GA_TRACKING_ID } from "../gtag"
+import theme from "../theme"
 
 export default class MyDocument extends Document {
   render(): JSX.Element {

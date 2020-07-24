@@ -5,8 +5,8 @@ import Head from "next/head"
 import Router from "next/router"
 import React from "react"
 
-import * as gtag from "../src/gtag"
-import theme from "../src/theme"
+import * as gtag from "../gtag"
+import theme from "../theme"
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   React.useEffect(() => {

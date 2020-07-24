@@ -21,9 +21,9 @@ import { useMemo, useState } from "react"
 
 import Header from "../components/Header"
 import TotalPointChart from "../components/TotalPointChart"
-import getAll from "../src/getAll"
-import { Item, Kind } from "../src/types"
-import { behind, plusPoint } from "../src/utils"
+import getAll from "../getAll"
+import { Item, Kind } from "../types"
+import { behind, plusPoint } from "../utils"
 
 type Props = {
   items: Item[]

@@ -9,9 +9,9 @@ import {
 import { GetStaticPaths, GetStaticProps } from "next"
 import { useMemo } from "react"
 
-import getAll from "../../../src/getAll"
-import { Item, Kind } from "../../../src/types"
-import { behind, plusPoint } from "../../../src/utils"
+import getAll from "../../../getAll"
+import { Item, Kind } from "../../../types"
+import { behind, plusPoint } from "../../../utils"
 
 type Props = {
   items: Item[]

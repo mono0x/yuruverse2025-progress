@@ -15,8 +15,8 @@ import { useMemo } from "react"
 import { Bar } from "react-chartjs-2"
 
 import Header from "../../components/Header"
-import getAll from "../../src/getAll"
-import { Item } from "../../src/types"
+import getAll from "../../getAll"
+import { Item } from "../../types"
 
 type Props = {
   item: Item

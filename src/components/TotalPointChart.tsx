@@ -3,7 +3,7 @@ import palette from "google-palette"
 import { useMemo } from "react"
 import { Line } from "react-chartjs-2"
 
-import { Item } from "../src/types"
+import { Item } from "../types"
 
 type Props = {
   items: Item[]
