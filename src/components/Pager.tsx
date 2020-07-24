@@ -16,6 +16,7 @@ const Pager: React.FC<Props> = props => {
     if (page == 1) {
       return {
         href: prefix,
+        as: prefix,
       }
     }
     return {
