@@ -34,7 +34,7 @@ const CharacterPage: React.FC<Props> = props => {
   }, [item])
 
   const plusPoints = useMemo(() => {
-    const records = item.records
+    const records = item.records.filter(item => item.date <= "2020-09-15")
     return records.flatMap((_, i) => {
       if (i === 0) {
         return [{ x: records[i].date, y: records[i].point }]
