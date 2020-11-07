@@ -68,10 +68,7 @@ const RankingView: React.FC<RankingViewProps> = props => {
                     {item.record.rank.toLocaleString()}
                   </TableCell>
                   <TableCell>
-                    <NextLink
-                      href="/characters/[id]"
-                      as={`/characters/${item.character.id}`}
-                    >
+                    <NextLink href={`/characters/${item.character.id}`}>
                       <a>{item.character.name}</a>
                     </NextLink>
                   </TableCell>
