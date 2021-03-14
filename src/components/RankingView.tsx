@@ -25,7 +25,7 @@ export type RankingViewProps = {
   prefix: string
 }
 
-const RankingView: React.FC<RankingViewProps> = props => {
+const RankingView: React.FC<RankingViewProps> = (props) => {
   const { kind, items, rankItems, count, page, rowsPerPage, prefix } = props
 
   return (
@@ -62,7 +62,7 @@ const RankingView: React.FC<RankingViewProps> = props => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rankItems.map(item => (
+              {rankItems.map((item) => (
                 <TableRow key={item.character.id}>
                   <TableCell align="right">
                     {item.record.rank.toLocaleString()}

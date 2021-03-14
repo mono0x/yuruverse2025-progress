@@ -3,7 +3,7 @@ import { Item, Kind, RankItem } from "./types"
 
 export function toRankItems(items: Item[]): RankItem[] {
   let higher: RankItem | null = null
-  return items.map(item => {
+  return items.map((item) => {
     const records = item.records
     const record = records[records.length - 1]
     const rankItem = {
@@ -27,7 +27,7 @@ export function getRankingViewProps(
   page: number,
   prefix: string
 ): RankingViewProps {
-  const filtered = items.filter(item => item.character.kind == kind)
+  const filtered = items.filter((item) => item.character.kind == kind)
   filtered.sort(
     (a, b) =>
       a.records[a.records.length - 1].rank -

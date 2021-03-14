@@ -21,7 +21,7 @@ type Props = {
   kind: Kind
 }
 
-const Header: React.FC<Props> = props => {
+const Header: React.FC<Props> = (props) => {
   const { kind, title } = props
 
   const [moreAnchorEl, setMoreAnchorEl] = useState<HTMLElement | undefined>(
@@ -67,7 +67,7 @@ const Header: React.FC<Props> = props => {
               aria-label="Display more actions"
               aria-haspopup="true"
               color="inherit"
-              onClick={e => setMoreAnchorEl(e.currentTarget)}
+              onClick={(e) => setMoreAnchorEl(e.currentTarget)}
             >
               <MoreIcon />
             </IconButton>
@@ -97,7 +97,7 @@ const Header: React.FC<Props> = props => {
           </div>
         </Toolbar>
         <Tabs value={kind} variant="fullWidth">
-          {tabs.map(tab => (
+          {tabs.map((tab) => (
             <Tab
               key={tab.value}
               value={tab.value}

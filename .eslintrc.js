@@ -3,7 +3,6 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
-    "prettier/react",
   ],
   env: {
     browser: true,
@@ -28,7 +27,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": 0,
     "sort-imports": "off",
-    "simple-import-sort/sort": "error",
+    "simple-import-sort/imports": "error",
   },
   settings: {
     react: {
@@ -44,7 +43,6 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
         "plugin:prettier/recommended",
-        "prettier/react",
       ],
       plugins: [
         "@typescript-eslint",
@@ -58,7 +56,7 @@ module.exports = {
         "react/react-in-jsx-scope": "off",
         "react/prop-types": 0,
         "sort-imports": "off",
-        "simple-import-sort/sort": "error",
+        "simple-import-sort/imports": "error",
       },
     },
   ],

@@ -11,11 +11,11 @@ const rowsPerPage = 10
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const items = await getAll()
-  const filtered = items.filter(item => item.character.kind == kind)
+  const filtered = items.filter((item) => item.character.kind == kind)
   const pages = Math.ceil(filtered.length / rowsPerPage)
   const paths = Array.from(Array(pages + 1).keys())
     .slice(2) // skip 0 and 1
-    .map(page => ({ params: { page: page.toString() } }))
+    .map((page) => ({ params: { page: page.toString() } }))
   return {
     paths,
     fallback: false,

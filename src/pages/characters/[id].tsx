@@ -22,19 +22,19 @@ type Props = {
   item: Item
 }
 
-const CharacterPage: React.FC<Props> = props => {
+const CharacterPage: React.FC<Props> = (props) => {
   const { item } = props
 
   const colors = useMemo(() => {
-    return palette("mpn65", 2).map(hex => `#${hex}`)
+    return palette("mpn65", 2).map((hex) => `#${hex}`)
   }, [])
 
   const totalPoints = useMemo(() => {
-    return item.records.map(record => ({ x: record.date, y: record.point }))
+    return item.records.map((record) => ({ x: record.date, y: record.point }))
   }, [item])
 
   const plusPoints = useMemo(() => {
-    const records = item.records.filter(item => item.date <= "2020-09-15")
+    const records = item.records.filter((item) => item.date <= "2020-09-15")
     return records.flatMap((_, i) => {
       if (i === 0) {
         return [{ x: records[i].date, y: records[i].point }]
@@ -43,17 +43,14 @@ const CharacterPage: React.FC<Props> = props => {
         (new Date(records[i].date).getTime() -
           new Date(records[i - 1].date).getTime()) /
         86400000
-      return Array.from(Array(days).keys()).map(j => {
+      return Array.from(Array(days).keys()).map((j) => {
         const date = new Date(records[i - 1].date)
         date.setDate(date.getDate() + j + 1)
         return {
-          x: (date => {
+          x: ((date) => {
             const year = date.getFullYear()
             const month = (date.getMonth() + 1).toString().padStart(2, "0")
-            const day = date
-              .getDate()
-              .toString()
-              .padStart(2, "0")
+            const day = date.getDate().toString().padStart(2, "0")
             return `${year}-${month}-${day}` // YYYY-MM-DD
           })(date),
           y: (records[i].point - records[i - 1].point) / days,
@@ -117,7 +114,7 @@ const CharacterPage: React.FC<Props> = props => {
                     position: "left",
                     ticks: {
                       beginAtZero: true,
-                      callback: value => {
+                      callback: (value) => {
                         return value.toLocaleString()
                       },
                     },
@@ -128,7 +125,7 @@ const CharacterPage: React.FC<Props> = props => {
                     gridLines: { display: false },
                     ticks: {
                       beginAtZero: true,
-                      callback: value => {
+                      callback: (value) => {
                         return value.toLocaleString()
                       },
                     },
@@ -189,7 +186,7 @@ const CharacterPage: React.FC<Props> = props => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const items = await getAll()
-  const paths = items.map(item => ({ params: { id: item.character.id } }))
+  const paths = items.map((item) => ({ params: { id: item.character.id } }))
   return {
     paths,
     fallback: false,
@@ -198,7 +195,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const items = await getAll()
-  const item = items.find(item => item.character.id == params.id)
+  const item = items.find((item) => item.character.id == params.id)
   return {
     props: { item: item },
   }

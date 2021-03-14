@@ -9,7 +9,7 @@ type Props = {
   prefix: string
 }
 
-const Pager: React.FC<Props> = props => {
+const Pager: React.FC<Props> = (props) => {
   const { count, page, rowsPerPage, prefix } = props
 
   const link = (page: number) => {
@@ -32,7 +32,7 @@ const Pager: React.FC<Props> = props => {
       <Pagination
         page={page}
         count={pages}
-        renderItem={item => {
+        renderItem={(item) => {
           const l = link(item.page)
           return (
             <PaginationItem

@@ -9,7 +9,7 @@ type Props = {
   items: Item[]
 }
 
-const ChartApiPage: React.FC<Props> = props => {
+const ChartApiPage: React.FC<Props> = (props) => {
   const { items } = props
 
   return (
@@ -37,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const items = await getAll()
-  const filtered = items.filter(item => item.character.kind == params.kind)
+  const filtered = items.filter((item) => item.character.kind == params.kind)
   filtered.sort(
     (a, b) =>
       a.records[a.records.length - 1].rank -

@@ -11,7 +11,7 @@ type Props = {
 
 const TotalPointChart: React.FC<Props> = ({ items }) => {
   const colors = useMemo(() => {
-    return palette("mpn65", items.length).map(hex => `#${hex}`)
+    return palette("mpn65", items.length).map((hex) => `#${hex}`)
   }, [items.length])
 
   const data = useMemo(() => {
@@ -21,7 +21,7 @@ const TotalPointChart: React.FC<Props> = ({ items }) => {
         borderColor: colors[i],
         fill: false,
         lineTension: 0,
-        data: item.records.map(record => ({
+        data: item.records.map((record) => ({
           t: record.date,
           y: record.point,
         })),
@@ -48,7 +48,7 @@ const TotalPointChart: React.FC<Props> = ({ items }) => {
             {
               ticks: {
                 beginAtZero: true,
-                callback: value => {
+                callback: (value) => {
                   return value.toLocaleString()
                 },
               },

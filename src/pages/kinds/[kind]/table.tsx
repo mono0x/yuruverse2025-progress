@@ -16,7 +16,7 @@ type Props = {
   rankItems: RankItem[]
 }
 
-const ChartApiPage: React.FC<Props> = props => {
+const ChartApiPage: React.FC<Props> = (props) => {
   const { rankItems } = props
 
   return (
@@ -32,7 +32,7 @@ const ChartApiPage: React.FC<Props> = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rankItems.map(item => (
+          {rankItems.map((item) => (
             <TableRow key={item.character.id}>
               <TableCell align="right">
                 {item.record.rank.toLocaleString()}
@@ -67,7 +67,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const rankItems = await getAll()
-  const filtered = rankItems.filter(item => item.character.kind == params.kind)
+  const filtered = rankItems.filter(
+    (item) => item.character.kind == params.kind
+  )
   filtered.sort(
     (a, b) =>
       a.records[a.records.length - 1].rank -
