@@ -1,15 +1,11 @@
 module.exports = {
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
-  ],
+  extends: ["next", "next/core-web-vitals", "plugin:prettier/recommended"],
   env: {
     browser: true,
     es6: true,
     node: true,
   },
-  plugins: ["react", "react-hooks", "simple-import-sort"],
+  plugins: ["simple-import-sort"],
   globals: {
     __PATH_PREFIX__: true,
     graphql: false,
@@ -39,17 +35,13 @@ module.exports = {
       files: ["**/*.ts", "**/*.tsx"],
       parser: "@typescript-eslint/parser",
       extends: [
+        "next",
+        "next/core-web-vitals",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:react/recommended",
         "plugin:prettier/recommended",
       ],
-      plugins: [
-        "@typescript-eslint",
-        "react",
-        "react-hooks",
-        "simple-import-sort",
-      ],
+      plugins: ["@typescript-eslint", "simple-import-sort"],
       rules: {
         "react-hooks/exhaustive-deps": "warn",
         "react-hooks/rules-of-hooks": "error",
