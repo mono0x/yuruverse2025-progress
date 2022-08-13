@@ -10,15 +10,15 @@
     "chart.js": "^2.9.3",
     "google-palette": "^1.1.0",
     "next": "^12.1.0",
-    "react": "^17.0.0",
+    "react": "^18.2.0",
     "react-chartjs-2": "^2.9.0",
-    "react-dom": "^17.0.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/chart.js": "^2.9.23",
     "@types/gtag.js": "^0.0.8",
     "@types/node": "^16.11.7",
-    "@types/react": "^17.0.3",
+    "@types/react": "^18.0.17",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "eslint": "^7.4.0",
