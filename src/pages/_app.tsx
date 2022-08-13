@@ -2,23 +2,11 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import { ThemeProvider } from "@material-ui/core/styles"
 import { AppProps } from "next/app"
 import Head from "next/head"
-import Router from "next/router"
 import React from "react"
 
-import * as gtag from "../gtag"
 import theme from "../theme"
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-  React.useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      gtag.pageview(url)
-    }
-    Router.events.on("routeChangeComplete", handleRouteChange)
-    return () => {
-      Router.events.off("routeChangeComplete", handleRouteChange)
-    }
-  }, [])
-
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side")
