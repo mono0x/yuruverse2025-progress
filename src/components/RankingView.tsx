@@ -88,7 +88,7 @@ const RankingView: React.FC<RankingViewProps> = (props) => {
         </TableContainer>
       </Container>
     </div>
-  );
+  )
 }
 
 export default RankingView
