@@ -69,7 +69,7 @@ const RankingView: React.FC<RankingViewProps> = (props) => {
                   </TableCell>
                   <TableCell>
                     <NextLink href={`/characters/${item.character.id}`}>
-                      <a>{item.character.name}</a>
+                      {item.character.name}
                     </NextLink>
                   </TableCell>
                   <TableCell align="right">
@@ -88,7 +88,7 @@ const RankingView: React.FC<RankingViewProps> = (props) => {
         </TableContainer>
       </Container>
     </div>
-  )
+  );
 }
 
 export default RankingView

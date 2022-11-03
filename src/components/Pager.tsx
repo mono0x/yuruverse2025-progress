@@ -28,7 +28,7 @@ const Pager: React.FC<Props> = (props) => {
   const pages = Math.ceil(count / rowsPerPage)
 
   return (
-    <Grid container justify="center">
+    <Grid container justifyContent="center">
       <Pagination
         page={page}
         count={pages}
