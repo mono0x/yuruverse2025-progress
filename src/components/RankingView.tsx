@@ -15,10 +15,9 @@ import NextLink from "next/link"
 import Header from "../components/Header"
 import Pager from "../components/Pager"
 import TotalPointChart from "../components/TotalPointChart"
-import { Item, Kind, RankItem } from "../types"
+import { Item, RankItem } from "../types"
 
 export type RankingViewProps = {
-  kind: Kind
   items: Item[]
   rankItems: RankItem[]
   count: number
@@ -28,11 +27,11 @@ export type RankingViewProps = {
 }
 
 const RankingView: React.FC<RankingViewProps> = (props) => {
-  const { kind, items, rankItems, count, page, rowsPerPage, prefix } = props
+  const { items, rankItems, count, page, rowsPerPage, prefix } = props
 
   return (
     <div>
-      <Header kind={kind} />
+      <Header />
 
       <Container>
         <Box

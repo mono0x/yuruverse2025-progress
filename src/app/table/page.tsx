@@ -7,30 +7,17 @@ import {
   TableRow,
 } from "@mui/material"
 
-import getAll from "../../../../getAll"
-import { Kind } from "../../../../types"
-import { toRankItems } from "../../../../utils"
+import getAll from "../../getAll"
+import { toRankItems } from "../../utils"
 
-interface TablePageProps {
-  params: Promise<{
-    kind: string
-  }>
-}
-
-export async function generateStaticParams() {
-  return [{ kind: Kind.LOCAL }, { kind: Kind.COMPANY }]
-}
-
-export default async function TablePage({ params }: TablePageProps) {
-  const { kind } = await params
+export default async function TablePage() {
   const items = await getAll()
-  const filtered = items.filter((item) => item.character.kind === kind)
-  filtered.sort(
+  const sorted = [...items].sort(
     (a, b) =>
       a.records[a.records.length - 1].rank -
       b.records[b.records.length - 1].rank
   )
-  const rankItems = toRankItems(filtered.slice(0, 10))
+  const rankItems = toRankItems(sorted.slice(0, 10))
 
   return (
     <TableContainer>

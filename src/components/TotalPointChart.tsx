@@ -71,7 +71,7 @@ const TotalPointChart: React.FC<Props> = ({ items }) => {
             beginAtZero: true,
             ticks: {
               callback: (value) => {
-                return value.toLocaleString()
+                return Number(value).toLocaleString()
               },
             },
           },

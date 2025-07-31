@@ -7,25 +7,18 @@ import {
   Link,
   Menu,
   MenuItem,
-  Tab,
-  Tabs,
   Toolbar,
   Typography,
 } from "@mui/material"
 import Head from "next/head"
-import { useRouter } from "next/navigation"
 import { useState } from "react"
-
-import { Kind } from "../types"
 
 type Props = {
   title?: string
-  kind: Kind
 }
 
 const Header: React.FC<Props> = (props) => {
-  const { kind, title } = props
-  const router = useRouter()
+  const { title } = props
 
   const [moreAnchorEl, setMoreAnchorEl] = useState<HTMLElement | undefined>(
     undefined
@@ -34,19 +27,6 @@ const Header: React.FC<Props> = (props) => {
   const handleMoreMenuClose = () => {
     setMoreAnchorEl(undefined)
   }
-
-  const tabs = [
-    {
-      value: Kind.LOCAL,
-      label: "ご当地",
-      href: "/",
-    },
-    {
-      value: Kind.COMPANY,
-      label: "企業・その他",
-      href: "/company/",
-    },
-  ]
 
   return (
     <div>
@@ -62,7 +42,7 @@ const Header: React.FC<Props> = (props) => {
         <Toolbar>
           <div style={{ flexGrow: 1 }}>
             <Typography variant="h6" noWrap>
-              {title ? title : "YuruGP 2020 Progress"}
+              {title ? title : "YuruVerse 2025 Progress"}
             </Typography>
           </div>
           <div>
@@ -82,7 +62,7 @@ const Header: React.FC<Props> = (props) => {
             >
               <MenuItem
                 component={Link}
-                href="https://yurugp.jp/"
+                href="https://yurugp.jp/vote/2025"
                 onClick={handleMoreMenuClose}
                 color="inherit"
               >
@@ -90,7 +70,7 @@ const Header: React.FC<Props> = (props) => {
               </MenuItem>
               <MenuItem
                 component={Link}
-                href="https://github.com/mono0x/yurugp2020-progress"
+                href="https://github.com/mono0x/yuruverse2025-progress"
                 onClick={handleMoreMenuClose}
                 color="inherit"
               >
@@ -99,18 +79,6 @@ const Header: React.FC<Props> = (props) => {
             </Menu>
           </div>
         </Toolbar>
-        <Tabs value={kind} variant="fullWidth" textColor="inherit">
-          {tabs.map((tab) => (
-            <Tab
-              key={tab.value}
-              value={tab.value}
-              label={tab.label}
-              onClick={() => {
-                router.push(tab.href)
-              }}
-            />
-          ))}
-        </Tabs>
       </AppBar>
     </div>
   )

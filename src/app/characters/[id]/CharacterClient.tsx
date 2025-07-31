@@ -107,7 +107,7 @@ export default function CharacterClient({ item }: CharacterClientProps) {
 
   return (
     <div>
-      <Header kind={item.character.kind} title={item.character.name} />
+      <Header title={item.character.name} />
 
       <Container>
         <Box
@@ -136,7 +136,7 @@ export default function CharacterClient({ item }: CharacterClientProps) {
                   beginAtZero: true,
                   ticks: {
                     callback: (value) => {
-                      return value.toLocaleString()
+                      return Number(value).toLocaleString()
                     },
                   },
                 },
@@ -147,7 +147,7 @@ export default function CharacterClient({ item }: CharacterClientProps) {
                   beginAtZero: true,
                   ticks: {
                     callback: (value) => {
-                      return value.toLocaleString()
+                      return Number(value).toLocaleString()
                     },
                   },
                 },

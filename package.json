@@ -1,5 +1,5 @@
 {
-  "name": "yurugp2020-progress",
+  "name": "yuruverse2025-progress",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -40,12 +40,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/mono0x/yurugp2020-progress.git"
+    "url": "git+ssh://git@github.com/mono0x/yuruverse2025-progress.git"
   },
   "author": "mono <mono@mono0x.net>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mono0x/yurugp2020-progress/issues"
-  },
-  "homepage": "https://github.com/mono0x/yurugp2020-progress#readme"
+  "license": "MIT"
 }

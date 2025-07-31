@@ -1,5 +1,5 @@
 import { RankingViewProps } from "./components/RankingView"
-import { Item, Kind, RankItem } from "./types"
+import { Item, RankItem } from "./types"
 
 export function toRankItems(items: Item[]): RankItem[] {
   let higher: RankItem | null = null
@@ -23,26 +23,23 @@ const rowsPerPage = 10
 
 export function getRankingViewProps(
   items: Item[],
-  kind: Kind,
   page: number,
   prefix: string
 ): RankingViewProps {
-  const filtered = items.filter((item) => item.character.kind == kind)
-  filtered.sort(
+  const sorted = [...items].sort(
     (a, b) =>
       a.records[a.records.length - 1].rank -
       b.records[b.records.length - 1].rank
   )
   return {
-    kind: kind,
-    items: filtered.slice((page - 1) * rowsPerPage, page * rowsPerPage),
-    rankItems: toRankItems(filtered).slice(
+    items: sorted.slice((page - 1) * rowsPerPage, page * rowsPerPage),
+    rankItems: toRankItems(sorted).slice(
       (page - 1) * rowsPerPage,
       page * rowsPerPage
     ),
     page: page,
     rowsPerPage: rowsPerPage,
-    count: filtered.length,
+    count: sorted.length,
     prefix: prefix,
   }
 }
