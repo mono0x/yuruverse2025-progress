@@ -1,8 +1,17 @@
-import { red } from "@material-ui/core/colors"
-import { createTheme } from "@material-ui/core/styles"
+import { red } from "@mui/material/colors"
+import { createTheme } from "@mui/material/styles"
+import { Roboto } from "next/font/google"
 
-// Create a theme instance.
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+})
+
 const theme = createTheme({
+  typography: {
+    fontFamily: roboto.style.fontFamily,
+  },
   palette: {
     primary: {
       main: "#556cd6",
@@ -17,18 +26,22 @@ const theme = createTheme({
       default: "#fff",
     },
   },
-  overrides: {
+  components: {
     MuiTableCell: {
-      root: {
-        padding: "16px 4px 16px 4px",
-      },
-      sizeSmall: {
-        padding: "6px 6px 6px 4px",
+      styleOverrides: {
+        root: {
+          padding: "16px 4px 16px 4px",
+        },
+        sizeSmall: {
+          padding: "6px 6px 6px 4px",
+        },
       },
     },
     MuiTypography: {
-      h1: {
-        fontSize: 36,
+      styleOverrides: {
+        h1: {
+          fontSize: 36,
+        },
       },
     },
   },

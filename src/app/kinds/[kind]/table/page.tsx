@@ -5,19 +5,32 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from "@material-ui/core"
-import { GetStaticPaths, GetStaticProps } from "next"
+} from "@mui/material"
 
-import getAll from "../../../getAll"
-import { Kind, RankItem } from "../../../types"
-import { toRankItems } from "../../../utils"
+import getAll from "../../../../getAll"
+import { Kind } from "../../../../types"
+import { toRankItems } from "../../../../utils"
 
-type Props = {
-  rankItems: RankItem[]
+interface TablePageProps {
+  params: Promise<{
+    kind: string
+  }>
 }
 
-const ChartApiPage: React.FC<Props> = (props) => {
-  const { rankItems } = props
+export async function generateStaticParams() {
+  return [{ kind: Kind.LOCAL }, { kind: Kind.COMPANY }]
+}
+
+export default async function TablePage({ params }: TablePageProps) {
+  const { kind } = await params
+  const items = await getAll()
+  const filtered = items.filter((item) => item.character.kind === kind)
+  filtered.sort(
+    (a, b) =>
+      a.records[a.records.length - 1].rank -
+      b.records[b.records.length - 1].rank
+  )
+  const rankItems = toRankItems(filtered.slice(0, 10))
 
   return (
     <TableContainer>
@@ -54,30 +67,3 @@ const ChartApiPage: React.FC<Props> = (props) => {
     </TableContainer>
   )
 }
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [
-      { params: { kind: Kind.LOCAL } },
-      { params: { kind: Kind.COMPANY } },
-    ],
-    fallback: false,
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
-  const rankItems = await getAll()
-  const filtered = rankItems.filter(
-    (item) => item.character.kind == params.kind
-  )
-  filtered.sort(
-    (a, b) =>
-      a.records[a.records.length - 1].rank -
-      b.records[b.records.length - 1].rank
-  )
-  return {
-    props: { rankItems: toRankItems(filtered.slice(0, 10)) },
-  }
-}
-
-export default ChartApiPage

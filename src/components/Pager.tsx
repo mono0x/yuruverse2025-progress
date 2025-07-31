@@ -1,6 +1,7 @@
-import { Grid } from "@material-ui/core"
-import { Pagination, PaginationItem } from "@material-ui/lab"
-import Router from "next/router"
+"use client"
+
+import { Grid, Pagination, PaginationItem } from "@mui/material"
+import { useRouter } from "next/navigation"
 
 type Props = {
   count: number
@@ -11,6 +12,7 @@ type Props = {
 
 const Pager: React.FC<Props> = (props) => {
   const { count, page, rowsPerPage, prefix } = props
+  const router = useRouter()
 
   const link = (page: number) => {
     if (page == 1) {
@@ -33,6 +35,7 @@ const Pager: React.FC<Props> = (props) => {
         page={page}
         count={pages}
         renderItem={(item) => {
+          if (!item.page) return <PaginationItem {...item} />
           const l = link(item.page)
           return (
             <PaginationItem
@@ -41,7 +44,7 @@ const Pager: React.FC<Props> = (props) => {
               href={l.as}
               onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
                 e.preventDefault()
-                Router.push(l.href, l.as)
+                router.push(l.as)
               }}
             />
           )

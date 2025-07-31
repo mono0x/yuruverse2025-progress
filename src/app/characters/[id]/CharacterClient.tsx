@@ -1,3 +1,7 @@
+"use client"
+
+import "chartjs-adapter-date-fns"
+
 import {
   Box,
   Container,
@@ -7,24 +11,43 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from "@material-ui/core"
-import { ChartPoint } from "chart.js"
+} from "@mui/material"
+import {
+  BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
+  TimeScale,
+  Title,
+  Tooltip,
+} from "chart.js"
 import palette from "google-palette"
-import { GetStaticPaths, GetStaticProps } from "next"
 import { useMemo } from "react"
-import { Bar } from "react-chartjs-2"
+import { Chart } from "react-chartjs-2"
 
-import Header from "../../components/Header"
-import getAll from "../../getAll"
-import { Item } from "../../types"
+import Header from "../../../components/Header"
+import { Item } from "../../../types"
 
-type Props = {
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  TimeScale
+)
+
+interface CharacterClientProps {
   item: Item
 }
 
-const CharacterPage: React.FC<Props> = (props) => {
-  const { item } = props
-
+export default function CharacterClient({ item }: CharacterClientProps) {
   const colors = useMemo(() => {
     return palette("mpn65", 2).map((hex) => `#${hex}`)
   }, [])
@@ -51,7 +74,7 @@ const CharacterPage: React.FC<Props> = (props) => {
             const year = date.getFullYear()
             const month = (date.getMonth() + 1).toString().padStart(2, "0")
             const day = date.getDate().toString().padStart(2, "0")
-            return `${year}-${month}-${day}` // YYYY-MM-DD
+            return `${year}-${month}-${day}`
           })(date),
           y: (records[i].point - records[i - 1].point) / days,
         }
@@ -63,16 +86,16 @@ const CharacterPage: React.FC<Props> = (props) => {
     return {
       datasets: [
         {
-          type: "line",
+          type: "line" as const,
           label: "Total Points",
           yAxisID: "totalPoints",
           borderColor: colors[0],
           fill: false,
-          lineTension: 0,
+          tension: 0,
           data: totalPoints,
         },
         {
-          type: "bar",
+          type: "bar" as const,
           label: "+ Points",
           yAxisID: "plusPoints",
           backgroundColor: `${colors[1]}88`,
@@ -94,53 +117,49 @@ const CharacterPage: React.FC<Props> = (props) => {
             height: "50vh",
           }}
         >
-          <Bar
+          <Chart
+            type="bar"
             data={data}
             options={{
               responsive: true,
               maintainAspectRatio: false,
               scales: {
-                xAxes: [
-                  {
-                    type: "time",
-                    time: {
-                      unit: "day",
+                x: {
+                  type: "time",
+                  time: {
+                    unit: "day",
+                  },
+                },
+                totalPoints: {
+                  type: "linear",
+                  position: "left",
+                  beginAtZero: true,
+                  ticks: {
+                    callback: (value) => {
+                      return value.toLocaleString()
                     },
                   },
-                ],
-                yAxes: [
-                  {
-                    id: "totalPoints",
-                    position: "left",
-                    ticks: {
-                      beginAtZero: true,
-                      callback: (value) => {
-                        return value.toLocaleString()
-                      },
+                },
+                plusPoints: {
+                  type: "linear",
+                  position: "right",
+                  grid: { display: false },
+                  beginAtZero: true,
+                  ticks: {
+                    callback: (value) => {
+                      return value.toLocaleString()
                     },
                   },
-                  {
-                    id: "plusPoints",
-                    position: "right",
-                    gridLines: { display: false },
-                    ticks: {
-                      beginAtZero: true,
-                      callback: (value) => {
-                        return value.toLocaleString()
-                      },
-                    },
-                  },
-                ],
+                },
               },
-              tooltips: {
-                callbacks: {
-                  label: (item, data) => {
-                    /* eslint-disable @typescript-eslint/no-non-null-assertion */
-                    const dataset = data!.datasets![item.datasetIndex!]!
-                    const name = dataset.label
-                    const value = (dataset.data![item.index!] as ChartPoint).y!
-                    /* eslint-enable */
-                    return `${name}: ${value.toLocaleString()}`
+              plugins: {
+                tooltip: {
+                  callbacks: {
+                    label: (context) => {
+                      const label = context.dataset.label || ""
+                      const value = context.parsed.y
+                      return `${label}: ${value.toLocaleString()}`
+                    },
                   },
                 },
               },
@@ -183,22 +202,3 @@ const CharacterPage: React.FC<Props> = (props) => {
     </div>
   )
 }
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const items = await getAll()
-  const paths = items.map((item) => ({ params: { id: item.character.id } }))
-  return {
-    paths,
-    fallback: false,
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
-  const items = await getAll()
-  const item = items.find((item) => item.character.id == params.id)
-  return {
-    props: { item: item },
-  }
-}
-
-export default CharacterPage

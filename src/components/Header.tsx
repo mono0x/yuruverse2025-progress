@@ -1,3 +1,6 @@
+"use client"
+
+import MoreIcon from "@mui/icons-material/MoreVert"
 import {
   AppBar,
   IconButton,
@@ -8,10 +11,9 @@ import {
   Tabs,
   Toolbar,
   Typography,
-} from "@material-ui/core"
-import MoreIcon from "@material-ui/icons/MoreVert"
+} from "@mui/material"
 import Head from "next/head"
-import Router from "next/router"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 import { Kind } from "../types"
@@ -23,6 +25,7 @@ type Props = {
 
 const Header: React.FC<Props> = (props) => {
   const { kind, title } = props
+  const router = useRouter()
 
   const [moreAnchorEl, setMoreAnchorEl] = useState<HTMLElement | undefined>(
     undefined
@@ -96,16 +99,14 @@ const Header: React.FC<Props> = (props) => {
             </Menu>
           </div>
         </Toolbar>
-        <Tabs value={kind} variant="fullWidth">
+        <Tabs value={kind} variant="fullWidth" textColor="inherit">
           {tabs.map((tab) => (
             <Tab
               key={tab.value}
               value={tab.value}
               label={tab.label}
-              href={tab.href}
-              onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-                e.preventDefault()
-                Router.push(tab.href)
+              onClick={() => {
+                router.push(tab.href)
               }}
             />
           ))}

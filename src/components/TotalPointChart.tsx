@@ -1,9 +1,34 @@
-import { ChartPoint } from "chart.js"
+"use client"
+
+import "chartjs-adapter-date-fns"
+
+import {
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
+  TimeScale,
+  Title,
+  Tooltip,
+} from "chart.js"
 import palette from "google-palette"
 import { useMemo } from "react"
 import { Line } from "react-chartjs-2"
 
 import { Item } from "../types"
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  TimeScale
+)
 
 type Props = {
   items: Item[]
@@ -20,9 +45,9 @@ const TotalPointChart: React.FC<Props> = ({ items }) => {
         label: item.character.name,
         borderColor: colors[i],
         fill: false,
-        lineTension: 0,
+        tension: 0,
         data: item.records.map((record) => ({
-          t: record.date,
+          x: record.date,
           y: record.point,
         })),
       })),
@@ -36,34 +61,29 @@ const TotalPointChart: React.FC<Props> = ({ items }) => {
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          xAxes: [
-            {
-              type: "time",
-              time: {
-                minUnit: "day",
+          x: {
+            type: "time",
+            time: {
+              unit: "day",
+            },
+          },
+          y: {
+            beginAtZero: true,
+            ticks: {
+              callback: (value) => {
+                return value.toLocaleString()
               },
             },
-          ],
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-                callback: (value) => {
-                  return value.toLocaleString()
-                },
-              },
-            },
-          ],
+          },
         },
-        tooltips: {
-          callbacks: {
-            label: (item, data) => {
-              /* eslint-disable @typescript-eslint/no-non-null-assertion */
-              const dataset = data!.datasets![item.datasetIndex!]!
-              const name = dataset.label
-              const value = (dataset.data![item.index!] as ChartPoint).y!
-              /* eslint-enable */
-              return `${name}: ${value.toLocaleString()}`
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: (context) => {
+                const label = context.dataset.label || ""
+                const value = context.parsed.y
+                return `${label}: ${value.toLocaleString()}`
+              },
             },
           },
         },

@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Box,
   Container,
@@ -7,7 +9,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from "@material-ui/core"
+} from "@mui/material"
 import NextLink from "next/link"
 
 import Header from "../components/Header"
