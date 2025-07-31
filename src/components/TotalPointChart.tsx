@@ -5,6 +5,7 @@ import "chartjs-adapter-date-fns"
 import {
   CategoryScale,
   Chart as ChartJS,
+  Colors,
   Legend,
   LinearScale,
   LineElement,
@@ -13,7 +14,6 @@ import {
   Title,
   Tooltip,
 } from "chart.js"
-import palette from "google-palette"
 import { useMemo } from "react"
 import { Line } from "react-chartjs-2"
 
@@ -27,7 +27,8 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  TimeScale
+  TimeScale,
+  Colors
 )
 
 type Props = {
@@ -35,15 +36,10 @@ type Props = {
 }
 
 const TotalPointChart: React.FC<Props> = ({ items }) => {
-  const colors = useMemo(() => {
-    return palette("mpn65", items.length).map((hex) => `#${hex}`)
-  }, [items.length])
-
   const data = useMemo(() => {
     return {
-      datasets: items.map((item, i) => ({
+      datasets: items.map((item) => ({
         label: item.character.name,
-        borderColor: colors[i],
         fill: false,
         tension: 0,
         data: item.records.map((record) => ({
@@ -52,7 +48,7 @@ const TotalPointChart: React.FC<Props> = ({ items }) => {
         })),
       })),
     }
-  }, [items, colors])
+  }, [items])
 
   return (
     <Line
@@ -77,6 +73,9 @@ const TotalPointChart: React.FC<Props> = ({ items }) => {
           },
         },
         plugins: {
+          colors: {
+            forceOverride: true,
+          },
           tooltip: {
             callbacks: {
               label: (context) => {

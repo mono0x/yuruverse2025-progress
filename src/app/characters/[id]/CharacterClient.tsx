@@ -16,6 +16,7 @@ import {
   BarElement,
   CategoryScale,
   Chart as ChartJS,
+  Colors,
   Legend,
   LinearScale,
   LineElement,
@@ -24,7 +25,6 @@ import {
   Title,
   Tooltip,
 } from "chart.js"
-import palette from "google-palette"
 import { useMemo } from "react"
 import { Chart } from "react-chartjs-2"
 
@@ -40,7 +40,8 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  TimeScale
+  TimeScale,
+  Colors
 )
 
 interface CharacterClientProps {
@@ -48,10 +49,6 @@ interface CharacterClientProps {
 }
 
 export default function CharacterClient({ item }: CharacterClientProps) {
-  const colors = useMemo(() => {
-    return palette("mpn65", 2).map((hex) => `#${hex}`)
-  }, [])
-
   const totalPoints = useMemo(() => {
     return item.records.map((record) => ({ x: record.date, y: record.point }))
   }, [item])
@@ -89,7 +86,6 @@ export default function CharacterClient({ item }: CharacterClientProps) {
           type: "line" as const,
           label: "Total Points",
           yAxisID: "totalPoints",
-          borderColor: colors[0],
           fill: false,
           tension: 0,
           data: totalPoints,
@@ -98,12 +94,11 @@ export default function CharacterClient({ item }: CharacterClientProps) {
           type: "bar" as const,
           label: "+ Points",
           yAxisID: "plusPoints",
-          backgroundColor: `${colors[1]}88`,
           data: plusPoints,
         },
       ],
     }
-  }, [totalPoints, plusPoints, colors])
+  }, [totalPoints, plusPoints])
 
   return (
     <div>
@@ -153,6 +148,9 @@ export default function CharacterClient({ item }: CharacterClientProps) {
                 },
               },
               plugins: {
+                colors: {
+                  forceOverride: true,
+                },
                 tooltip: {
                   callbacks: {
                     label: (context) => {
