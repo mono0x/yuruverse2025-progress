@@ -21,8 +21,6 @@ import (
 
 var (
 	entryNumberRe = regexp.MustCompile(`エントリーNo\.(\d+)`)
-	rankRe        = regexp.MustCompile(`(\d+)位`)
-	pointRe       = regexp.MustCompile(`(\d+)`)
 )
 
 func fetch() error {
