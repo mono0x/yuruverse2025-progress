@@ -27,10 +27,9 @@ func fetch() error {
 	date := time.Now().UTC().Add(-3 * time.Hour)
 	dateString := date.Format(yuruverse.DateFormat) // Date changes every noon in UTC+9
 
-	// 複数のランク範囲を取得（全エントリー1-299を網羅）
 	rankRanges := []string{"", "?rank_range=51-100", "?rank_range=101-150", "?rank_range=151-200", "?rank_range=201%2B"}
 	var items []*yuruverse.RawItem
-	processedEntries := make(map[int]bool) // 重複を防ぐためのマップ
+	processedEntries := make(map[int]bool)
 
 	for _, rankRange := range rankRanges {
 		currentURL, err := url.Parse("https://www.yurugp.jp/vote/2025" + rankRange)
@@ -50,7 +49,6 @@ func fetch() error {
 		}
 
 		var err2 error
-		// エントリー番号を含む特定のdivクラスを探す
 		entryDivs := doc.Find("div.text-xs, div.text-sm").FilterFunction(func(i int, s *goquery.Selection) bool {
 			text := strings.TrimSpace(s.Text())
 			return strings.HasPrefix(text, "エントリーNo.") && !strings.Contains(text, "\n")
@@ -58,81 +56,73 @@ func fetch() error {
 		log.Printf("Found %d entry divs", entryDivs.Length())
 
 		entryDivs.EachWithBreak(func(i int, s *goquery.Selection) bool {
-			// エントリー番号を取得
 			entryNumberText := strings.TrimSpace(s.Text())
 			entryNumberSubmatches := entryNumberRe.FindStringSubmatch(entryNumberText)
 			if len(entryNumberSubmatches) == 0 {
-				return true // スキップして続行
+				return true
 			}
 			entryNumber, err := strconv.Atoi(entryNumberSubmatches[1])
 			if err != nil {
-				return true // スキップして続行
+				return true
 			}
 
-			// 重複チェック
 			if processedEntries[entryNumber] {
-				return true // 既に処理済みなのでスキップ
+				return true
 			}
 			processedEntries[entryNumber] = true
 
-			// キャラクターカードの親要素を探す（通常は3-4レベル上）
 			parent := s.Parent() // flex-grow min-w-0
 			for j := 0; j < 3; j++ {
 				parent = parent.Parent()
 			}
 
-			// キャラクターリンクを探す
 			nameLink := parent.Find("h3 a[href*='/characters/']").First()
 			if nameLink.Length() == 0 {
-				// h3がない場合は直接aタグを探す
 				nameLink = parent.Find("a[href*='/characters/']").First()
 			}
 			if nameLink.Length() == 0 {
-				return true // スキップして続行
+				return true
 			}
 
-			// キャラクターリンクからIDを取得
 			href, ok := nameLink.Attr("href")
 			if !ok {
-				return true // スキップして続行
+				return true
 			}
 
-			// /characters/3852 から ID を抽出
+			// Extract ID from href (e.g. "https://www.yurugp.jp/vote/2025/characters/3852")
 			parts := strings.Split(href, "/")
 			if len(parts) < 3 || parts[1] != "characters" {
-				return true // スキップして続行
+				return true
 			}
 			id := parts[2]
 
-			// キャラクター名を取得（リンクテキストのみ）
 			name := strings.TrimSpace(nameLink.Text())
 			if name == "" {
-				return true // スキップして続行
+				return true
 			}
 
-			// 地域情報を取得（同じflex-grow親内のspanから）
 			var country, biko string
 			flexGrowDiv := s.Parent() // flex-grow min-w-0 div
 			regionSpans := flexGrowDiv.Find("span")
 			if regionSpans.Length() >= 3 {
-				// 0: 都道府県, 1: "|", 2: 組織名
+				// 0: prefecture
+				// 1: "|"
+				// 2: organization name
 				country = strings.TrimSpace(regionSpans.Eq(0).Text())
 				biko = strings.TrimSpace(regionSpans.Eq(2).Text())
 			}
 
-			// ランクとポイントは現在不明なので0に設定
 			rank := 0
 			point := 0
 
-			// 画像URLを取得
 			img := parent.Find("img").First()
 			imageURLSrc, ok := img.Attr("src")
 			if !ok {
-				return true // スキップして続行
+				return true
 			}
 			imageURL, err := currentURL.Parse(imageURLSrc)
 			if err != nil {
-				return true // スキップして続行
+				return true
 			}
 
 			items = append(items, &yuruverse.RawItem{
