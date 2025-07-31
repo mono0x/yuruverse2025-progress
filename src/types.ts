@@ -3,7 +3,7 @@ export const Kind = {
   COMPANY: "COMPANY",
 } as const
 
-export type Kind = typeof Kind[keyof typeof Kind]
+export type Kind = (typeof Kind)[keyof typeof Kind]
 
 export type Character = {
   id: string
