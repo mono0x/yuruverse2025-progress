@@ -1,9 +1,14 @@
-module github.com/mono0x/yurugp2020-progress
+module github.com/mono0x/yuruverse2025-progress
 
-go 1.14
+go 1.24
 
 require (
 	github.com/PuerkitoBio/goquery v1.5.1
 	github.com/jszwec/csvutil v1.3.0
 	github.com/pkg/errors v0.9.1
+)
+
+require (
+	github.com/andybalholm/cascadia v1.1.0 // indirect
+	golang.org/x/net v0.0.0-20200202094626-16171245cfb2 // indirect
 )
