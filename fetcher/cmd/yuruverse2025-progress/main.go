@@ -48,7 +48,6 @@ func fetch() error {
 			return errors.WithStack(err)
 		}
 
-		var err2 error
 		entryDivs := doc.Find("div.text-xs, div.text-sm").FilterFunction(func(i int, s *goquery.Selection) bool {
 			text := strings.TrimSpace(s.Text())
 			return strings.HasPrefix(text, "エントリーNo.") && !strings.Contains(text, "\n")
@@ -72,7 +71,7 @@ func fetch() error {
 			processedEntries[entryNumber] = true
 
 			parent := s.Parent() // flex-grow min-w-0
-			for j := 0; j < 3; j++ {
+			for range 3 {
 				parent = parent.Parent()
 			}
 
@@ -139,9 +138,6 @@ func fetch() error {
 
 			return true
 		})
-		if err2 != nil {
-			return err2
-		}
 
 		time.Sleep(500 * time.Millisecond)
 	}
