@@ -1,1 +1,1 @@
-# yurugp2020-progress
+# yuruverse2025-progress
