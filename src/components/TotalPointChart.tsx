@@ -2,7 +2,6 @@
 
 import "chartjs-adapter-date-fns"
 
-import { Step } from "@mui/material"
 import {
   BarElement,
   CategoryScale,
@@ -16,7 +15,6 @@ import {
   Title,
   Tooltip,
 } from "chart.js"
-import { max } from "date-fns"
 import { useMemo } from "react"
 import { Line } from "react-chartjs-2"
 

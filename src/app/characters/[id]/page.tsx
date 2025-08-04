@@ -1,4 +1,4 @@
-import { last } from "es-toolkit"
+import { last, round, sortBy } from "es-toolkit"
 
 import getAll from "../../../getAll"
 import CharacterClient from "./CharacterClient"
@@ -19,13 +19,35 @@ export async function generateStaticParams() {
 export default async function CharacterPage({ params }: CharacterPageProps) {
   const { id } = await params
   const items = await getAll()
-  const item = items.find((item) => item.character.id === id)
-  if (!item) {
+  const sorted = sortBy(items, [
+    (item) =>
+      item.records[item.records.length - 1].rank ?? Number.POSITIVE_INFINITY,
+  ])
+  const itemIndex = sorted.findIndex((item) => item.character.id === id)
+  if (itemIndex === -1) {
     throw new Error(`Character with id ${id} not found`)
   }
+  const item = sorted[itemIndex]
   const maxPoints = Math.max(
-    ...items.flatMap((item) => item.records.map((record) => record.point))
+    ...sorted.flatMap((item) => item.records.map((record) => record.point))
   )
-  const maxRank = items.length
-  return <CharacterClient item={item} maxPoints={maxPoints} maxRank={maxRank} />
+  const maxRank = sorted.length
+
+  const rawFirstIndex = itemIndex - 2
+  const rawLastIndex = itemIndex + 3
+  const roundedFirstIndex = Math.max(0, rawFirstIndex)
+  const roundedLastIndex = Math.min(sorted.length - 1, rawLastIndex)
+  const firstIndex = roundedFirstIndex - (rawLastIndex - roundedLastIndex)
+  const lastIndex = roundedLastIndex + (roundedFirstIndex - rawFirstIndex)
+
+  const nearbyItems = sorted.slice(firstIndex, lastIndex + 1)
+
+  return (
+    <CharacterClient
+      item={item}
+      maxPoints={maxPoints}
+      maxRank={maxRank}
+      nearbyItems={nearbyItems}
+    />
+  )
 }

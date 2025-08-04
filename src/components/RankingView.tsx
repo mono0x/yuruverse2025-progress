@@ -31,7 +31,9 @@ const RankingView: React.FC<RankingViewProps> = (props) => {
           <TotalPointChart items={items.slice(0, 8)} maxPoints={maxPoints} />
         </Box>
 
-        <RankingTable rankItems={rankItems} />
+        <Box>
+          <RankingTable rankItems={rankItems} />
+        </Box>
       </Container>
     </div>
   )

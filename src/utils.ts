@@ -1,4 +1,3 @@
-import { RankingViewProps } from "./components/RankingView"
 import { Item, RankItem } from "./types"
 
 export function toRankItems(items: Item[]): RankItem[] {
@@ -17,31 +16,4 @@ export function toRankItems(items: Item[]): RankItem[] {
     higher = rankItem
     return rankItem
   })
-}
-
-const rowsPerPage = 10
-
-export function getRankingViewProps(
-  items: Item[],
-  maxPoints: number,
-  page: number,
-  prefix: string
-): RankingViewProps {
-  const sorted = [...items].sort(
-    (a, b) =>
-      a.records[a.records.length - 1].rank -
-      b.records[b.records.length - 1].rank
-  )
-  return {
-    items: sorted.slice((page - 1) * rowsPerPage, page * rowsPerPage),
-    rankItems: toRankItems(sorted).slice(
-      (page - 1) * rowsPerPage,
-      page * rowsPerPage
-    ),
-    maxPoints: maxPoints,
-    page: page,
-    rowsPerPage: rowsPerPage,
-    count: sorted.length,
-    prefix: prefix,
-  }
 }

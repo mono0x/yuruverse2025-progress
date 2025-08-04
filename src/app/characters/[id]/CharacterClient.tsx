@@ -2,16 +2,7 @@
 
 import "chartjs-adapter-date-fns"
 
-import {
-  Box,
-  Container,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material"
+import { Box, Container } from "@mui/material"
 import {
   BarElement,
   CategoryScale,
@@ -29,7 +20,9 @@ import { useMemo } from "react"
 import { Chart } from "react-chartjs-2"
 
 import Header from "../../../components/Header"
+import RankingTable from "../../../components/RankingTable"
 import { Item } from "../../../types"
+import { toRankItems } from "../../../utils"
 
 ChartJS.register(
   CategoryScale,
@@ -48,43 +41,48 @@ interface CharacterClientProps {
   item: Item
   maxPoints: number
   maxRank: number
+  nearbyItems: Item[]
 }
 
 export default function CharacterClient({
   item,
   maxPoints,
   maxRank,
+  nearbyItems,
 }: CharacterClientProps) {
-  const totalPoints = useMemo(() => {
-    return item.records.map((record) => ({ x: record.date, y: record.point }))
-  }, [item])
-
   const rankData = useMemo(() => {
     return item.records.map((record) => ({ x: record.date, y: record.rank }))
   }, [item])
 
   const data = useMemo(() => {
-    return {
-      datasets: [
-        {
+    const datasets = [
+      ...nearbyItems.map((nearbyItem) => {
+        const totalPoints = nearbyItem.records.map((record) => ({
+          x: record.date,
+          y: record.point,
+        }))
+        return {
           type: "line" as const,
-          label: "Total Points",
+          label: nearbyItem.character.name,
           yAxisID: "totalPoints",
           fill: false,
           tension: 0,
           data: totalPoints,
-        },
-        {
-          type: "line" as const,
-          label: "Rank",
-          yAxisID: "rank",
-          fill: false,
-          tension: 0,
-          data: rankData,
-        },
-      ],
-    }
-  }, [totalPoints, rankData])
+          borderWidth: nearbyItem.character.id === item.character.id ? 3 : 1,
+        }
+      }),
+      {
+        type: "line" as const,
+        label: "Rank",
+        yAxisID: "rank",
+        fill: false,
+        tension: 0,
+        data: rankData,
+        borderWidth: 3,
+      },
+    ]
+    return { datasets }
+  }, [item, rankData, nearbyItems])
 
   return (
     <div>
@@ -155,30 +153,9 @@ export default function CharacterClient({
           />
         </Box>
 
-        <TableContainer>
-          <Table size="small">
-            <TableHead>
-              <TableRow>
-                <TableCell>Date</TableCell>
-                <TableCell align="right">Rank</TableCell>
-                <TableCell align="right">Total Points</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {item.records.map((record, i) => (
-                <TableRow key={record.date}>
-                  <TableCell>{record.date}</TableCell>
-                  <TableCell align="right">
-                    {record.rank.toLocaleString()}
-                  </TableCell>
-                  <TableCell align="right">
-                    {record.point.toLocaleString()}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <Box>
+          <RankingTable rankItems={toRankItems(nearbyItems)} />
+        </Box>
       </Container>
     </div>
   )
