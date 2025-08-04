@@ -27,9 +27,7 @@ const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
           <TableRow>
             <TableCell align="right">Rank</TableCell>
             <TableCell>Name</TableCell>
-            <TableCell align="right">Total Points</TableCell>
-            <TableCell align="right">+ Points</TableCell>
-            <TableCell align="right">Behind</TableCell>
+            <TableCell align="right">Points</TableCell>
             <TableCell></TableCell>
           </TableRow>
         </TableHead>
@@ -42,12 +40,6 @@ const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
               <TableCell>{item.character.name}</TableCell>
               <TableCell align="right">
                 {item.record.point.toLocaleString()}
-              </TableCell>
-              <TableCell align="right">
-                {item.plusPoint.toLocaleString()}
-              </TableCell>
-              <TableCell align="right">
-                {item.behindPoint?.toLocaleString() ?? "-"}
               </TableCell>
               <TableCell align="center">
                 <IconButton

@@ -21,6 +21,4 @@ export type Item = {
 export type RankItem = {
   character: Character
   record: Record
-  plusPoint: number
-  behindPoint: number | null
 }
