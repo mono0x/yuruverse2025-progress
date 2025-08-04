@@ -36,7 +36,7 @@ const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell align="right">Rank</TableCell>
+            <TableCell></TableCell>
             <TableCell>Name</TableCell>
             <TableCell align="right">Points</TableCell>
             <TableCell></TableCell>
