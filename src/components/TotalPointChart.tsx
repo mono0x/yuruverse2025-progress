@@ -78,6 +78,9 @@ const TotalPointChart: React.FC<Props> = ({ items, maxPoints }) => {
           },
         },
         plugins: {
+          legend: {
+            display: false,
+          },
           colors: {
             forceOverride: true,
           },

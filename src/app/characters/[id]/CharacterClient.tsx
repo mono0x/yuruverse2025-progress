@@ -136,6 +136,9 @@ export default function CharacterClient({
                 },
               },
               plugins: {
+                legend: {
+                  display: false,
+                },
                 colors: {
                   forceOverride: true,
                 },

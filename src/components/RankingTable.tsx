@@ -1,8 +1,10 @@
 "use client"
 
 import AnalyticsIcon from "@mui/icons-material/Analytics"
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord"
 import PersonIcon from "@mui/icons-material/Person"
 import {
+  Box,
   IconButton,
   Table,
   TableBody,
@@ -20,6 +22,15 @@ export type RankingTableProps = {
 }
 
 const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
+  const chartColors = [
+    "rgb(54, 162, 235)", // Blue
+    "rgb(255, 99, 132)", // Red
+    "rgb(255, 159, 64)", // Orange
+    "rgb(255, 205, 86)", // Yellow
+    "rgb(75, 192, 192)", // Green
+    "rgb(153, 102, 255)", // Purple
+  ]
+
   return (
     <TableContainer>
       <Table size="small">
@@ -32,33 +43,47 @@ const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rankItems.map((item) => (
+          {rankItems.map((item, index) => (
             <TableRow key={item.character.id}>
               <TableCell align="right">
                 {item.record.rank.toLocaleString()}
               </TableCell>
-              <TableCell>{item.character.name}</TableCell>
+              <TableCell>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  {index < chartColors.length && (
+                    <FiberManualRecordIcon
+                      sx={{
+                        fontSize: "small",
+                        color: chartColors[index],
+                      }}
+                    />
+                  )}
+                  {item.character.name}
+                </Box>
+              </TableCell>
               <TableCell align="right">
                 {item.record.point.toLocaleString()}
               </TableCell>
               <TableCell align="center">
-                <IconButton
-                  size="small"
-                  component="a"
-                  href={`https://yurugp.jp/characters/${item.character.id}`}
-                  rel="noopener noreferrer"
-                  aria-label="Profile"
-                >
-                  <PersonIcon fontSize="small" />
-                </IconButton>
-                <IconButton
-                  size="small"
-                  component={NextLink}
-                  href={`/characters/${item.character.id}`}
-                  aria-label="Detail"
-                >
-                  <AnalyticsIcon fontSize="small" />
-                </IconButton>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <IconButton
+                    size="small"
+                    component="a"
+                    href={`https://yurugp.jp/characters/${item.character.id}`}
+                    rel="noopener noreferrer"
+                    aria-label="Profile"
+                  >
+                    <PersonIcon fontSize="small" />
+                  </IconButton>
+                  <IconButton
+                    size="small"
+                    component={NextLink}
+                    href={`/characters/${item.character.id}`}
+                    aria-label="Detail"
+                  >
+                    <AnalyticsIcon fontSize="small" />
+                  </IconButton>
+                </Box>
               </TableCell>
             </TableRow>
           ))}
