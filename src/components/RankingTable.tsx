@@ -1,5 +1,7 @@
 "use client"
 
+import AnalyticsIcon from "@mui/icons-material/Analytics"
+import PersonIcon from "@mui/icons-material/Person"
 import {
   IconButton,
   Table,
@@ -9,7 +11,6 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material"
-import VisibilityIcon from "@mui/icons-material/Visibility"
 import NextLink from "next/link"
 
 import { RankItem } from "../types"
@@ -38,14 +39,7 @@ const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
               <TableCell align="right">
                 {item.record.rank.toLocaleString()}
               </TableCell>
-              <TableCell>
-                <a
-                  href={`https://yurugp.jp/characters/${item.character.id}`}
-                  rel="noopener noreferrer"
-                >
-                  {item.character.name}
-                </a>
-              </TableCell>
+              <TableCell>{item.character.name}</TableCell>
               <TableCell align="right">
                 {item.record.point.toLocaleString()}
               </TableCell>
@@ -58,10 +52,20 @@ const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
               <TableCell align="center">
                 <IconButton
                   size="small"
+                  component="a"
+                  href={`https://yurugp.jp/characters/${item.character.id}`}
+                  rel="noopener noreferrer"
+                  aria-label="Profile"
+                >
+                  <PersonIcon fontSize="small" />
+                </IconButton>
+                <IconButton
+                  size="small"
                   component={NextLink}
                   href={`/characters/${item.character.id}`}
+                  aria-label="Detail"
                 >
-                  <VisibilityIcon fontSize="small" />
+                  <AnalyticsIcon fontSize="small" />
                 </IconButton>
               </TableCell>
             </TableRow>
