@@ -1,5 +1,6 @@
 "use client"
 
+import HomeIcon from "@mui/icons-material/Home"
 import MoreIcon from "@mui/icons-material/MoreVert"
 import {
   AppBar,
@@ -46,6 +47,14 @@ const Header: React.FC<Props> = (props) => {
             </Typography>
           </div>
           <div>
+            <IconButton
+              component={Link}
+              href="/"
+              color="inherit"
+              aria-label="Home"
+            >
+              <HomeIcon />
+            </IconButton>
             <IconButton
               aria-label="Display more actions"
               aria-haspopup="true"
