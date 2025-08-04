@@ -46,37 +46,21 @@ ChartJS.register(
 
 interface CharacterClientProps {
   item: Item
+  maxPoints: number
+  maxRank: number
 }
 
-export default function CharacterClient({ item }: CharacterClientProps) {
+export default function CharacterClient({
+  item,
+  maxPoints,
+  maxRank,
+}: CharacterClientProps) {
   const totalPoints = useMemo(() => {
     return item.records.map((record) => ({ x: record.date, y: record.point }))
   }, [item])
 
-  const plusPoints = useMemo(() => {
-    const records = item.records.filter((item) => item.date <= "2020-09-15")
-    return records.flatMap((_, i) => {
-      if (i === 0) {
-        return [{ x: records[i].date, y: records[i].point }]
-      }
-      const days =
-        (new Date(records[i].date).getTime() -
-          new Date(records[i - 1].date).getTime()) /
-        86400000
-      return Array.from(Array(days).keys()).map((j) => {
-        const date = new Date(records[i - 1].date)
-        date.setDate(date.getDate() + j + 1)
-        return {
-          x: ((date) => {
-            const year = date.getFullYear()
-            const month = (date.getMonth() + 1).toString().padStart(2, "0")
-            const day = date.getDate().toString().padStart(2, "0")
-            return `${year}-${month}-${day}`
-          })(date),
-          y: (records[i].point - records[i - 1].point) / days,
-        }
-      })
-    })
+  const rankData = useMemo(() => {
+    return item.records.map((record) => ({ x: record.date, y: record.rank }))
   }, [item])
 
   const data = useMemo(() => {
@@ -91,14 +75,16 @@ export default function CharacterClient({ item }: CharacterClientProps) {
           data: totalPoints,
         },
         {
-          type: "bar" as const,
-          label: "+ Points",
-          yAxisID: "plusPoints",
-          data: plusPoints,
+          type: "line" as const,
+          label: "Rank",
+          yAxisID: "rank",
+          fill: false,
+          tension: 0,
+          data: rankData,
         },
       ],
     }
-  }, [totalPoints, plusPoints])
+  }, [totalPoints, rankData])
 
   return (
     <div>
@@ -129,17 +115,21 @@ export default function CharacterClient({ item }: CharacterClientProps) {
                   type: "linear",
                   position: "left",
                   beginAtZero: true,
+                  min: 0,
+                  max: Math.ceil(maxPoints / 10000) * 10000,
                   ticks: {
                     callback: (value) => {
                       return Number(value).toLocaleString()
                     },
                   },
                 },
-                plusPoints: {
+                rank: {
                   type: "linear",
                   position: "right",
                   grid: { display: false },
-                  beginAtZero: true,
+                  reverse: true,
+                  min: 1,
+                  max: maxRank,
                   ticks: {
                     callback: (value) => {
                       return Number(value).toLocaleString()
@@ -172,7 +162,6 @@ export default function CharacterClient({ item }: CharacterClientProps) {
                 <TableCell>Date</TableCell>
                 <TableCell align="right">Rank</TableCell>
                 <TableCell align="right">Total Points</TableCell>
-                <TableCell align="right">+ Points</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -184,12 +173,6 @@ export default function CharacterClient({ item }: CharacterClientProps) {
                   </TableCell>
                   <TableCell align="right">
                     {record.point.toLocaleString()}
-                  </TableCell>
-                  <TableCell align="right">
-                    {(i > 0
-                      ? record.point - item.records[i - 1].point
-                      : record.point
-                    ).toLocaleString()}
                   </TableCell>
                 </TableRow>
               ))}

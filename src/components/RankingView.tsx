@@ -1,33 +1,20 @@
 "use client"
 
-import {
-  Box,
-  Container,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material"
-import NextLink from "next/link"
+import { Box, Container } from "@mui/material"
 
 import Header from "../components/Header"
-import Pager from "../components/Pager"
+import RankingTable from "../components/RankingTable"
 import TotalPointChart from "../components/TotalPointChart"
 import { Item, RankItem } from "../types"
 
 export type RankingViewProps = {
   items: Item[]
   rankItems: RankItem[]
-  count: number
-  page: number
-  rowsPerPage: number
-  prefix: string
+  maxPoints: number
 }
 
 const RankingView: React.FC<RankingViewProps> = (props) => {
-  const { items, rankItems, count, page, rowsPerPage, prefix } = props
+  const { items, rankItems, maxPoints } = props
 
   return (
     <div>
@@ -41,52 +28,10 @@ const RankingView: React.FC<RankingViewProps> = (props) => {
             height: "50vh",
           }}
         >
-          <TotalPointChart items={items} />
+          <TotalPointChart items={items.slice(0, 8)} maxPoints={maxPoints} />
         </Box>
 
-        <Pager
-          count={count}
-          page={page}
-          rowsPerPage={rowsPerPage}
-          prefix={prefix}
-        />
-
-        <TableContainer>
-          <Table size="small">
-            <TableHead>
-              <TableRow>
-                <TableCell align="right">Rank</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell align="right">Total Points</TableCell>
-                <TableCell align="right">+ Points</TableCell>
-                <TableCell align="right">Behind</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rankItems.map((item) => (
-                <TableRow key={item.character.id}>
-                  <TableCell align="right">
-                    {item.record.rank.toLocaleString()}
-                  </TableCell>
-                  <TableCell>
-                    <NextLink href={`/characters/${item.character.id}`}>
-                      {item.character.name}
-                    </NextLink>
-                  </TableCell>
-                  <TableCell align="right">
-                    {item.record.point.toLocaleString()}
-                  </TableCell>
-                  <TableCell align="right">
-                    {item.plusPoint.toLocaleString()}
-                  </TableCell>
-                  <TableCell align="right">
-                    {item.behindPoint?.toLocaleString() ?? "-"}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <RankingTable rankItems={rankItems} />
       </Container>
     </div>
   )

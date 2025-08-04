@@ -2,6 +2,7 @@
 
 import "chartjs-adapter-date-fns"
 
+import { Step } from "@mui/material"
 import {
   BarElement,
   CategoryScale,
@@ -15,6 +16,7 @@ import {
   Title,
   Tooltip,
 } from "chart.js"
+import { max } from "date-fns"
 import { useMemo } from "react"
 import { Line } from "react-chartjs-2"
 
@@ -35,9 +37,10 @@ ChartJS.register(
 
 type Props = {
   items: Item[]
+  maxPoints: number
 }
 
-const TotalPointChart: React.FC<Props> = ({ items }) => {
+const TotalPointChart: React.FC<Props> = ({ items, maxPoints }) => {
   const data = useMemo(() => {
     return {
       datasets: items.map((item) => ({
@@ -72,6 +75,8 @@ const TotalPointChart: React.FC<Props> = ({ items }) => {
                 return Number(value).toLocaleString()
               },
             },
+            min: 0,
+            max: Math.ceil(maxPoints / 10000) * 10000,
           },
         },
         plugins: {

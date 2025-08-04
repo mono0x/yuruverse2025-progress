@@ -23,6 +23,7 @@ const rowsPerPage = 10
 
 export function getRankingViewProps(
   items: Item[],
+  maxPoints: number,
   page: number,
   prefix: string
 ): RankingViewProps {
@@ -37,6 +38,7 @@ export function getRankingViewProps(
       (page - 1) * rowsPerPage,
       page * rowsPerPage
     ),
+    maxPoints: maxPoints,
     page: page,
     rowsPerPage: rowsPerPage,
     count: sorted.length,
