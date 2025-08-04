@@ -1,16 +1,16 @@
 import { Box } from "@mui/material"
+import { sortBy } from "es-toolkit"
 
 import TotalPointChart from "../../components/TotalPointChart"
 import getAll from "../../getAll"
 
 export default async function ChartPage() {
   const items = await getAll()
-  const sorted = items.sort(
-    (a, b) =>
-      a.records[a.records.length - 1].rank -
-      b.records[b.records.length - 1].rank
-  )
-  const topItems = sorted.slice(0, 10)
+  const sorted = sortBy(items, [
+    (item) =>
+      item.records[item.records.length - 1].rank ?? Number.POSITIVE_INFINITY,
+  ])
+  const topItems = sorted.slice(0, 6)
   const maxPoints = Math.max(
     ...topItems.flatMap((item) => item.records.map((record) => record.point))
   )

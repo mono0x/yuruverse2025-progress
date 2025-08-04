@@ -19,9 +19,13 @@ import { RankItem } from "../types"
 
 export type RankingTableProps = {
   rankItems: RankItem[]
+  showIcons?: boolean
 }
 
-const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
+const RankingTable: React.FC<RankingTableProps> = ({
+  rankItems,
+  showIcons = true,
+}) => {
   const chartColors = [
     "rgb(54, 162, 235)", // Blue
     "rgb(255, 99, 132)", // Red
@@ -36,10 +40,10 @@ const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell></TableCell>
+            <TableCell />
             <TableCell>Name</TableCell>
             <TableCell align="right">Points</TableCell>
-            <TableCell></TableCell>
+            {showIcons && <TableCell />}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -64,27 +68,29 @@ const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
               <TableCell align="right">
                 {item.record.point.toLocaleString()}
               </TableCell>
-              <TableCell align="center" padding="none">
-                <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                  <IconButton
-                    size="small"
-                    component="a"
-                    href={`https://yurugp.jp/characters/${item.character.id}`}
-                    rel="noopener noreferrer"
-                    aria-label="Profile"
-                  >
-                    <PersonIcon fontSize="small" />
-                  </IconButton>
-                  <IconButton
-                    size="small"
-                    component={NextLink}
-                    href={`/characters/${item.character.id}`}
-                    aria-label="Detail"
-                  >
-                    <AnalyticsIcon fontSize="small" />
-                  </IconButton>
-                </Box>
-              </TableCell>
+              {showIcons && (
+                <TableCell align="center" padding="none">
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                    <IconButton
+                      size="small"
+                      component="a"
+                      href={`https://yurugp.jp/characters/${item.character.id}`}
+                      rel="noopener noreferrer"
+                      aria-label="Profile"
+                    >
+                      <PersonIcon fontSize="small" />
+                    </IconButton>
+                    <IconButton
+                      size="small"
+                      component={NextLink}
+                      href={`/characters/${item.character.id}`}
+                      aria-label="Detail"
+                    >
+                      <AnalyticsIcon fontSize="small" />
+                    </IconButton>
+                  </Box>
+                </TableCell>
+              )}
             </TableRow>
           ))}
         </TableBody>
