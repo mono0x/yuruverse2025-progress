@@ -42,7 +42,7 @@ type Props = {
 const TotalPointChart: React.FC<Props> = ({
   items,
   maxPoints,
-  showLegends = true,
+  showLegends = false,
 }) => {
   const data = useMemo(() => {
     return {

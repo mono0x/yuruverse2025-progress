@@ -23,7 +23,11 @@ export default async function ChartPage() {
         height: "100vh",
       }}
     >
-      <TotalPointChart items={topItems} maxPoints={maxPoints} />
+      <TotalPointChart
+        items={topItems}
+        maxPoints={maxPoints}
+        showLegends={true}
+      />
     </Box>
   )
 }
