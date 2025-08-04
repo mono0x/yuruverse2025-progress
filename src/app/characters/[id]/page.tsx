@@ -1,4 +1,4 @@
-import { last, round, sortBy } from "es-toolkit"
+import { sortBy } from "es-toolkit"
 
 import getAll from "../../../getAll"
 import CharacterClient from "./CharacterClient"

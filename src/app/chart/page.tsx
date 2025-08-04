@@ -11,6 +11,9 @@ export default async function ChartPage() {
       b.records[b.records.length - 1].rank
   )
   const topItems = sorted.slice(0, 10)
+  const maxPoints = Math.max(
+    ...topItems.flatMap((item) => item.records.map((record) => record.point))
+  )
 
   return (
     <Box
@@ -20,7 +23,7 @@ export default async function ChartPage() {
         height: "100vh",
       }}
     >
-      <TotalPointChart items={topItems} />
+      <TotalPointChart items={topItems} maxPoints={maxPoints} />
     </Box>
   )
 }
