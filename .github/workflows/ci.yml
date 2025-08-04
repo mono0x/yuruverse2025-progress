@@ -19,3 +19,5 @@ jobs:
           bun run lint
       - run: |
           bun run build
+      - run: |
+          go test -v ./...
