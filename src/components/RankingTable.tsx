@@ -45,11 +45,11 @@ const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
         <TableBody>
           {rankItems.map((item, index) => (
             <TableRow key={item.character.id}>
-              <TableCell align="right">
+              <TableCell align="right" padding="none">
                 {item.record.rank.toLocaleString()}
               </TableCell>
               <TableCell>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                   {index < chartColors.length && (
                     <FiberManualRecordIcon
                       sx={{
@@ -64,8 +64,8 @@ const RankingTable: React.FC<RankingTableProps> = ({ rankItems }) => {
               <TableCell align="right">
                 {item.record.point.toLocaleString()}
               </TableCell>
-              <TableCell align="center">
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <TableCell align="center" padding="none">
+                <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                   <IconButton
                     size="small"
                     component="a"
