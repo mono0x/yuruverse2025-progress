@@ -37,7 +37,15 @@ func fetch() error {
 			return errors.WithStack(err)
 		}
 		log.Printf("Fetching: %s", currentURL.String())
-		resp, err := http.Get(currentURL.String())
+
+		req, err := http.NewRequest("GET", currentURL.String(), nil)
+		if err != nil {
+			return errors.WithStack(err)
+		}
+		req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+
+		client := &http.Client{}
+		resp, err := client.Do(req)
 		if err != nil {
 			return errors.WithStack(err)
 		}
@@ -54,15 +62,18 @@ func fetch() error {
 		})
 		log.Printf("Found %d entry divs", entryDivs.Length())
 
+		var parseErr error
 		entryDivs.EachWithBreak(func(i int, s *goquery.Selection) bool {
 			entryNumberText := strings.TrimSpace(s.Text())
 			entryNumberSubmatches := entryNumberRe.FindStringSubmatch(entryNumberText)
 			if len(entryNumberSubmatches) == 0 {
-				return true
+				parseErr = errors.New("failed to match entry number regex: " + entryNumberText)
+				return false
 			}
 			entryNumber, err := strconv.Atoi(entryNumberSubmatches[1])
 			if err != nil {
-				return true
+				parseErr = errors.WithStack(err)
+				return false
 			}
 
 			if processedEntries[entryNumber] {
@@ -70,7 +81,7 @@ func fetch() error {
 			}
 			processedEntries[entryNumber] = true
 
-			parent := s.Parent() // flex-grow min-w-0
+			parent := s.Parent() // flex-grow min-w-0 div
 			for range 3 {
 				parent = parent.Parent()
 			}
@@ -80,24 +91,28 @@ func fetch() error {
 				nameLink = parent.Find("a[href*='/characters/']").First()
 			}
 			if nameLink.Length() == 0 {
-				return true
+				parseErr = errors.New("character name link not found for entry number " + strconv.Itoa(entryNumber))
+				return false
 			}
 
 			href, ok := nameLink.Attr("href")
 			if !ok {
-				return true
+				parseErr = errors.New("failed to get href attribute from character link for entry number " + strconv.Itoa(entryNumber))
+				return false
 			}
 
 			// Extract ID from href (e.g. "https://www.yurugp.jp/vote/2025/characters/3852")
 			parts := strings.Split(href, "/")
 			if len(parts) < 3 || parts[1] != "characters" {
-				return true
+				parseErr = errors.New("failed to extract character ID from href: " + href + " for entry number " + strconv.Itoa(entryNumber))
+				return false
 			}
 			id := parts[2]
 
 			name := strings.TrimSpace(nameLink.Text())
 			if name == "" {
-				return true
+				parseErr = errors.New("character name is empty for entry number " + strconv.Itoa(entryNumber))
+				return false
 			}
 
 			var country, biko string
@@ -111,17 +126,55 @@ func fetch() error {
 				biko = strings.TrimSpace(regionSpans.Eq(2).Text())
 			}
 
-			rank := 0
 			point := 0
+			pointElem := parent.Find("div.text-3xl.font-bold").FilterFunction(func(i int, s *goquery.Selection) bool {
+				class, exists := s.Attr("class")
+				return exists && strings.Contains(class, "text-[#3493CE]")
+			}).First()
+			if pointElem.Length() > 0 {
+				pointText := strings.TrimSpace(pointElem.Text())
+				pointText = strings.ReplaceAll(pointText, ",", "")
+				if p, err := strconv.Atoi(pointText); err == nil {
+					point = p
+				}
+			}
+
+			rank := 0
+			// Get rank from alt attribute of top 3 special images
+			rankImg := parent.Find("img").FilterFunction(func(i int, s *goquery.Selection) bool {
+				alt, exists := s.Attr("alt")
+				return exists && regexp.MustCompile(`^\d+位$`).MatchString(alt)
+			}).First()
+			if rankImg.Length() > 0 {
+				alt, _ := rankImg.Attr("alt")
+				rankText := strings.TrimSuffix(alt, "位")
+				if r, err := strconv.Atoi(rankText); err == nil {
+					rank = r
+				}
+			} else {
+				rankDiv := parent.Find("div.text-gray-500.font-bold").FilterFunction(func(i int, s *goquery.Selection) bool {
+					text := strings.TrimSpace(s.Text())
+					return regexp.MustCompile(`^\d+位$`).MatchString(text)
+				}).First()
+				if rankDiv.Length() > 0 {
+					rankText := strings.TrimSpace(rankDiv.Text())
+					rankText = strings.TrimSuffix(rankText, "位")
+					if r, err := strconv.Atoi(rankText); err == nil {
+						rank = r
+					}
+				}
+			}
 
 			img := parent.Find("img").First()
 			imageURLSrc, ok := img.Attr("src")
 			if !ok {
-				return true
+				parseErr = errors.New("failed to get src attribute from character image for entry number " + strconv.Itoa(entryNumber))
+				return false
 			}
 			imageURL, err := currentURL.Parse(imageURLSrc)
 			if err != nil {
-				return true
+				parseErr = errors.New("failed to parse image URL: " + imageURLSrc + " for entry number " + strconv.Itoa(entryNumber))
+				return false
 			}
 
 			items = append(items, &yuruverse.RawItem{
@@ -138,6 +191,10 @@ func fetch() error {
 
 			return true
 		})
+
+		if parseErr != nil {
+			return errors.WithStack(parseErr)
+		}
 
 		time.Sleep(500 * time.Millisecond)
 	}
