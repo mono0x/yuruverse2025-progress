@@ -32,9 +32,9 @@ const Header: React.FC<Props> = (props) => {
     <div>
       <Head>
         {title ? (
-          <title>{title} | YuruGP 2020 Progress</title>
+          <title>{title} | YuruVerse 2025 Progress</title>
         ) : (
-          <title>YuruGP 2020 Progress</title>
+          <title>YuruVerse 2025 Progress</title>
         )}
       </Head>
 

@@ -6,7 +6,7 @@ import theme from "../theme"
 import ThemeRegistry from "./ThemeRegistry"
 
 export const metadata: Metadata = {
-  title: "YuruGP 2020 Progress",
+  title: "YuruVerse 2025 Progress",
   description: "Yuru-chara Grand Prix progress tracking",
 }
 
