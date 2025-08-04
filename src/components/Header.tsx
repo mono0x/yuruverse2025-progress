@@ -71,6 +71,14 @@ const Header: React.FC<Props> = (props) => {
             >
               <MenuItem
                 component={Link}
+                href="https://yurugp2020.mono0x.net/"
+                onClick={handleMoreMenuClose}
+                color="inherit"
+              >
+                2020
+              </MenuItem>
+              <MenuItem
+                component={Link}
                 href="https://yurugp.jp/vote/2025"
                 onClick={handleMoreMenuClose}
                 color="inherit"
