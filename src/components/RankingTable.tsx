@@ -9,6 +9,7 @@ import RemoveIcon from "@mui/icons-material/Remove"
 import {
   Box,
   IconButton,
+  styled,
   Table,
   TableBody,
   TableCell,
@@ -19,6 +20,16 @@ import {
 import NextLink from "next/link"
 
 import { RankChange, RankItem } from "../types"
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  padding: theme.spacing(0.5),
+  [theme.breakpoints.up("sm")]: {
+    padding: theme.spacing(1),
+  },
+  [theme.breakpoints.up("md")]: {
+    padding: theme.spacing(2),
+  },
+}))
 
 export type RankingTableProps = {
   rankItems: RankItem[]
@@ -43,21 +54,21 @@ const RankingTable: React.FC<RankingTableProps> = ({
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell />
-            <TableCell />
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Points</TableCell>
-            <TableCell align="right">+</TableCell>
-            {showIcons && <TableCell />}
+            <StyledTableCell />
+            <StyledTableCell />
+            <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="right">Points</StyledTableCell>
+            <StyledTableCell align="right">+</StyledTableCell>
+            {showIcons && <StyledTableCell />}
           </TableRow>
         </TableHead>
         <TableBody>
           {rankItems.map((item, index) => (
             <TableRow key={item.character.id}>
-              <TableCell align="right" padding="none">
+              <StyledTableCell align="right">
                 {item.record.rank.toLocaleString()}
-              </TableCell>
-              <TableCell align="center" padding="none">
+              </StyledTableCell>
+              <StyledTableCell align="center">
                 {item.rankChange === RankChange.Up ? (
                   <ArrowUpwardIcon
                     sx={{ fontSize: "small", color: "rgb(75, 192, 192)" }}
@@ -69,9 +80,9 @@ const RankingTable: React.FC<RankingTableProps> = ({
                 ) : (
                   <RemoveIcon sx={{ fontSize: "small", color: "gray" }} />
                 )}
-              </TableCell>
-              <TableCell>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              </StyledTableCell>
+              <StyledTableCell>
+                <Box sx={{ display: "flex", alignItems: "center" }}>
                   {index < chartColors.length && (
                     <FiberManualRecordIcon
                       sx={{
@@ -82,20 +93,20 @@ const RankingTable: React.FC<RankingTableProps> = ({
                   )}
                   {item.character.name}
                 </Box>
-              </TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">
                 {item.record.point.toLocaleString()}
-              </TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">
                 {item.plusPoint != null ? (
                   item.plusPoint.toLocaleString()
                 ) : (
                   <RemoveIcon sx={{ fontSize: "small", color: "gray" }} />
                 )}
-              </TableCell>
+              </StyledTableCell>
               {showIcons && (
-                <TableCell align="center" padding="none">
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                <StyledTableCell align="center">
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
                     <IconButton
                       size="small"
                       component="a"
@@ -114,7 +125,7 @@ const RankingTable: React.FC<RankingTableProps> = ({
                       <AnalyticsIcon fontSize="small" />
                     </IconButton>
                   </Box>
-                </TableCell>
+                </StyledTableCell>
               )}
             </TableRow>
           ))}
