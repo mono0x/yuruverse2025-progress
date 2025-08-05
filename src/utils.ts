@@ -1,12 +1,26 @@
-import { Item, RankItem } from "./types"
+import { Item, RankChange, RankItem } from "./types"
 
 export function toRankItems(items: Item[]): RankItem[] {
   return items.map((item) => {
     const records = item.records
     const record = records[records.length - 1]
+    const prevRecord = records[records.length - 2]
+    const rankChange =
+      prevRecord != null
+        ? record.rank < prevRecord.rank
+          ? RankChange.Up
+          : record.rank > prevRecord.rank
+          ? RankChange.Down
+          : RankChange.Stay
+        : undefined
+    const plusPoint =
+      prevRecord != null ? record.point - prevRecord.point : undefined
+
     const rankItem = {
       character: item.character,
-      record: record,
+      record,
+      rankChange,
+      plusPoint,
     }
     return rankItem
   })

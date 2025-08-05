@@ -18,7 +18,15 @@ export type Item = {
   records: Record[]
 }
 
+export enum RankChange {
+  Up,
+  Down,
+  Stay,
+}
+
 export type RankItem = {
   character: Character
   record: Record
+  rankChange?: RankChange
+  plusPoint?: number
 }
