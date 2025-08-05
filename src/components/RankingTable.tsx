@@ -22,15 +22,9 @@ import NextLink from "next/link"
 import { RankChange, RankItem } from "../types"
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  paddingLeft: theme.spacing(0.5),
-  paddingRight: theme.spacing(0.5),
-  [theme.breakpoints.up("sm")]: {
-    paddingLeft: theme.spacing(1),
-    paddingRight: theme.spacing(1),
-  },
-  [theme.breakpoints.up("md")]: {
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
+  [theme.breakpoints.down("sm")]: {
+    paddingLeft: theme.spacing(0.5),
+    paddingRight: theme.spacing(0.5),
   },
 }))
 

@@ -11,6 +11,18 @@ const theme = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
   },
+  components: {
+    MuiContainer: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          [theme.breakpoints.down("sm")]: {
+            paddingLeft: 8,
+            paddingRight: 8,
+          },
+        }),
+      },
+    },
+  },
 })
 
 export default theme
