@@ -79,7 +79,7 @@ const RankingTable: React.FC<RankingTableProps> = ({
                 )}
               </StyledTableCell>
               <StyledTableCell>
-                <Box sx={{ display: "flex", alignItems: "center" }}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                   {index < chartColors.length && (
                     <FiberManualRecordIcon
                       sx={{
