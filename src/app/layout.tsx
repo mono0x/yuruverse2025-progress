@@ -28,7 +28,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon={JSON.stringify({
-            token: "b38b408d1b114b8a9c3c1ad3fccf5791",
+            token: "0bf71c871f7645c4b07c7fbae7450412",
           })}
         />
       </head>
