@@ -28,10 +28,6 @@ export default async function CharacterPage({ params }: CharacterPageProps) {
     throw new Error(`Character with id ${id} not found`)
   }
   const item = sorted[itemIndex]
-  const maxPoints = Math.max(
-    ...sorted.flatMap((item) => item.records.map((record) => record.point))
-  )
-  const maxRank = sorted.length
 
   const rawFirstIndex = itemIndex - 2
   const rawLastIndex = itemIndex + 3
@@ -42,12 +38,5 @@ export default async function CharacterPage({ params }: CharacterPageProps) {
 
   const nearbyItems = sorted.slice(firstIndex, lastIndex + 1)
 
-  return (
-    <CharacterClient
-      item={item}
-      maxPoints={maxPoints}
-      maxRank={maxRank}
-      nearbyItems={nearbyItems}
-    />
-  )
+  return <CharacterClient item={item} nearbyItems={nearbyItems} />
 }

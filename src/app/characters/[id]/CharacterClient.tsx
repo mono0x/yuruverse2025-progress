@@ -39,20 +39,24 @@ ChartJS.register(
 
 interface CharacterClientProps {
   item: Item
-  maxPoints: number
-  maxRank: number
   nearbyItems: Item[]
 }
 
 export default function CharacterClient({
   item,
-  maxPoints,
-  maxRank,
   nearbyItems,
 }: CharacterClientProps) {
   const rankData = useMemo(() => {
     return item.records.map((record) => ({ x: record.date, y: record.rank }))
   }, [item])
+
+  const rawMinRank = Math.min(...item.records.map((record) => record.rank))
+  const rawMaxRank = Math.max(...item.records.map((record) => record.rank))
+
+  const [minRank, maxRank] =
+    rawMinRank === rawMaxRank
+      ? [Math.max(1, rawMinRank - 1), rawMaxRank + 1]
+      : [rawMinRank, rawMaxRank]
 
   const data = useMemo(() => {
     const datasets = [
@@ -113,8 +117,6 @@ export default function CharacterClient({
                   type: "linear",
                   position: "left",
                   beginAtZero: true,
-                  min: 0,
-                  max: Math.ceil(maxPoints / 10000) * 10000,
                   ticks: {
                     callback: (value) => {
                       return Number(value).toLocaleString()
@@ -126,9 +128,10 @@ export default function CharacterClient({
                   position: "right",
                   grid: { display: false },
                   reverse: true,
-                  min: 1,
+                  min: minRank,
                   max: maxRank,
                   ticks: {
+                    stepSize: 1,
                     callback: (value) => {
                       return Number(value).toLocaleString()
                     },

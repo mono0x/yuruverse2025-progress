@@ -35,15 +35,10 @@ ChartJS.register(
 
 type Props = {
   items: Item[]
-  maxPoints: number
   showLegends?: boolean
 }
 
-const TotalPointChart: React.FC<Props> = ({
-  items,
-  maxPoints,
-  showLegends = false,
-}) => {
+const TotalPointChart: React.FC<Props> = ({ items, showLegends = false }) => {
   const data = useMemo(() => {
     return {
       datasets: items.map((item) => ({
@@ -79,7 +74,6 @@ const TotalPointChart: React.FC<Props> = ({
               },
             },
             min: 0,
-            max: Math.ceil(maxPoints / 10000) * 10000,
           },
         },
         plugins: {

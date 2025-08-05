@@ -10,11 +10,10 @@ import { Item, RankItem } from "../types"
 export type RankingViewProps = {
   items: Item[]
   rankItems: RankItem[]
-  maxPoints: number
 }
 
 const RankingView: React.FC<RankingViewProps> = (props) => {
-  const { items, rankItems, maxPoints } = props
+  const { items, rankItems } = props
 
   return (
     <div>
@@ -28,7 +27,7 @@ const RankingView: React.FC<RankingViewProps> = (props) => {
             height: "50vh",
           }}
         >
-          <TotalPointChart items={items.slice(0, 6)} maxPoints={maxPoints} />
+          <TotalPointChart items={items.slice(0, 6)} />
         </Box>
 
         <Box>
