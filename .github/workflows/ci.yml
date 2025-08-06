@@ -1,9 +1,9 @@
 name: CI
 on:
+  pull_request:
   push:
     branches:
       - main
-  pull_request:
   workflow_run:
     workflows: ["Fetch and push data"]
     types:
@@ -13,6 +13,9 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+# pull_request: test
+# push:         test -> deploy
+# workflow_run: test -> deploy -> post
 jobs:
   test:
     runs-on: ubuntu-latest
