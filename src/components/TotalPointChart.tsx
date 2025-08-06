@@ -35,10 +35,9 @@ ChartJS.register(
 
 type Props = {
   items: Item[]
-  showLegends?: boolean
 }
 
-const TotalPointChart: React.FC<Props> = ({ items, showLegends = false }) => {
+const TotalPointChart: React.FC<Props> = ({ items }) => {
   const data = useMemo(() => {
     return {
       datasets: items.map((item) => ({
@@ -78,7 +77,7 @@ const TotalPointChart: React.FC<Props> = ({ items, showLegends = false }) => {
         },
         plugins: {
           legend: {
-            display: showLegends,
+            display: true,
           },
           colors: {
             forceOverride: true,

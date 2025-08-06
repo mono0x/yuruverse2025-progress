@@ -20,7 +20,7 @@ export default async function ChartPage() {
         height: "100vh",
       }}
     >
-      <TotalPointChart items={topItems} showLegends={true} />
+      <TotalPointChart items={topItems} />
     </Box>
   )
 }
