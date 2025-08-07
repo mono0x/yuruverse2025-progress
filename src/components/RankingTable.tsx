@@ -20,6 +20,8 @@ import {
 import NextLink from "next/link"
 
 import { RankChange, RankItem } from "../types"
+import BarChartCell from "./BarChartCell"
+import BarChartHeaderCell from "./BarChartHeaderCell"
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
@@ -46,6 +48,11 @@ const RankingTable: React.FC<RankingTableProps> = ({
     "rgb(153, 102, 255)", // Purple
   ]
 
+  const maxPoints = Math.max(...rankItems.map((item) => item.record.point))
+  const maxPlusPoints = Math.max(
+    ...rankItems.map((item) => item.plusPoint ?? 0)
+  )
+
   return (
     <TableContainer>
       <Table size="small">
@@ -54,8 +61,12 @@ const RankingTable: React.FC<RankingTableProps> = ({
             <StyledTableCell />
             <StyledTableCell />
             <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="right">Points</StyledTableCell>
-            <StyledTableCell align="right">+</StyledTableCell>
+            <StyledTableCell align="right">
+              <BarChartHeaderCell>Points</BarChartHeaderCell>
+            </StyledTableCell>
+            <StyledTableCell align="right">
+              <BarChartHeaderCell>+</BarChartHeaderCell>
+            </StyledTableCell>
             {showIcons && <StyledTableCell />}
           </TableRow>
         </TableHead>
@@ -92,11 +103,19 @@ const RankingTable: React.FC<RankingTableProps> = ({
                 </Box>
               </StyledTableCell>
               <StyledTableCell align="right">
-                {item.record.point.toLocaleString()}
+                <BarChartCell
+                  value={item.record.point}
+                  maxValue={maxPoints}
+                  color="rgba(54, 162, 235, 0.2)"
+                />
               </StyledTableCell>
               <StyledTableCell align="right">
                 {item.plusPoint != null ? (
-                  item.plusPoint.toLocaleString()
+                  <BarChartCell
+                    value={item.plusPoint}
+                    maxValue={maxPlusPoints}
+                    color="rgba(75, 192, 192, 0.2)"
+                  />
                 ) : (
                   <RemoveIcon sx={{ fontSize: "small", color: "gray" }} />
                 )}
