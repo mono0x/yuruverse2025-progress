@@ -140,7 +140,7 @@ export default function CharacterClient({
               },
               plugins: {
                 legend: {
-                  display: false,
+                  display: true,
                 },
                 colors: {
                   forceOverride: true,
