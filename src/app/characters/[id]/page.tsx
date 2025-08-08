@@ -29,7 +29,7 @@ export default async function CharacterPage({ params }: CharacterPageProps) {
   }
   const item = sorted[itemIndex]
 
-  const rawFirstIndex = itemIndex - 2
+  const rawFirstIndex = itemIndex - 3
   const rawLastIndex = itemIndex + 3
   const roundedFirstIndex = Math.max(0, rawFirstIndex)
   const roundedLastIndex = Math.min(sorted.length - 1, rawLastIndex)

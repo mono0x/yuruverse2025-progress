@@ -46,6 +46,7 @@ const RankingTable: React.FC<RankingTableProps> = ({
     "rgb(255, 205, 86)", // Yellow
     "rgb(75, 192, 192)", // Green
     "rgb(153, 102, 255)", // Purple
+    "rgb(201, 203, 207)", // Grey
   ]
 
   const maxPoints = Math.max(...rankItems.map((item) => item.record.point))
