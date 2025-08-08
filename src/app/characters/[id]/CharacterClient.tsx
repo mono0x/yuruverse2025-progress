@@ -15,12 +15,14 @@ import {
   TableRow,
 } from "@mui/material"
 import {
+  BarController,
   BarElement,
   CategoryScale,
   Chart as ChartJS,
   Colors,
   Legend,
   LinearScale,
+  LineController,
   LineElement,
   PointElement,
   TimeScale,
@@ -41,9 +43,11 @@ import { toRankItems } from "../../../utils"
 ChartJS.register(
   CategoryScale,
   LinearScale,
+  BarController,
   BarElement,
-  PointElement,
+  LineController,
   LineElement,
+  PointElement,
   Title,
   Tooltip,
   Legend,
