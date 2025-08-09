@@ -31,7 +31,7 @@
     "dev": "next",
     "build": "next build",
     "lint": "biome check",
-    "lintfix": "biome check --write",
+    "lintfix": "biome check --write --unsafe",
     "preview": "serve -s out"
   },
   "repository": {

@@ -19,7 +19,6 @@ import {
   BarElement,
   CategoryScale,
   type ChartData,
-  type ChartDataset,
   Chart as ChartJS,
   Colors,
   Legend,
