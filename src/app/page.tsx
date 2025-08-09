@@ -7,7 +7,7 @@ import { toRankItems } from "../utils"
 export default async function Page() {
   const items = await getAll()
   const maxPoints = Math.max(
-    ...items.flatMap((item) => item.records.map((record) => record.point))
+    ...items.flatMap((item) => item.records.map((record) => record.point)),
   )
   const sorted = sortBy(items, [
     (item) =>

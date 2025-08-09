@@ -19,7 +19,7 @@ import {
 } from "@mui/material"
 import NextLink from "next/link"
 
-import { RankChange, RankItem } from "../types"
+import { RankChange, type RankItem } from "../types"
 import BarChartCell from "./BarChartCell"
 import BarChartHeaderCell from "./BarChartHeaderCell"
 
@@ -51,7 +51,7 @@ const RankingTable: React.FC<RankingTableProps> = ({
 
   const maxPoints = Math.max(...rankItems.map((item) => item.record.point))
   const maxPlusPoints = Math.max(
-    ...rankItems.map((item) => item.plusPoint ?? 0)
+    ...rankItems.map((item) => item.plusPoint ?? 0),
   )
 
   return (

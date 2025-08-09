@@ -18,7 +18,7 @@ import {
 import { useMemo } from "react"
 import { Line } from "react-chartjs-2"
 
-import { Item } from "../types"
+import type { Item } from "../types"
 
 ChartJS.register(
   BarElement,
@@ -30,7 +30,7 @@ ChartJS.register(
   Tooltip,
   Legend,
   TimeScale,
-  Colors
+  Colors,
 )
 
 type Props = {

@@ -18,6 +18,8 @@ import {
   BarController,
   BarElement,
   CategoryScale,
+  type ChartData,
+  type ChartDataset,
   Chart as ChartJS,
   Colors,
   Legend,
@@ -37,7 +39,7 @@ import BarChartHeaderCell from "../../../components/BarChartHeaderCell"
 import Header from "../../../components/Header"
 import RankingTable from "../../../components/RankingTable"
 import StyledCardHeader from "../../../components/StyledCardHeader"
-import { Item } from "../../../types"
+import type { Item } from "../../../types"
 import { toRankItems } from "../../../utils"
 
 ChartJS.register(
@@ -52,16 +54,16 @@ ChartJS.register(
   Tooltip,
   Legend,
   TimeScale,
-  Colors
+  Colors,
 )
 interface PointsChartProps {
-  data: any
+  data: ChartData<"line", { x: string; y: number }[]>
 }
 
 const PointsChart: React.FC<PointsChartProps> = ({ data }) => {
   return (
     <Chart
-      type="bar"
+      type="line"
       width={"100%"}
       data={data}
       options={{
@@ -113,7 +115,7 @@ const PointsChart: React.FC<PointsChartProps> = ({ data }) => {
 }
 
 interface RankChartProps {
-  data: any
+  data: ChartData<"line", { x: string; y: number }[]>
   minRank: number
   maxRank: number
 }
@@ -121,7 +123,7 @@ interface RankChartProps {
 const RankChart: React.FC<RankChartProps> = ({ data, minRank, maxRank }) => {
   return (
     <Chart
-      type="bar"
+      type="line"
       width={"100%"}
       data={data}
       options={{
@@ -176,7 +178,7 @@ const RankChart: React.FC<RankChartProps> = ({ data, minRank, maxRank }) => {
 }
 
 interface PlusPointsChartProps {
-  data: any
+  data: ChartData<"bar", number[], string>
 }
 
 const PlusPointsChart: React.FC<PlusPointsChartProps> = ({ data }) => {
@@ -243,7 +245,7 @@ const HistoryTable: React.FC<HistoryTableProps> = ({ records }) => {
       if (i === 0) return r.point
       const prev = records[i - 1]
       return r.point - (prev?.point ?? 0)
-    })
+    }),
   )
 
   return (

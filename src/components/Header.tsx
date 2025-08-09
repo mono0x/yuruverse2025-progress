@@ -22,7 +22,7 @@ const Header: React.FC<Props> = (props) => {
   const { title } = props
 
   const [moreAnchorEl, setMoreAnchorEl] = useState<HTMLElement | undefined>(
-    undefined
+    undefined,
   )
 
   const handleMoreMenuClose = () => {

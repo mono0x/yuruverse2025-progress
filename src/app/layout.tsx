@@ -1,6 +1,6 @@
 import CssBaseline from "@mui/material/CssBaseline"
-import { Metadata, Viewport } from "next"
-import { ReactNode } from "react"
+import type { Metadata, Viewport } from "next"
+import type { ReactNode } from "react"
 
 import theme from "../theme"
 import ThemeRegistry from "./ThemeRegistry"

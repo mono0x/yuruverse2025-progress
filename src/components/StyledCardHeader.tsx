@@ -1,4 +1,4 @@
-import { CardHeader, CardHeaderProps, styled } from "@mui/material"
+import { CardHeader, type CardHeaderProps, styled } from "@mui/material"
 
 const StyledCardHeader = styled((props: CardHeaderProps) => (
   <CardHeader
@@ -14,6 +14,6 @@ const StyledCardHeader = styled((props: CardHeaderProps) => (
       },
     }}
   />
-))(({}) => ({}))
+))((_props) => ({}))
 
 export default StyledCardHeader

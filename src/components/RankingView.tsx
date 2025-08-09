@@ -5,7 +5,7 @@ import { Box, Container } from "@mui/material"
 import Header from "../components/Header"
 import RankingTable from "../components/RankingTable"
 import TotalPointChart from "../components/TotalPointChart"
-import { Item, RankItem } from "../types"
+import type { Item, RankItem } from "../types"
 
 export type RankingViewProps = {
   items: Item[]
