@@ -1,6 +1,7 @@
 {
   "name": "yuruverse2025-progress",
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "index.js",
   "dependencies": {
