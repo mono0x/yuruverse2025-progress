@@ -6,7 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["!public"]
+    "includes": ["**", "!public"]
   },
   "formatter": {
     "indentStyle": "space",
