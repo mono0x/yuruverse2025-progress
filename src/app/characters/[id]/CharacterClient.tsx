@@ -30,6 +30,7 @@ import {
   Title,
   Tooltip,
 } from "chart.js"
+import { differenceInCalendarDays } from "date-fns"
 import { useMemo } from "react"
 import { Chart } from "react-chartjs-2"
 
@@ -177,7 +178,7 @@ const RankChart: React.FC<RankChartProps> = ({ data, minRank, maxRank }) => {
 }
 
 interface PlusPointsChartProps {
-  data: ChartData<"bar", number[], string>
+  data: ChartData<"bar", Array<{ x: string; y: number | null }>, string>
 }
 
 const PlusPointsChart: React.FC<PlusPointsChartProps> = ({ data }) => {
@@ -198,9 +199,11 @@ const PlusPointsChart: React.FC<PlusPointsChartProps> = ({ data }) => {
             ticks: {
               display: false,
             },
+            stacked: true,
           },
           y: {
             beginAtZero: true,
+            stacked: true,
             ticks: {
               callback: (value) => {
                 return Number(value).toLocaleString()
@@ -338,27 +341,28 @@ export default function CharacterClient({
   item,
   nearbyItems,
 }: CharacterClientProps) {
-  const recentRecords = item.records.slice(-7)
-
-  const rankData = recentRecords.map((record) => ({
+  const rankData = item.records.map((record) => ({
     x: record.date,
     y: record.rank,
   }))
 
-  const rawMinRank = Math.min(...recentRecords.map((record) => record.rank))
-  const rawMaxRank = Math.max(...recentRecords.map((record) => record.rank))
+  const rawMinRank = Math.min(...item.records.map((record) => record.rank))
+  const rawMaxRank = Math.max(...item.records.map((record) => record.rank))
 
   const [minRank, maxRank] = [Math.max(1, rawMinRank - 1), rawMaxRank + 1]
 
-  const plusPoints = recentRecords.map((record, index) => {
+  const plusPoints = item.records.map((record, index) => {
     if (index === 0) {
-      return record.point
+      const recentStartIndex = item.records.length - item.records.length
+      const prevRecord =
+        recentStartIndex > 0 ? item.records[recentStartIndex - 1] : null
+      return prevRecord ? record.point - prevRecord.point : record.point
     }
     const prevRecord = item.records[index - 1]
     return record.point - (prevRecord?.point ?? 0)
   })
 
-  const currentRecord = recentRecords[recentRecords.length - 1]
+  const currentRecord = item.records[item.records.length - 1]
   const currentPoint = currentRecord?.point
   const currentRank = currentRecord?.rank
   const currentPlusPoint = plusPoints[plusPoints.length - 1]
@@ -394,6 +398,53 @@ export default function CharacterClient({
     ]
     return { datasets }
   }, [item, rankData])
+
+  const plusPointsData = useMemo(() => {
+    const consectives = item.records
+      .map((record, index) => ({
+        record,
+        prevRecord: index > 0 ? item.records[index - 1] : null,
+      }))
+      .map(({ record, prevRecord }) => {
+        if (prevRecord == null) {
+          return false
+        }
+        return (
+          differenceInCalendarDays(
+            new Date(record.date),
+            new Date(prevRecord.date),
+          ) === 1
+        )
+      })
+
+    const data = item.records.map((record, index) => ({
+      record,
+      consective: consectives[index],
+      plusPoint: plusPoints[index],
+    }))
+
+    const consecutiveData = data
+      .filter(({ consective }) => consective)
+      .map(({ record, plusPoint }) => ({ x: record.date, y: plusPoint }))
+
+    const gapData = data
+      .filter(({ consective }) => !consective)
+      .map(({ record, plusPoint }) => ({ x: record.date, y: plusPoint }))
+
+    return {
+      labels: item.records.map((record) => record.date),
+      datasets: [
+        {
+          label: "ゆるナビ投票",
+          data: consecutiveData,
+        },
+        {
+          label: "ゆるナビ投票+ふるさと応援投票",
+          data: gapData,
+        },
+      ],
+    }
+  }, [item.records, plusPoints])
 
   return (
     <div>
@@ -433,17 +484,7 @@ export default function CharacterClient({
                 value={currentPlusPoint.toLocaleString()}
               />
               <CardContent>
-                <PlusPointsChart
-                  data={{
-                    labels: item.records.map((record) => record.date),
-                    datasets: [
-                      {
-                        label: "Plus Points",
-                        data: plusPoints,
-                      },
-                    ],
-                  }}
-                />
+                <PlusPointsChart data={plusPointsData} />
               </CardContent>
             </Card>
           </Grid>
