@@ -10,7 +10,7 @@ export default async function ChartPage() {
     (item) =>
       item.records[item.records.length - 1].rank ?? Number.POSITIVE_INFINITY,
   ])
-  const topItems = sorted.slice(0, 6)
+  const topItems = sorted.slice(0, 7)
 
   return (
     <Box
