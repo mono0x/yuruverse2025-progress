@@ -5,6 +5,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/pkg/errors"
@@ -15,7 +16,7 @@ var (
 )
 
 // ParseRankingPage parses HTML content and returns RawItems
-func ParseRankingPage(doc *goquery.Document, baseURL *url.URL, dateString string) ([]*RawItem, error) {
+func ParseRankingPage(doc *goquery.Document, baseURL *url.URL, date time.Time) ([]*RawItem, error) {
 	var items []*RawItem
 	processedEntries := make(map[int]bool)
 
@@ -23,6 +24,8 @@ func ParseRankingPage(doc *goquery.Document, baseURL *url.URL, dateString string
 		text := strings.TrimSpace(s.Text())
 		return strings.HasPrefix(text, "エントリーNo.") && !strings.Contains(text, "\n")
 	})
+
+	dateString := date.Format(DateFormat)
 
 	var parseErr error
 	entryDivs.EachWithBreak(func(i int, s *goquery.Selection) bool {

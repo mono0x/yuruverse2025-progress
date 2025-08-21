@@ -5,6 +5,7 @@ import (
 	"os"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/jszwec/csvutil"
@@ -29,7 +30,7 @@ func TestParseRankingPage(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	actual, err := ParseRankingPage(doc, baseURL, "2025-08-04")
+	actual, err := ParseRankingPage(doc, baseURL, time.Date(2025, 8, 4, 0, 0, 0, 0, time.UTC))
 	if err != nil {
 		t.Fatal(err)
 	}

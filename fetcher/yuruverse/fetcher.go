@@ -45,7 +45,7 @@ func load() ([]*RawItem, error) {
 	return allItems, nil
 }
 
-func fetch(dateString string) ([]*RawItem, error) {
+func fetch(date time.Time, interval time.Duration) ([]*RawItem, error) {
 	rankRanges := []string{"", "?rank_range=51-100", "?rank_range=101-150", "?rank_range=151-200", "?rank_range=201%2B"}
 	var items []*RawItem
 	processedEntries := make(map[int]bool)
@@ -74,7 +74,7 @@ func fetch(dateString string) ([]*RawItem, error) {
 			return nil, errors.WithStack(err)
 		}
 
-		pageItems, err := ParseRankingPage(doc, currentURL, dateString)
+		pageItems, err := ParseRankingPage(doc, currentURL, date)
 		if err != nil {
 			return nil, errors.WithStack(err)
 		}
@@ -86,7 +86,7 @@ func fetch(dateString string) ([]*RawItem, error) {
 			}
 		}
 
-		time.Sleep(500 * time.Millisecond)
+		time.Sleep(interval)
 	}
 
 	sort.Slice(items, func(i, j int) bool {
@@ -195,14 +195,14 @@ func merge(newItems, existingItems []*RawItem) ([]*RawItem, []*StructuredItem, e
 	return allItems, structuredItems, nil
 }
 
-func save(newItems, allItems []*RawItem, structuredItems []*StructuredItem, dateString string) error {
+func save(newItems, allItems []*RawItem, structuredItems []*StructuredItem, date time.Time) error {
 	{
 		result, err := csvutil.Marshal(&newItems)
 		if err != nil {
 			return errors.WithStack(err)
 		}
 
-		if err := os.WriteFile("result/"+dateString+".csv", result, 0644); err != nil {
+		if err := os.WriteFile("result/"+date.Format("20060102")+".csv", result, 0644); err != nil {
 			return err
 		}
 	}
@@ -232,9 +232,8 @@ func save(newItems, allItems []*RawItem, structuredItems []*StructuredItem, date
 
 func Run() error {
 	date := time.Now().UTC().Add(-3 * time.Hour)
-	dateString := date.Format(DateFormat)
 
-	newItems, err := fetch(dateString)
+	newItems, err := fetch(date, 500*time.Millisecond)
 	if err != nil {
 		return err
 	}
@@ -253,5 +252,5 @@ func Run() error {
 		return err
 	}
 
-	return save(newItems, allItems, structuredItems, dateString)
+	return save(newItems, allItems, structuredItems, date)
 }
