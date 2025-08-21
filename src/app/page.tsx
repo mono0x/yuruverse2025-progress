@@ -6,9 +6,6 @@ import { toRankItems } from "../utils"
 
 export default async function Page() {
   const items = await getAll()
-  const maxPoints = Math.max(
-    ...items.flatMap((item) => item.records.map((record) => record.point)),
-  )
   const sorted = sortBy(items, [
     (item) =>
       item.records[item.records.length - 1].rank ?? Number.POSITIVE_INFINITY,
@@ -16,7 +13,6 @@ export default async function Page() {
   const props = {
     items: sorted,
     rankItems: toRankItems(sorted),
-    maxPoints: maxPoints,
   }
   return <RankingView {...props} />
 }

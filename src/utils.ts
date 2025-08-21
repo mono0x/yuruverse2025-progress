@@ -18,7 +18,8 @@ export function toRankItems(items: Item[]): RankItem[] {
 
     const rankItem = {
       character: item.character,
-      record,
+      point: record.point,
+      rank: record.rank,
       rankChange,
       plusPoint,
     }

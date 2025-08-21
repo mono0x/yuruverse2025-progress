@@ -49,7 +49,7 @@ const RankingTable: React.FC<RankingTableProps> = ({
     "rgb(201, 203, 207)", // Grey
   ]
 
-  const maxPoints = Math.max(...rankItems.map((item) => item.record.point))
+  const maxPoints = Math.max(...rankItems.map((item) => item.point))
   const maxPlusPoints = Math.max(
     ...rankItems.map((item) => item.plusPoint ?? 0),
   )
@@ -75,7 +75,7 @@ const RankingTable: React.FC<RankingTableProps> = ({
           {rankItems.map((item, index) => (
             <TableRow key={item.character.id}>
               <StyledTableCell align="right">
-                {item.record.rank.toLocaleString()}
+                {item.rank.toLocaleString()}
               </StyledTableCell>
               <StyledTableCell align="center">
                 {item.rankChange === RankChange.Up ? (
@@ -105,7 +105,7 @@ const RankingTable: React.FC<RankingTableProps> = ({
               </StyledTableCell>
               <StyledTableCell align="right">
                 <BarChartCell
-                  value={item.record.point}
+                  value={item.point}
                   maxValue={maxPoints}
                   color="rgba(54, 162, 235, 0.2)"
                 />

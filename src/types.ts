@@ -26,7 +26,8 @@ export enum RankChange {
 
 export type RankItem = {
   character: Character
-  record: Record
+  point: number
+  rank: number
   rankChange?: RankChange
   plusPoint?: number
 }
