@@ -30,7 +30,6 @@ import {
   Title,
   Tooltip,
 } from "chart.js"
-import { differenceInCalendarDays } from "date-fns"
 import { useMemo } from "react"
 import { Chart } from "react-chartjs-2"
 
@@ -87,6 +86,12 @@ const PointsChart: React.FC<PointsChartProps> = ({ data }) => {
                 return Number(value).toLocaleString()
               },
             },
+          },
+        },
+        elements: {
+          point: {
+            radius: 0,
+            hoverRadius: 4,
           },
         },
         plugins: {
@@ -150,6 +155,12 @@ const RankChart: React.FC<RankChartProps> = ({ data, minRank, maxRank }) => {
                 return Number(value).toLocaleString()
               },
             },
+          },
+        },
+        elements: {
+          point: {
+            radius: 0,
+            hoverRadius: 4,
           },
         },
         plugins: {
@@ -237,18 +248,18 @@ const PlusPointsChart: React.FC<PlusPointsChartProps> = ({ data }) => {
 }
 
 interface HistoryTableProps {
-  records: Array<{ date: string; rank: number; point: number }>
+  records: Array<{
+    date: string
+    rank: number
+    point: number
+    plusPoint: number
+    plusRank: number
+  }>
 }
 
 const HistoryTable: React.FC<HistoryTableProps> = ({ records }) => {
   const maxPoint = Math.max(...records.map((r) => r.point))
-  const maxPlusPoint = Math.max(
-    ...records.map((r, i) => {
-      if (i === 0) return r.point
-      const prev = records[i - 1]
-      return r.point - (prev?.point ?? 0)
-    }),
-  )
+  const maxPlusPoint = Math.max(...records.map((r) => r.plusPoint))
 
   return (
     <Box sx={{ maxHeight: 400, overflowY: "auto" }}>
@@ -260,43 +271,38 @@ const HistoryTable: React.FC<HistoryTableProps> = ({ records }) => {
             <TableCell align="right">
               <BarChartHeaderCell>Points</BarChartHeaderCell>
             </TableCell>
+            <TableCell align="right">+ Rank</TableCell>
             <TableCell align="right">
               <BarChartHeaderCell>+</BarChartHeaderCell>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {[...records].reverse().map((record, index) => {
-            const originalIndex = records.length - 1 - index
-            const prevRecord =
-              originalIndex > 0 ? records[originalIndex - 1] : null
-            const plusPoint = prevRecord
-              ? record.point - prevRecord.point
-              : record.point
-
-            return (
-              <TableRow key={record.date}>
-                <TableCell>{record.date}</TableCell>
-                <TableCell align="right">
-                  {record.rank.toLocaleString()}
-                </TableCell>
-                <TableCell align="right">
-                  <BarChartCell
-                    value={record.point}
-                    maxValue={maxPoint}
-                    color="rgba(54, 162, 235, 0.2)"
-                  />
-                </TableCell>
-                <TableCell align="right">
-                  <BarChartCell
-                    value={plusPoint}
-                    maxValue={maxPlusPoint}
-                    color="rgba(75, 192, 192, 0.2)"
-                  />
-                </TableCell>
-              </TableRow>
-            )
-          })}
+          {[...records].reverse().map((record) => (
+            <TableRow key={record.date}>
+              <TableCell>{record.date}</TableCell>
+              <TableCell align="right">
+                {record.rank.toLocaleString()}
+              </TableCell>
+              <TableCell align="right">
+                <BarChartCell
+                  value={record.point}
+                  maxValue={maxPoint}
+                  color="rgba(54, 162, 235, 0.2)"
+                />
+              </TableCell>
+              <TableCell align="right">
+                {record.plusRank.toLocaleString()}
+              </TableCell>
+              <TableCell align="right">
+                <BarChartCell
+                  value={record.plusPoint}
+                  maxValue={maxPlusPoint}
+                  color="rgba(75, 192, 192, 0.2)"
+                />
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </Box>
@@ -351,21 +357,10 @@ export default function CharacterClient({
 
   const [minRank, maxRank] = [Math.max(1, rawMinRank - 1), rawMaxRank + 1]
 
-  const plusPoints = item.records.map((record, index) => {
-    if (index === 0) {
-      const recentStartIndex = item.records.length - item.records.length
-      const prevRecord =
-        recentStartIndex > 0 ? item.records[recentStartIndex - 1] : null
-      return prevRecord ? record.point - prevRecord.point : record.point
-    }
-    const prevRecord = item.records[index - 1]
-    return record.point - (prevRecord?.point ?? 0)
-  })
-
   const currentRecord = item.records[item.records.length - 1]
   const currentPoint = currentRecord?.point
   const currentRank = currentRecord?.rank
-  const currentPlusPoint = plusPoints[plusPoints.length - 1]
+  const currentPlusPoint = currentRecord?.plusPoint
 
   const pointsData = useMemo(() => {
     const totalPoints = item.records.map((record) => ({
@@ -400,36 +395,13 @@ export default function CharacterClient({
   }, [item, rankData])
 
   const plusPointsData = useMemo(() => {
-    const consectives = item.records
-      .map((record, index) => ({
-        record,
-        prevRecord: index > 0 ? item.records[index - 1] : null,
-      }))
-      .map(({ record, prevRecord }) => {
-        if (prevRecord == null) {
-          return false
-        }
-        return (
-          differenceInCalendarDays(
-            new Date(record.date),
-            new Date(prevRecord.date),
-          ) === 1
-        )
-      })
+    const consecutiveData = item.records
+      .filter((record) => record.consecutive)
+      .map((record) => ({ x: record.date, y: record.plusPoint }))
 
-    const data = item.records.map((record, index) => ({
-      record,
-      consective: consectives[index],
-      plusPoint: plusPoints[index],
-    }))
-
-    const consecutiveData = data
-      .filter(({ consective }) => consective)
-      .map(({ record, plusPoint }) => ({ x: record.date, y: plusPoint }))
-
-    const gapData = data
-      .filter(({ consective }) => !consective)
-      .map(({ record, plusPoint }) => ({ x: record.date, y: plusPoint }))
+    const gapData = item.records
+      .filter((record) => !record.consecutive)
+      .map((record) => ({ x: record.date, y: record.plusPoint }))
 
     return {
       labels: item.records.map((record) => record.date),
@@ -444,7 +416,39 @@ export default function CharacterClient({
         },
       ],
     }
-  }, [item.records, plusPoints])
+  }, [item.records])
+
+  const plusPointsRankData = useMemo(() => {
+    const ranks = item.records.map((record) => ({
+      x: record.date,
+      y: record.plusRank,
+    }))
+
+    let minRank = Number.MAX_VALUE
+    let maxRank = 1
+
+    ranks.forEach(({ y }) => {
+      minRank = Math.min(minRank, y)
+      maxRank = Math.max(maxRank, y)
+    })
+
+    return {
+      chartData: {
+        datasets: [
+          {
+            type: "line" as const,
+            label: item.character.name,
+            fill: false,
+            tension: 0,
+            data: ranks,
+            borderWidth: 3,
+          },
+        ],
+      },
+      minRank: Math.max(1, minRank - 1),
+      maxRank: maxRank + 1,
+    }
+  }, [item.character.name, item.records])
 
   return (
     <div>
@@ -452,7 +456,7 @@ export default function CharacterClient({
 
       <Container sx={{ mt: 2 }}>
         <Grid container spacing={2}>
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Card variant="outlined">
               <MyCardHeader title="Rank" value={currentRank.toLocaleString()} />
               <CardContent>
@@ -465,7 +469,7 @@ export default function CharacterClient({
             </Card>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Card variant="outlined">
               <MyCardHeader
                 title="Points"
@@ -477,7 +481,29 @@ export default function CharacterClient({
             </Card>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+            <Card variant="outlined">
+              <MyCardHeader
+                title="+ Rank"
+                value={
+                  plusPointsRankData.chartData.datasets[0]?.data.length > 0
+                    ? plusPointsRankData.chartData.datasets[0].data[
+                        plusPointsRankData.chartData.datasets[0].data.length - 1
+                      ].y.toLocaleString()
+                    : "-"
+                }
+              />
+              <CardContent>
+                <RankChart
+                  data={plusPointsRankData.chartData}
+                  minRank={plusPointsRankData.minRank}
+                  maxRank={plusPointsRankData.maxRank}
+                />
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Card variant="outlined">
               <MyCardHeader
                 title="+ Points"

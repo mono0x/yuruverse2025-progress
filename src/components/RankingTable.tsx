@@ -3,12 +3,9 @@
 import AnalyticsIcon from "@mui/icons-material/Analytics"
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward"
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward"
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord"
-import PersonIcon from "@mui/icons-material/Person"
 import RemoveIcon from "@mui/icons-material/Remove"
 import {
-  Box,
-  IconButton,
+  Button,
   styled,
   Table,
   TableBody,
@@ -17,7 +14,6 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material"
-import NextLink from "next/link"
 
 import { RankChange, type RankItem } from "../types"
 import BarChartCell from "./BarChartCell"
@@ -39,16 +35,6 @@ const RankingTable: React.FC<RankingTableProps> = ({
   rankItems,
   showIcons = true,
 }) => {
-  const chartColors = [
-    "rgb(54, 162, 235)", // Blue
-    "rgb(255, 99, 132)", // Red
-    "rgb(255, 159, 64)", // Orange
-    "rgb(255, 205, 86)", // Yellow
-    "rgb(75, 192, 192)", // Green
-    "rgb(153, 102, 255)", // Purple
-    "rgb(201, 203, 207)", // Grey
-  ]
-
   const maxPoints = Math.max(...rankItems.map((item) => item.point))
   const maxPlusPoints = Math.max(
     ...rankItems.map((item) => item.plusPoint ?? 0),
@@ -68,11 +54,10 @@ const RankingTable: React.FC<RankingTableProps> = ({
             <StyledTableCell align="right">
               <BarChartHeaderCell>+</BarChartHeaderCell>
             </StyledTableCell>
-            {showIcons && <StyledTableCell />}
           </TableRow>
         </TableHead>
         <TableBody>
-          {rankItems.map((item, index) => (
+          {rankItems.map((item) => (
             <TableRow key={item.character.id}>
               <StyledTableCell align="right">
                 {item.rank.toLocaleString()}
@@ -91,17 +76,17 @@ const RankingTable: React.FC<RankingTableProps> = ({
                 )}
               </StyledTableCell>
               <StyledTableCell>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                  {index < chartColors.length && (
-                    <FiberManualRecordIcon
-                      sx={{
-                        fontSize: "small",
-                        color: chartColors[index],
-                      }}
-                    />
-                  )}
-                  {item.character.name}
-                </Box>
+                {showIcons ? (
+                  <Button
+                    href={`/characters/${item.character.id}/`}
+                    size="small"
+                    endIcon={<AnalyticsIcon fontSize="small" />}
+                  >
+                    {item.character.name}
+                  </Button>
+                ) : (
+                  item.character.name
+                )}
               </StyledTableCell>
               <StyledTableCell align="right">
                 <BarChartCell
@@ -121,29 +106,6 @@ const RankingTable: React.FC<RankingTableProps> = ({
                   <RemoveIcon sx={{ fontSize: "small", color: "gray" }} />
                 )}
               </StyledTableCell>
-              {showIcons && (
-                <StyledTableCell align="center">
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
-                    <IconButton
-                      size="small"
-                      component="a"
-                      href={`https://yurugp.jp/characters/${item.character.id}`}
-                      rel="noopener noreferrer"
-                      aria-label="Profile"
-                    >
-                      <PersonIcon fontSize="small" />
-                    </IconButton>
-                    <IconButton
-                      size="small"
-                      component={NextLink}
-                      href={`/characters/${item.character.id}`}
-                      aria-label="Detail"
-                    >
-                      <AnalyticsIcon fontSize="small" />
-                    </IconButton>
-                  </Box>
-                </StyledTableCell>
-              )}
             </TableRow>
           ))}
         </TableBody>

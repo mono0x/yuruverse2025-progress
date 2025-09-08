@@ -13,15 +13,24 @@ export function toRankItems(items: Item[]): RankItem[] {
             ? RankChange.Down
             : RankChange.Stay
         : undefined
-    const plusPoint =
-      prevRecord != null ? record.point - prevRecord.point : undefined
+
+    const plusRankChange =
+      prevRecord != null
+        ? record.plusRank < prevRecord.plusRank
+          ? RankChange.Up
+          : record.plusRank > prevRecord.plusRank
+            ? RankChange.Down
+            : RankChange.Stay
+        : undefined
 
     const rankItem = {
       character: item.character,
       point: record.point,
       rank: record.rank,
       rankChange,
-      plusPoint,
+      plusPoint: record.plusPoint,
+      plusRank: record.plusRank,
+      plusRankChange,
     }
     return rankItem
   })

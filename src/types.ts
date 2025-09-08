@@ -7,10 +7,21 @@ export type Character = {
   image_url: string
 }
 
-export type Record = {
+export type RawRecord = {
   date: string
   rank: number
   point: number
+}
+
+export type Record = RawRecord & {
+  plusRank: number
+  plusPoint: number
+  consecutive: boolean
+}
+
+export type RawItem = {
+  character: Character
+  records: RawRecord[]
 }
 
 export type Item = {
@@ -29,5 +40,7 @@ export type RankItem = {
   point: number
   rank: number
   rankChange?: RankChange
-  plusPoint?: number
+  plusPoint: number
+  plusRank: number
+  plusRankChange?: RankChange
 }
