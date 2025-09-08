@@ -27,7 +27,7 @@ const RankingView: React.FC<RankingViewProps> = (props) => {
             height: "50vh",
           }}
         >
-          <TotalPointChart items={items.slice(0, 7)} />
+          <TotalPointChart items={items} />
         </Box>
 
         <Box>

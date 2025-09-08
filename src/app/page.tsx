@@ -11,7 +11,7 @@ export default async function Page() {
       item.records[item.records.length - 1].rank ?? Number.POSITIVE_INFINITY,
   ])
   const props = {
-    items: sorted,
+    items: sorted.slice(0, 7),
     rankItems: toRankItems(sorted),
   }
   return <RankingView {...props} />
