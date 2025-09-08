@@ -1,8 +1,8 @@
 import fs from "node:fs/promises"
 import path from "node:path"
-
 import { differenceInCalendarDays } from "date-fns"
 import { orderBy, uniq } from "es-toolkit"
+import { cache } from "react"
 
 import type { Item, RawItem, Record } from "./types"
 
@@ -98,11 +98,11 @@ function enhanceRecords(rawItems: RawItem[]): Item[] {
   })
 }
 
-export default async function getAll(): Promise<Item[]> {
+export default cache(async function getAll(): Promise<Item[]> {
   const data = await fs.readFile(
     path.join(process.cwd(), "public", "all.json"),
     "utf8",
   )
   const rawItems: RawItem[] = JSON.parse(data)
   return enhanceRecords(rawItems)
-}
+})
