@@ -38,8 +38,7 @@ import BarChartHeaderCell from "../../../components/BarChartHeaderCell"
 import Header from "../../../components/Header"
 import RankingTable from "../../../components/RankingTable"
 import StyledCardHeader from "../../../components/StyledCardHeader"
-import type { Item } from "../../../types"
-import { toRankItems } from "../../../utils"
+import type { Item, RankItem } from "../../../types"
 
 ChartJS.register(
   CategoryScale,
@@ -340,7 +339,7 @@ const MyCardHeader: React.FC<MyCardHeaderProps> = ({ title, value }) => {
 
 interface CharacterClientProps {
   item: Item
-  nearbyItems: Item[]
+  nearbyItems: RankItem[]
 }
 
 export default function CharacterClient({
@@ -519,7 +518,7 @@ export default function CharacterClient({
             <Card variant="outlined">
               <StyledCardHeader title="Nearby Characters" />
               <CardContent>
-                <RankingTable rankItems={toRankItems(nearbyItems)} />
+                <RankingTable rankItems={nearbyItems} />
               </CardContent>
             </Card>
           </Grid>

@@ -1,6 +1,7 @@
 import { sortBy } from "es-toolkit"
 
 import getAll from "../../../getAll"
+import { toRankItems } from "../../../utils"
 import CharacterClient from "./CharacterClient"
 
 interface CharacterPageProps {
@@ -36,7 +37,7 @@ export default async function CharacterPage({ params }: CharacterPageProps) {
   const firstIndex = roundedFirstIndex - (rawLastIndex - roundedLastIndex)
   const lastIndex = roundedLastIndex + (roundedFirstIndex - rawFirstIndex)
 
-  const nearbyItems = sorted.slice(firstIndex, lastIndex + 1)
+  const nearbyItems = toRankItems(sorted.slice(firstIndex, lastIndex + 1))
 
   return <CharacterClient item={item} nearbyItems={nearbyItems} />
 }
