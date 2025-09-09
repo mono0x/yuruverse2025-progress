@@ -41,12 +41,12 @@ const Header: React.FC<Props> = (props) => {
 
       <AppBar position="static">
         <Toolbar>
-          <div style={{ flexGrow: 1 }}>
+          <div style={{ flexGrow: 1, minWidth: 0 }}>
             <Typography variant="h6" noWrap>
               {title ? title : "YuruVerse 2025 Progress"}
             </Typography>
           </div>
-          <div>
+          <div style={{ display: 'flex', flexShrink: 0 }}>
             <IconButton
               component={Link}
               href="/"
