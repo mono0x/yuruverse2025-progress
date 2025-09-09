@@ -46,7 +46,7 @@ const Header: React.FC<Props> = (props) => {
               {title ? title : "YuruVerse 2025 Progress"}
             </Typography>
           </div>
-          <div style={{ display: 'flex', flexShrink: 0 }}>
+          <div style={{ display: "flex", flexShrink: 0 }}>
             <IconButton
               component={Link}
               href="/"
