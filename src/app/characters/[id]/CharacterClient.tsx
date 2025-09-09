@@ -8,6 +8,7 @@ import {
   CardContent,
   Container,
   Grid,
+  styled,
   Table,
   TableBody,
   TableCell,
@@ -256,6 +257,13 @@ interface HistoryTableProps {
   }>
 }
 
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    paddingLeft: theme.spacing(0.5),
+    paddingRight: theme.spacing(0.5),
+  },
+}))
+
 const HistoryTable: React.FC<HistoryTableProps> = ({ records }) => {
   const maxPoint = Math.max(...records.map((r) => r.point))
   const maxPlusPoint = Math.max(...records.map((r) => r.plusPoint))
@@ -265,41 +273,41 @@ const HistoryTable: React.FC<HistoryTableProps> = ({ records }) => {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell align="right">Rank</TableCell>
-            <TableCell align="right">
+            <StyledTableCell />
+            <StyledTableCell align="right">Rank</StyledTableCell>
+            <StyledTableCell align="right">
               <BarChartHeaderCell>Points</BarChartHeaderCell>
-            </TableCell>
-            <TableCell align="right">+ Rank</TableCell>
-            <TableCell align="right">
+            </StyledTableCell>
+            <StyledTableCell align="right">+ Rank</StyledTableCell>
+            <StyledTableCell align="right">
               <BarChartHeaderCell>+</BarChartHeaderCell>
-            </TableCell>
+            </StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {[...records].reverse().map((record) => (
             <TableRow key={record.date}>
-              <TableCell>{record.date}</TableCell>
-              <TableCell align="right">
+              <StyledTableCell>{record.date}</StyledTableCell>
+              <StyledTableCell align="right">
                 {record.rank.toLocaleString()}
-              </TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">
                 <BarChartCell
                   value={record.point}
                   maxValue={maxPoint}
                   color="rgba(54, 162, 235, 0.2)"
                 />
-              </TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">
                 {record.plusRank.toLocaleString()}
-              </TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">
                 <BarChartCell
                   value={record.plusPoint}
                   maxValue={maxPlusPoint}
                   color="rgba(75, 192, 192, 0.2)"
                 />
-              </TableCell>
+              </StyledTableCell>
             </TableRow>
           ))}
         </TableBody>

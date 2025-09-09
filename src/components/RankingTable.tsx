@@ -47,7 +47,7 @@ const RankingTable: React.FC<RankingTableProps> = ({
           <TableRow>
             <StyledTableCell />
             <StyledTableCell />
-            <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell />
             <StyledTableCell align="right">
               <BarChartHeaderCell>Points</BarChartHeaderCell>
             </StyledTableCell>
