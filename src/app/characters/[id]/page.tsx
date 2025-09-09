@@ -1,4 +1,5 @@
 import { sortBy } from "es-toolkit"
+import type { Metadata } from "next"
 
 import getAll from "../../../getAll"
 import { toRankItems } from "../../../utils"
@@ -15,6 +16,23 @@ export async function generateStaticParams() {
   return items.map((item) => ({
     id: item.character.id,
   }))
+}
+
+export async function generateMetadata({ params }: CharacterPageProps): Promise<Metadata> {
+  const { id } = await params
+  const items = await getAll()
+  const item = items.find((item) => item.character.id === id)
+  
+  if (!item) {
+    return {
+      title: "Character Not Found | YuruVerse 2025 Progress"
+    }
+  }
+
+  return {
+    title: `${item.character.name} | YuruVerse 2025 Progress`,
+    description: `${item.character.name} (${item.character.country}) の順位推移とポイント履歴`
+  }
 }
 
 export default async function CharacterPage({ params }: CharacterPageProps) {
