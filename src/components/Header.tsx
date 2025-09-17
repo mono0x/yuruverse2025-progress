@@ -1,7 +1,7 @@
 "use client"
-
 import HomeIcon from "@mui/icons-material/Home"
 import MoreIcon from "@mui/icons-material/MoreVert"
+import XIcon from "@mui/icons-material/X"
 import {
   AppBar,
   IconButton,
@@ -54,6 +54,14 @@ const Header: React.FC<Props> = (props) => {
               aria-label="Home"
             >
               <HomeIcon />
+            </IconButton>
+            <IconButton
+              component={Link}
+              href="https://x.com/yurugp_ranking"
+              color="inherit"
+              aria-label="X (formerly Twitter)"
+            >
+              <XIcon />
             </IconButton>
             <IconButton
               aria-label="Display more actions"
