@@ -402,25 +402,40 @@ export default function CharacterClient({
   }, [item, rankData])
 
   const plusPointsData = useMemo(() => {
-    const consecutiveData = item.records
+    const finalDate = "2025-09-28"
+    const nonFinalRecords = item.records.filter(
+      (record) => record.date !== finalDate,
+    )
+
+    const consecutiveData = nonFinalRecords
       .filter((record) => record.consecutive)
       .map((record) => ({ x: record.date, y: record.plusPoint }))
 
-    const gapData = item.records
+    const gapData = nonFinalRecords
       .filter((record) => !record.consecutive)
+      .map((record) => ({ x: record.date, y: record.plusPoint }))
+
+    const finalData = item.records
+      .filter((record) => record.date === finalDate)
       .map((record) => ({ x: record.date, y: record.plusPoint }))
 
     return {
       labels: item.records.map((record) => record.date),
       datasets: [
-        {
-          label: "ゆるナビ投票",
-          data: consecutiveData,
-        },
-        {
-          label: "ゆるナビ投票+ふるさと応援投票",
-          data: gapData,
-        },
+        ...(consecutiveData.length > 0
+          ? [{ label: "ゆるナビ投票", data: consecutiveData }]
+          : []),
+        ...(gapData.length > 0
+          ? [{ label: "ゆるナビ投票+ふるさと応援投票", data: gapData }]
+          : []),
+        ...(finalData.length
+          ? [
+              {
+                label: "ゆるナビ投票+ふるさと応援投票+決選投票",
+                data: finalData,
+              },
+            ]
+          : []),
       ],
     }
   }, [item.records])
